@@ -1,0 +1,112 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* height: fit-content; */
+  min-height: 100%;
+
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* padding: 0; */
+  margin: 0;
+  display: flex;
+  place-items: center;
+  height: 100%;
+  min-width: 320px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  min-height: 100%;
+  width: 100%;
+  padding: 4.5em 9em;
+  margin: 0 auto;
+}
+
+/* .dark-mode {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+}
+
+.light-mode {
+  :root {
+    color: #213547;
+    background-color: whitesmoke;
+  }
+} */
+
+.dark-mode {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+}
+
+.light-mode {
+    color: #213547;
+    background-color: whitesmoke;
+}
+
+button {
+  cursor: pointer;
+}
+
+.toggle-button {
+  width: 40%;
+  margin-bottom: 2em;
+}
+
+.download-options label,
+.download-options input,
+.scaling-options select,
+select option {
+  cursor: pointer;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: whitesmoke;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
