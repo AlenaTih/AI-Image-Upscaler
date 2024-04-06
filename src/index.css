@@ -98,7 +98,7 @@ select option {
   animation: spin 2s linear infinite;
   margin: auto;
   margin-top: 1.25rem;
-  display: none; /* Hidden by default. Block when displayed */
+  display: block; /* Hidden by default. Block when displayed */
 }
 
 @keyframes spin {

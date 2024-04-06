@@ -46,16 +46,16 @@ function App() {
 
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
 
-  const showLoader = () => {
+  // const showLoader = () => {
 
-    const loader = document.getElementById("loader")
+  //   const loader = document.getElementById("loader")
 
-    if (isLoaderVisible) {
-      loader.style.display = "block"
-    } else {
-      loader.style.display = "none"
-    }
-  }
+  //   if (isLoaderVisible) {
+  //     loader.style.display = "block"
+  //   } else {
+  //     loader.style.display = "none"
+  //   }
+  // }
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0]
@@ -78,19 +78,26 @@ function App() {
       img.crossOrigin = 'anonymous'
       img.src = src
       img.onload = () => {
+        // setIsLoaderVisible(true)
         console.log("image uploaded")
         upscaler.upscale(img).then(setUpscaledImageSrc)
-        setIsLoaderVisible(true)
-        showLoader()
-        const width = img.width
-        const height = img.height
-        setOriginalSize({
-          width,
-          height,
-        })
+          // setIsLoaderVisible(false)
+          const width = img.width
+          const height = img.height
+          setOriginalSize({
+            width,
+            height,
+          })
+        }
       }
-    }
-  }, [src])
+}, [src])
+
+// upscaler.upscale(img).then((upscaledSrc) => {
+//   setUpscaledImageSrc(upscaledSrc)
+//   setIsLoaderVisible(false) // This line should be inside the .then() callback
+//   const width = img.width
+//   const height = img.height
+  
 
   useEffect(() => {
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
@@ -104,16 +111,12 @@ function App() {
       return () => {
         clearTimeout(timer)
         clearTimeout(upscaledImageSrcTimer)
-        setIsLoaderVisible(false)
-        showLoader()
       }
     }
   }, [originalSize, isUpscaleClicked]) // Include isUpscaleClicked in the dependency array
 
   const handleUpscale = () => {
     setIsUpscaleClicked(true) // Set isUpscaleClicked to true when the upscale button is clicked
-    setIsLoaderVisible(true)
-    showLoader()
   }
 
   const startDragging = () => {
@@ -295,7 +298,7 @@ function App() {
           </label>
         </div>
 
-        {/* {isLoaderVisible ? (<div className="loader" id="loader"></div>) : null} */}
+        {isLoaderVisible ? (<div className="loader"></div>) : null}
 
         <div className="dropzone" {...getRootProps()}>
 
