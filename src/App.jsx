@@ -27,6 +27,8 @@ const upscaler = new Upscaler({
 
 // Model dropdown
 
+// Set output folder
+
 // function App({ isLightMode, toggleMode })
 
 function App() {
@@ -78,10 +80,12 @@ function App() {
       img.crossOrigin = 'anonymous'
       img.src = src
       img.onload = () => {
-        // setIsLoaderVisible(true)
+        setIsLoaderVisible(true)
+        // showLoader()
         console.log("image uploaded")
         upscaler.upscale(img).then(setUpscaledImageSrc)
-          // setIsLoaderVisible(false)
+          // setIsLoaderVisible(true)
+          // showLoader()
           const width = img.width
           const height = img.height
           setOriginalSize({
@@ -287,6 +291,8 @@ function App() {
   return (
     <div>
 
+      {isLoaderVisible ? (<div className="loader"></div>) : (null) }
+
         <div className="scaling-options">
           <label>
             Scaling Factor:
@@ -297,8 +303,6 @@ function App() {
             </select>
           </label>
         </div>
-
-        {isLoaderVisible ? (<div className="loader"></div>) : null}
 
         <div className="dropzone" {...getRootProps()}>
 
