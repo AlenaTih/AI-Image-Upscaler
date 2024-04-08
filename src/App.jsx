@@ -89,33 +89,53 @@ function App() {
 // Handle errors when using Filereader — add an "onerror" callback to catch any potential errors
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
-  useEffect(() => {
-    if (src) {
-      const img = new Image()
-      img.crossOrigin = 'anonymous'
-      img.src = src
-      img.onload = () => {
-        setIsLoaderVisible(true)
-        // showLoader()
-        console.log("image uploaded")
-        upscaler.upscale(img).then(setUpscaledImageSrc)
-          // setIsLoaderVisible(true)
-          // showLoader()
-          const width = img.width
-          const height = img.height
-          setOriginalSize({
-            width,
-            height,
-          })
-        }
-      }
+
+//   useEffect(() => {
+//     if (src) {
+//       const img = new Image()
+//       img.crossOrigin = 'anonymous'
+//       img.src = src
+//       img.onload = () => {
+//         setIsLoaderVisible(true)
+//         // showLoader()
+//         console.log("image uploaded")
+//         upscaler.upscale(img).then(setUpscaledImageSrc)
+//           // setIsLoaderVisible(true)
+//           // showLoader()
+//           const width = img.width
+//           const height = img.height
+//           setOriginalSize({
+//             width,
+//             height,
+//           })
+//         }
+//       }
+// }, [src])
+
+useEffect(() => {
+  if (src) {
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    img.src = src
+    img.onload = () => {
+      setIsLoaderVisible(true) // Show loader when upscaling starts
+      upscaler.upscale(img).then((upscaledSrc) => {
+        setUpscaledImageSrc(upscaledSrc)
+        setIsLoaderVisible(false) // Hide loader when upscaling completes
+        const width = img.width
+        const height = img.height
+        setOriginalSize({
+          width,
+          height,
+        })
+      }).catch(error => {
+        console.error('Error upscaling image:', error)
+        setIsLoaderVisible(false) // Hide loader in case of error
+      })
+    }
+  }
 }, [src])
 
-// upscaler.upscale(img).then((upscaledSrc) => {
-//   setUpscaledImageSrc(upscaledSrc)
-//   setIsLoaderVisible(false) // This line should be inside the .then() callback
-//   const width = img.width
-//   const height = img.height
   
 
   useEffect(() => {
@@ -136,6 +156,7 @@ function App() {
 
   const handleUpscale = () => {
     setIsUpscaleClicked(true) // Set isUpscaleClicked to true when the upscale button is clicked
+    // setIsLoaderVisible(true)
   }
 
   const startDragging = () => {
@@ -182,6 +203,9 @@ function App() {
     const left = dragX * 100
     return (
       <div>
+
+        {isLoaderVisible ? (<div className="loader"></div>) : (null) }
+        {/* <div className="loader"></div> */}
 
         {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
         // and upscale button is not clicked
@@ -306,28 +330,34 @@ function App() {
   return (
     <div>
 
-      {isLoaderVisible ? (<div className="loader"></div>) : (null) }
+        {/* {isLoaderVisible ? (<div className="loader"></div>) : (null) } */}
 
-        <div className="scaling-options">
-          <label>
-            Scaling Factor:
-            <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
-              <option value={2}>2x</option>
-              <option value={3}>3x</option>
-              <option value={4}>4x</option>
-            </select>
-          </label>
+        <div>
+
+          <div className="scaling-options">
+            <label>
+              Scaling Factor:
+              <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
+                <option value={2}>2x</option>
+                <option value={3}>3x</option>
+                <option value={4}>4x</option>
+              </select>
+            </label>
+          </div>
+
+          <div className="dropzone" {...getRootProps()}>
+
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop the files here ...</p>
+            ) : (
+              <p>Drag 'n' drop some files here, or click to select files</p>
+            )}
+
+          </div>
+
         </div>
 
-        <div className="dropzone" {...getRootProps()}>
-
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Drop the files here ...</p>
-        ) : (
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        )}
-    </div>
     </div>
   )
 
