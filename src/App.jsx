@@ -131,6 +131,8 @@ useEffect(() => {
       }).catch(error => {
         console.error('Error upscaling image:', error)
         setIsLoaderVisible(false) // Hide loader in case of error
+      }) .finally(() => {
+        setIsLoaderVisible(false)
       })
     }
   }
