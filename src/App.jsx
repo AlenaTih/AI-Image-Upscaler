@@ -9,6 +9,9 @@ import x4 from '@upscalerjs/esrgan-slim/4x'
 // import models from '@upscalerjs/esrgan-slim'
 // import * as models from '@upscalerjs/esrgan-slim'
 
+// import deblurringModel from '@upscalerjs/maxim-deblurring'
+// import denoisingModel from '@upscalerjs/maxim-denoising'
+
 // const upscaler = new Upscaler({
 //   model: x2,
 // })
@@ -24,6 +27,18 @@ const upscaler = new Upscaler({
   modelx3: x3,
   modelx4: x4,
 })
+
+// const deblurrer = new Upscaler({
+//   model: deblurringModel,
+// })
+
+// const denoiser = new Upscaler({
+//   model: denoisingModel,
+// })
+
+// upscaler.dispose().then(() => {
+//   console.log("All cleaned up!");
+// })
 
 // Model dropdown
 
