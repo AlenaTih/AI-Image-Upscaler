@@ -60,7 +60,6 @@ function App() {
   const [scalingFactor, setScalingFactor] = useState(2) // Track selected scaling factor
   const [fileName, setFileName] = useState("")
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
-
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
 
   // const showLoader = () => {
@@ -75,6 +74,7 @@ function App() {
   // }
 
   const onDrop = useCallback((acceptedFiles) => {
+    setIsLoaderVisible(true)
     const file = acceptedFiles[0]
     console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
@@ -147,6 +147,7 @@ useEffect(() => {
         setScale(scalingFactor)
         upscaledImageSrcTimer = setTimeout(() => {
           setDisplayUpscaledImageSrc(true)
+          setIsLoaderVisible(false)
         }, 1200)
       }, 300)
       return () => {
@@ -158,7 +159,7 @@ useEffect(() => {
 
   const handleUpscale = () => {
     setIsUpscaleClicked(true) // Set isUpscaleClicked to true when the upscale button is clicked
-    // setIsLoaderVisible(true)
+    setIsLoaderVisible(true)
   }
 
   const startDragging = () => {
@@ -207,11 +208,12 @@ useEffect(() => {
       <div>
 
         {isLoaderVisible ? (<div className="loader"></div>) : (null) }
-        {/* <div className="loader"></div> */}
 
         {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
         // and upscale button is not clicked
+          <div>
           <button onClick={handleUpscale}>Upscale image</button>
+          </div>
         )}
 
       <div
@@ -331,8 +333,6 @@ useEffect(() => {
 
   return (
     <div>
-
-        {/* {isLoaderVisible ? (<div className="loader"></div>) : (null) } */}
 
         <div>
 
