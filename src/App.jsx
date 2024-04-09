@@ -6,6 +6,7 @@ import Upscaler from 'upscaler'
 import x2 from '@upscalerjs/esrgan-slim/2x'
 import x3 from '@upscalerjs/esrgan-slim/3x'
 import x4 from '@upscalerjs/esrgan-slim/4x'
+
 // import models from '@upscalerjs/esrgan-slim'
 // import * as models from '@upscalerjs/esrgan-slim'
 
