@@ -27,7 +27,6 @@ function Main() {
       <div className="app">
         <h1>Image Upscaler</h1>
         <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button>
-        {/* <div className="loader" id="loader"></div> */}
         <App isLightMode={isLightMode} toggleMode={toggleMode}/>
       </div>
     )
