@@ -41,7 +41,7 @@ const upscaler = new Upscaler({
 //   console.log("All cleaned up!");
 // })
 
-// Model dropdown
+// Model dropdown —  do after the first release
 
 // Set output folder
 

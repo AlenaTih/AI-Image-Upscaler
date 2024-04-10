@@ -40,5 +40,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 // const root = ReactDOM.createRoot(document.getElementById("root"))
 // root.render(<Main />)
-
-// className={`app ${isLightMode ? 'light-mode' : 'dark-mode'}`}
