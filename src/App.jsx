@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { useDropzone } from 'react-dropzone'
-import ProgressBar from '.components/ProgressBar.jsx'
+import ProgressBar from './components/ProgressBar.jsx'
 import './App.css'
 
 import Upscaler from 'upscaler'
