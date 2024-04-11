@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { useDropzone } from 'react-dropzone'
+import ProgressBar from '.components/ProgressBar.jsx'
 import './App.css'
 
 import Upscaler from 'upscaler'
@@ -65,6 +66,9 @@ function App() {
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
 
+  const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
+  const [progress, setProgress] = useState(0)
+
   // const showLoader = () => {
 
   //   const loader = document.getElementById("loader")
@@ -121,10 +125,14 @@ useEffect(() => {
     img.crossOrigin = 'anonymous'
     img.src = src
     img.onload = () => {
-      setIsLoaderVisible(true) // Show loader when upscaling starts
-      upscaler.upscale(img).then((upscaledSrc) => {
+      // setIsLoaderVisible(true) // Show loader when upscaling starts
+      setIsProgressBarVisible(true)
+      upscaler.upscale(img, {
+        onProgress: (percentage) => setProgress(percentage),
+      }).then((upscaledSrc) => {
         setUpscaledImageSrc(upscaledSrc)
-        setIsLoaderVisible(false) // Hide loader when upscaling completes
+        // setIsLoaderVisible(false) // Hide loader when upscaling completes
+        setIsProgressBarVisible(false)
         const width = img.width
         const height = img.height
         setOriginalSize({
@@ -133,9 +141,11 @@ useEffect(() => {
         })
       }).catch(error => {
         console.error('Error upscaling image:', error)
-        setIsLoaderVisible(false) // Hide loader in case of error
+        // setIsLoaderVisible(false) // Hide loader in case of error
+        setIsProgressBarVisible(false)
       }) .finally(() => {
-        setIsLoaderVisible(false)
+        // setIsLoaderVisible(false)
+        setIsProgressBarVisible(false)
       })
     }
   }
@@ -150,7 +160,8 @@ useEffect(() => {
         setScale(scalingFactor)
         upscaledImageSrcTimer = setTimeout(() => {
           setDisplayUpscaledImageSrc(true)
-          setIsLoaderVisible(false)
+          // setIsLoaderVisible(false)
+          setIsProgressBarVisible(false)
         }, 1200)
       }, 300)
       return () => {
@@ -162,7 +173,8 @@ useEffect(() => {
 
   const handleUpscale = () => {
     setIsUpscaleClicked(true) // Set isUpscaleClicked to true when the upscale button is clicked
-    setIsLoaderVisible(true)
+    // setIsLoaderVisible(true)
+    setIsProgressBarVisible(true)
   }
 
   const startDragging = () => {
@@ -211,6 +223,9 @@ useEffect(() => {
       <div>
 
         {isLoaderVisible && (<div className="loader"></div>)}
+
+        {/* {isProgressBarVisible && (<div className="progress-bar">Progress Bar</div>)} */}
+        {isProgressBarVisible && <ProgressBar progress={progress} />}
 
         {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
         // and upscale button is not clicked
