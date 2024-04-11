@@ -210,7 +210,7 @@ useEffect(() => {
     return (
       <div>
 
-        {isLoaderVisible ? (<div className="loader"></div>) : (null) }
+        {isLoaderVisible && (<div className="loader"></div>)}
 
         {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
         // and upscale button is not clicked
