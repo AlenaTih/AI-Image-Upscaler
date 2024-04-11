@@ -46,7 +46,8 @@ const upscaler = new Upscaler({
 
 // Set output folder
 
-// Make a progress bar instead of a loader (maybe loader for uploading an image, and progress bar — for upscaling it)
+// Make a progress bar instead of a loader
+// Loader for uploading an image, and progress bar — for upscaling it
 
 // function App({ isLightMode, toggleMode })
 
@@ -125,14 +126,13 @@ useEffect(() => {
     img.crossOrigin = 'anonymous'
     img.src = src
     img.onload = () => {
-      // setIsLoaderVisible(true) // Show loader when upscaling starts
-      setIsProgressBarVisible(true)
+      setIsProgressBarVisible(true) // Show progress bar when upscaling starts
       upscaler.upscale(img, {
         onProgress: (percentage) => setProgress(percentage),
       }).then((upscaledSrc) => {
         setUpscaledImageSrc(upscaledSrc)
-        // setIsLoaderVisible(false) // Hide loader when upscaling completes
-        setIsProgressBarVisible(false)
+        setIsLoaderVisible(false) // Hide loader when upscaling completes
+        setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
         const width = img.width
         const height = img.height
         setOriginalSize({
@@ -141,10 +141,8 @@ useEffect(() => {
         })
       }).catch(error => {
         console.error('Error upscaling image:', error)
-        // setIsLoaderVisible(false) // Hide loader in case of error
-        setIsProgressBarVisible(false)
+        setIsProgressBarVisible(false) // Hide progress bar in case of error
       }) .finally(() => {
-        // setIsLoaderVisible(false)
         setIsProgressBarVisible(false)
       })
     }
@@ -160,7 +158,7 @@ useEffect(() => {
         setScale(scalingFactor)
         upscaledImageSrcTimer = setTimeout(() => {
           setDisplayUpscaledImageSrc(true)
-          // setIsLoaderVisible(false)
+          setIsLoaderVisible(false)
           setIsProgressBarVisible(false)
         }, 1200)
       }, 300)
@@ -230,7 +228,7 @@ useEffect(() => {
         {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
         // and upscale button is not clicked
           <div>
-          <button onClick={handleUpscale}>Upscale image</button>
+            <button onClick={handleUpscale}>Upscale image</button>
           </div>
         )}
 

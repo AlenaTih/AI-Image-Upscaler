@@ -4,7 +4,10 @@ import "./ProgressBar.css"
 function ProgressBar(progress) {
     return (
         <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: `${progress}%`}}></div>
+            <div className="progress-bar" style={{ width: `${progress}%`}}>
+                <p>{`${progress}%`}</p>
+            </div>
+            {console.log(progress)}
         </div>
     )
 }
