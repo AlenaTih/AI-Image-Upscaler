@@ -45,6 +45,8 @@ const upscaler = new Upscaler({
 
 // Set output folder
 
+// Make a progress bar instead of a loader (maybe loader for uploading an image, and progress bar — for upscaling it)
+
 // function App({ isLightMode, toggleMode })
 
 function App() {
