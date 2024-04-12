@@ -166,10 +166,10 @@ useEffect(() => {
         clearTimeout(upscaledImageSrcTimer)
       }
     }
-  }, [originalSize, isUpscaleClicked]) // Include isUpscaleClicked in the dependency array
+  }, [originalSize, isUpscaleClicked])
 
   const handleUpscale = () => {
-    setIsUpscaleClicked(true) // Set isUpscaleClicked to true when the upscale button is clicked
+    setIsUpscaleClicked(true)
     // setIsLoaderVisible(true)
     setIsProgressBarVisible(true)
   }
@@ -181,8 +181,8 @@ useEffect(() => {
   const drag = (e) => {
     if (dragging) {
     const offsetWidth = container.current.offsetWidth
-    const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10;
-    setDragX(x / offsetWidth);
+    const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
+    setDragX(x / offsetWidth)
 
     }
   }
