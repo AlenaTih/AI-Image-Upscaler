@@ -88,7 +88,13 @@ function App() {
     setFileName(newFileName)
     const fr = new FileReader()
     fr.onload = async () => {
-      setSrc(fr.result)
+      try {
+        setSrc(fr.result)
+      }
+      catch (error) {
+        // Handle errors
+        console.error("Error uploading a file", error)
+    }
     }
     fr.readAsDataURL(file)
   }, [])
