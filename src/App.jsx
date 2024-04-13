@@ -65,7 +65,6 @@ function App() {
   const [fileName, setFileName] = useState("")
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
-
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
 
@@ -226,7 +225,6 @@ useEffect(() => {
 
         {isLoaderVisible && (<div className="loader"></div>)}
 
-        {/* {isProgressBarVisible && (<div className="progress-bar">Progress Bar</div>)} */}
         {isProgressBarVisible && <ProgressBar progress={progress} />}
 
         {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
