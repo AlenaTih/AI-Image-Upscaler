@@ -89,17 +89,16 @@ function App() {
     const fr = new FileReader()
     fr.onload = async () => {
       try {
+        // throw (Error("I'm an error"))
         setSrc(fr.result)
       }
       catch (error) {
         // Handle errors
-        console.error("Error uploading a file", error)
+        console.error("Error uploading a file:", error)
     }
     }
     fr.readAsDataURL(file)
   }, [])
-
-// Handle errors when using Filereader — add an "onerror" callback to catch any potential errors
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
