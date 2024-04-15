@@ -42,7 +42,7 @@ const upscaler = new Upscaler({
 //   console.log("All cleaned up!");
 // })
 
-// Model dropdown —  do after the first release
+// Model dropdown —  make after the first release
 
 // Set output folder
 
@@ -68,17 +68,6 @@ function App() {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
 
-  // const showLoader = () => {
-
-  //   const loader = document.getElementById("loader")
-
-  //   if (isLoaderVisible) {
-  //     loader.style.display = "block"
-  //   } else {
-  //     loader.style.display = "none"
-  //   }
-  // }
-
   const onDrop = useCallback((acceptedFiles) => {
     setIsLoaderVisible(true)
     const file = acceptedFiles[0]
@@ -94,34 +83,12 @@ function App() {
       catch (error) {
         // Handle errors
         console.error("Error uploading a file:", error)
-    }
+      }
     }
     fr.readAsDataURL(file)
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
-
-//   useEffect(() => {
-//     if (src) {
-//       const img = new Image()
-//       img.crossOrigin = 'anonymous'
-//       img.src = src
-//       img.onload = () => {
-//         setIsLoaderVisible(true)
-//         // showLoader()
-//         console.log("image uploaded")
-//         upscaler.upscale(img).then(setUpscaledImageSrc)
-//           // setIsLoaderVisible(true)
-//           // showLoader()
-//           const width = img.width
-//           const height = img.height
-//           setOriginalSize({
-//             width,
-//             height,
-//           })
-//         }
-//       }
-// }, [src])
 
 useEffect(() => {
   if (src) {
@@ -151,8 +118,6 @@ useEffect(() => {
     }
   }
 }, [src])
-
-  
 
   useEffect(() => {
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
@@ -384,12 +349,3 @@ useEffect(() => {
 }
 
 export default App
-
-// export default () => {
-//   return (
-//     <div className="app">
-/*       <h1>Image Upscaler</h1> */
-//       <App />
-//     </div>
-//   )
-// }
