@@ -90,13 +90,6 @@ button.active {
   overflow: hidden;
 }
 
-/* .display .original img {
-  display: block;
-  margin: 0;
-  position: absolute;
-  left: 0%;
-} */
-
 .display .scaled-up img {
   display: block;
   margin: 0;
