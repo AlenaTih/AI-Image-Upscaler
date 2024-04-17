@@ -35,7 +35,7 @@ body {
   height: 100%;
   width: 100%;
   padding: 40px;
-  margin: 0 auto;
+  margin: 2em auto 0;
   border: 5px dotted #DDD;
   border-radius: 20px;
 }

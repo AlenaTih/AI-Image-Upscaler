@@ -96,8 +96,7 @@ select option {
   height: 40px;
   width: 40px;
   animation: spin 2s linear infinite;
-  margin: auto;
-  margin-top: 1.25rem;
+  margin: 1.25em auto 2em;
   display: block;
 }
 
