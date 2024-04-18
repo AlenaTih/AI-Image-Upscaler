@@ -101,7 +101,7 @@ useEffect(() => {
         onProgress: (percentage) => setProgress(percentage),
       }).then((upscaledSrc) => {
         setUpscaledImageSrc(upscaledSrc)
-        setIsLoaderVisible(false) // Hide loader when upscaling completes
+        setIsLoaderVisible(false)
         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
         const width = img.width
         const height = img.height
