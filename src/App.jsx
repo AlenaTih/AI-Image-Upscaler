@@ -81,7 +81,6 @@ function App() {
         setSrc(fr.result)
       }
       catch (error) {
-        // Handle errors
         console.error("Error uploading a file:", error)
       }
     }
