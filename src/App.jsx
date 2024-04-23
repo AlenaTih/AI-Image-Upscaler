@@ -72,6 +72,7 @@ function App() {
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [selectedForDeletion, setSelectedForDeletion] = useState(false)
 
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
@@ -89,6 +90,10 @@ function App() {
       return
     }
 
+    if (selectedForDeletion) {
+      return
+    }
+
     setIsLoaderVisible(true)
 
     setFileName(newFileName)
@@ -103,14 +108,20 @@ function App() {
       }
     }
     fr.readAsDataURL(file)
+
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
 useEffect(() => {
   if (src) {
+
+    if (selectedForDeletion) {
+      return
+    }
+
     const img = new Image()
-    img.crossOrigin = 'anonymous'
+    img.crossOrigin = "anonymous"
     img.src = src
     img.onload = () => {
       if (img.height > 1000 || img.width > 1000) {
@@ -204,6 +215,11 @@ useEffect(() => {
   const handleScalingFactorChange = (factor) => {
     setScalingFactor(factor)
   }
+
+  const handleDelete = () => {
+    setSelectedForDeletion(true)
+    setSrc(null)
+  } 
 
   if (src) {
     const left = dragX * 100
@@ -303,6 +319,9 @@ useEffect(() => {
             </div>
           )}
         </div>
+
+        <button className="delete-button" onClick={handleDelete}>Delete</button>
+
           {displayUpscaledImageSrc && (
             <>
               <p>{scalingFactor}x upscaled using the esrgan-slim model</p>

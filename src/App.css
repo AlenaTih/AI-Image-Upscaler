@@ -73,6 +73,10 @@ button.active {
   background: #c4c4ff;
 }
 
+.delete-button {
+  margin-top: 2em;
+}
+
 .display {
   position: relative;
   margin-top: 5px;
