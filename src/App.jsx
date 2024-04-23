@@ -74,10 +74,23 @@ function App() {
   const [progress, setProgress] = useState(0)
 
   const onDrop = useCallback((acceptedFiles) => {
-    setIsLoaderVisible(true)
+    // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
     console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
+
+    if (file.type !== "image/jpeg" && file.type !== "image/png") {
+      alert("Please upload only jpg or png files!")
+      return
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File size exceeds 5 MB limit")
+      return
+    }
+
+    setIsLoaderVisible(true)
+
     setFileName(newFileName)
     const fr = new FileReader()
     fr.onload = async () => {
@@ -100,6 +113,11 @@ useEffect(() => {
     img.crossOrigin = 'anonymous'
     img.src = src
     img.onload = () => {
+      if (img.height > 1000 || img.width > 1000) {
+        alert("Image dimensions should not exceed 1000px")
+        return
+      }
+
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
       upscaler.upscale(img, {
         onProgress: (percentage) => setProgress(percentage),
@@ -336,7 +354,7 @@ useEffect(() => {
 
           <div className="dropzone" {...getRootProps()}>
 
-            <input {...getInputProps()} />
+            <input type="file" accept=".jpg, .png" {...getInputProps()} />
             {isDragActive ? (
               <p>Drop the files here ...</p>
             ) : (
