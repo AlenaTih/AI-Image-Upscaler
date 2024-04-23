@@ -219,6 +219,7 @@ useEffect(() => {
   const handleDelete = () => {
     setSelectedForDeletion(true)
     setSrc(null)
+    window.location.reload()
   } 
 
   if (src) {
@@ -300,7 +301,7 @@ useEffect(() => {
             />
           </div>
 
-          {displayUpscaledImageSrc && isUpscaleClicked  && (
+          {displayUpscaledImageSrc && isUpscaleClicked && !selectedForDeletion  && (
             <div
               className="image-container scaled-up"
               style={{
