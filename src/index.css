@@ -11,6 +11,9 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  --text-color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +25,8 @@
   padding: 0;
   margin: 0;
 }
+
+/* To do. Use variables for colors */
 
 body {
   display: flex;
@@ -51,8 +56,8 @@ h1 {
 
 /* .dark-mode {
   :root {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: var(--text-color);
+    background-color: var(--background-color);
   }
 }
 
@@ -64,8 +69,11 @@ h1 {
 } */
 
 .dark-mode {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    /* color: rgba(255, 255, 255, 0.87);
+    background-color: #242424; */
+
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 .light-mode {
