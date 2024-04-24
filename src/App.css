@@ -23,6 +23,44 @@ body {
   margin: 0;
 }
 
+.main {
+  display: flex;
+  gap: 2rem;
+}
+
+.main-right,
+.main-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.main-left {
+  text-align: start;
+  align-items: flex-start;
+  padding-left: 0;
+}
+
+.header,
+.buttons-section {
+  display: flex;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.buttons-section {
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
 .dropzone {
   cursor: move; /* fallback if grab cursor is unsupported */
   cursor: grab;

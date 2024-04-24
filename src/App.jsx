@@ -74,6 +74,25 @@ function App() {
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
 
+  const [isLightMode, setIsLightMode] = useState(true)
+  
+    const toggleMode = () => {
+      console.log("clicked", isLightMode)
+      setIsLightMode(!isLightMode)
+
+      const root = document.getElementById("root")
+
+      if (isLightMode) {
+        root.classList.add("light-mode")
+        root.classList.remove("dark-mode")
+     } else {
+          root.classList.add("dark-mode")
+          root.classList.remove("light-mode")
+     }
+    }
+
+
+
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
@@ -222,170 +241,241 @@ useEffect(() => {
     window.location.reload()
   } 
 
-  if (src) {
-    const left = dragX * 100
-    return (
-      <div>
-
-        {isLoaderVisible && (<div className="loader"></div>)}
-
-        {isProgressBarVisible && <ProgressBar progress={progress} />}
-
-        {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
-        // and upscale button is not clicked
-          <div>
-            <button onClick={handleUpscale}>Upscale image</button>
-          </div>
-        )}
-
-      <div
-        className="original-image"
-
-        style={{
-          width: originalSize ? originalSize.width * scale : null,
-        }}
-      >
-
-        <div className="header">
-          {displayUpscaledImageSrc && (
-          <>
-          <div className="interpolation">
-            <button
-              className={interpolation === 'none' ? 'active' : null}
-              onClick={() => setInterpolation('none')}
-            >
-              None
-            </button>
-            <button
-              className={interpolation === 'bicubic' ? 'active' : null}
-              onClick={() => setInterpolation('bicubic')}
-            >
-              Bicubic interpolation
-            </button>
-          </div>
-          <div>Upscaled image</div>
-          </>
-          )}
-        </div>
-        <div
-          className="display"
-          style={{
-            width: originalSize ? originalSize.width * scale : null,
-            height: originalSize ? originalSize.height * scale : null,
-          }}
-        >
-          {displayUpscaledImageSrc && (
-            <div
-              className="dragOverlay"
-              ref={container}
-              onMouseMove={drag}
-              onMouseUp={stopDragging}
-            >
-              <div
-                className="dragger"
-                onMouseDown={startDragging}
-                style={{
-                  left: `calc(${left}%)`,
-                }}
-              />
-            </div>
-          )}
-          <div className="image-container original">
-            <img
-              src={src}
-              alt="Original"
-              width={originalSize ? originalSize.width * scale : null}
-              style={{
-                imageRendering: interpolation === 'none' ? 'pixelated' : null,
-              }}
-            />
-          </div>
-
-          {displayUpscaledImageSrc && isUpscaleClicked && !selectedForDeletion  && (
-            <div
-              className="image-container scaled-up"
-              style={{
-                width: `${100 - left}%`,
-                left: `${left}%`,
-              }}
-            >
-              <img
-                style={{
-                  left: ((originalSize.width * scale * left) / 100) * -1,
-                }}
-                alt="Upscaled"
-                src={upscaledImageSrc}
-                width={originalSize ? originalSize.width * scale : null}
-              />
-            </div>
-          )}
-        </div>
-
-        <button className="delete-button" onClick={handleDelete}>Delete</button>
-
-          {displayUpscaledImageSrc && (
-            <>
-              <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
-              
-              <div className="download-options">
-                <label>
-                  <input
-                    type="radio"
-                    value="jpg"
-                    checked={downloadFormat === "jpg"}
-                    onChange={() => setDownloadFormat("jpg")}
-                  />
-                  JPG
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    value="png"
-                    checked={downloadFormat === "png"}
-                    onChange={() => setDownloadFormat("png")}
-                  />
-                  PNG
-                </label>
-          </div>
-          <button onClick={downloadImage}>Download Upscaled Image</button>
-
-            </>
-          )}
-      </div>
-      </div>
-    )
+  const showDropzone = () => {
+    if (src) {
+      document.querySelector(".dropzone").style.display = "none"
+    }
   }
 
-  return (
-    <div>
+  showDropzone()
 
-        <div>
+  
+  const left = dragX * 100
+
+  
+
+  return (
+    
+
+        <div className="container">
+
+          <header className="header">
+
+            <h2>Image Upscaler</h2>
+
+            <div className="navbar">
+
+              <h3>Upscaler</h3>
+              <h3>How It Works</h3>
+              <h3>Authors</h3>
+
+              <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button>
+
+            </div>
+
+          </header>
+
+          <main className="main">
+
+            <div className="main-left">
+
+              <h2>AI tool</h2>
+              <h1>Increase the resolution of your image</h1>
+              <p>Nam viverra scelerisque dignissim. Vestibulum ac libero turpis. 
+                Proin rutrum ultricies suscipit. Aliquam non aliquet dui, eget accumsan quam. 
+                Sed eu ornare nibh.</p>
+
+            </div>
+
+          <div className="main-right">
+
+            <div>
+
+             <div className="dropzone" {...getRootProps()}>
+
+              <input type="file" accept=".jpg, .png" {...getInputProps()} />
+              {isDragActive ? (
+                <p>Drop the files here ...</p>
+              ) : (
+                <p>Drag 'n' drop some files here, or click to select files</p>
+              )}
+              
+
+            </div>
+
+              {src && (
+                <div>
+
+                {isLoaderVisible && (<div className="loader"></div>)}
+        
+        
+              <div
+                className="original-image"
+        
+                style={{
+                  width: originalSize ? originalSize.width * scale : null,
+                }}
+              >
+        
+                <div className="header">
+                  {displayUpscaledImageSrc && (
+                  <>
+                  <div className="interpolation">
+                    <button
+                      className={interpolation === 'none' ? 'active' : null}
+                      onClick={() => setInterpolation('none')}
+                    >
+                      None
+                    </button>
+                    <button
+                      className={interpolation === 'bicubic' ? 'active' : null}
+                      onClick={() => setInterpolation('bicubic')}
+                    >
+                      Bicubic interpolation
+                    </button>
+                  </div>
+                  <div>Upscaled image</div>
+                  </>
+                  )}
+                </div>
+                <div
+                  className="display"
+                  style={{
+                    width: originalSize ? originalSize.width * scale : null,
+                    height: originalSize ? originalSize.height * scale : null,
+                  }}
+                >
+                  {displayUpscaledImageSrc && (
+                    <div
+                      className="dragOverlay"
+                      ref={container}
+                      onMouseMove={drag}
+                      onMouseUp={stopDragging}
+                    >
+                      <div
+                        className="dragger"
+                        onMouseDown={startDragging}
+                        style={{
+                          left: `calc(${left}%)`,
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div className="image-container original">
+                    <img
+                      src={src}
+                      alt="Original"
+                      width={originalSize ? originalSize.width * scale : null}
+                      style={{
+                        imageRendering: interpolation === 'none' ? 'pixelated' : null,
+                      }}
+                    />
+                  </div>
+        
+                  {displayUpscaledImageSrc && isUpscaleClicked && !selectedForDeletion  && (
+                    <div
+                      className="image-container scaled-up"
+                      style={{
+                        width: `${100 - left}%`,
+                        left: `${left}%`,
+                      }}
+                    >
+                      <img
+                        style={{
+                          left: ((originalSize.width * scale * left) / 100) * -1,
+                        }}
+                        alt="Upscaled"
+                        src={upscaledImageSrc}
+                        width={originalSize ? originalSize.width * scale : null}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {isProgressBarVisible && <ProgressBar progress={progress} />}
+        
+              </div>
+              </div>
+              )
+              }
+
+            </div>
+
+          </div>
+
+          </main>
+
+          <section className="buttons-section">
 
           <div className="scaling-options">
-            <label>
-              Scaling Factor:
-              <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
-                <option value={2}>2x</option>
-                <option value={3}>3x</option>
-                <option value={4}>4x</option>
-              </select>
-            </label>
+                <label>
+                  Scaling Factor:
+                  <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
+                    <option value={2}>2x</option>
+                    <option value={3}>3x</option>
+                    <option value={4}>4x</option>
+                  </select>
+                </label>
           </div>
 
-          <div className="dropzone" {...getRootProps()}>
+          {displayUpscaledImageSrc && (
+                    <>
+                      <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
+                      
+                      <div className="download-options">
+                        <label>
+                          <input
+                            type="radio"
+                            value="jpg"
+                            checked={downloadFormat === "jpg"}
+                            onChange={() => setDownloadFormat("jpg")}
+                          />
+                          JPG
+                        </label>
+                        <label>
+                          <input
+                            type="radio"
+                            value="png"
+                            checked={downloadFormat === "png"}
+                            onChange={() => setDownloadFormat("png")}
+                          />
+                          PNG
+                        </label>
+                  </div>
+                  <button onClick={downloadImage}>Download Upscaled Image</button>
+        
+                    </>
+                  )}
 
-            <input type="file" accept=".jpg, .png" {...getInputProps()} />
-            {isDragActive ? (
-              <p>Drop the files here ...</p>
-            ) : (
-              <p>Drag 'n' drop some files here, or click to select files</p>
-            )}
+          {src && (
+            <button className="delete-button" onClick={handleDelete}>Delete</button>
+          )}
 
-          </div>
+              {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
+                // and upscale button is not clicked
+                  <div>
+                    <button onClick={handleUpscale}>Upscale image</button>
+                  </div>
+                )}
+
+
+          </section>
+
+          <section className="how-it-works">
+
+          </section>
+
+          <section className="authors">
+
+          </section>
+
+          <footer className="footer">
+
+          </footer>
 
         </div>
 
-    </div>
+    
   )
 
 }
