@@ -249,6 +249,8 @@ useEffect(() => {
   
   const left = dragX * 100
 
+  // const left = dragX * 50
+
   
 
   return (
