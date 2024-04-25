@@ -73,7 +73,6 @@ function App() {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
-
   const [isLightMode, setIsLightMode] = useState(true)
   
     const toggleMode = () => {
@@ -90,8 +89,6 @@ function App() {
           root.classList.remove("light-mode")
      }
     }
-
-
 
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
@@ -266,8 +263,8 @@ useEffect(() => {
             <div className="navbar">
 
               <h3>Upscaler</h3>
-              <h3>How It Works</h3>
-              <h3>Authors</h3>
+              <a href="#how-it-works"><h3>How It Works</h3></a>
+              <a href="#authors"><h3>Authors</h3></a>
 
               <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button>
 
@@ -461,15 +458,47 @@ useEffect(() => {
 
           </section>
 
-          <section className="how-it-works">
+          <section className="how-it-works" id="how-it-works">
+            <div>
+            <h1>How It Works</h1>
+            <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
+              It uses artificial intelligence that enlarges images without loss of quality, 
+              making them clearer.</p>
+            </div>
+
+            <div>
+              Upscaled images are here
+            </div>
 
           </section>
 
-          <section className="authors">
+          <section className="authors" id="authors">
+
+            <div>
+              <h1>Authors</h1>
+              <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
+                It uses artificial intelligence that enlarges images without loss of quality, 
+                making them clearer.</p>
+            </div>
+
+            <div>
+              Information about authors is here
+            </div>
 
           </section>
 
           <footer className="footer">
+
+            <h2>Image Upscaler</h2>
+
+            <div className="navbar">
+
+              <h3>Share</h3>
+              <h3>Facebook</h3>
+              <h3>Twitter (X)</h3>
+              <h3>LinkedIn</h3>
+
+            </div>
 
           </footer>
 
