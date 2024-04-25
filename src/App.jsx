@@ -199,7 +199,8 @@ useEffect(() => {
   const drag = (e) => {
     if (dragging) {
     const offsetWidth = container.current.offsetWidth
-    const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
+    // const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
+    const x = e.clientX - container.current.getBoundingClientRect().left
     setDragX(x / offsetWidth)
 
     }
@@ -249,10 +250,7 @@ useEffect(() => {
   
   const left = dragX * 100
 
-  // const left = dragX * 50
-
   
-
   return (
     
 
@@ -298,6 +296,7 @@ useEffect(() => {
               ) : (
                 <p>Drag 'n' drop some files here, or click to select files</p>
               )}
+              <p>JPG / PNG format, up to 5 MB</p>
               
 
             </div>
