@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { useDropzone } from 'react-dropzone'
 import ProgressBar from './components/ProgressBar.jsx'
+import sunset from "./assets/sunset.png"
 import './App.css'
 
 import Upscaler from 'upscaler'
@@ -92,6 +93,15 @@ function App() {
      }
     }
 
+    // upscaler.upscale(sunset).then((upscaledImgSrc) => {
+    //   const img = document.createElement("img")
+    //   img.src = upscaledImgSrc
+    //   if (!document.getElementById("demo-container").hasChildNodes)
+    //     console.log("It works")
+    //     document.getElementById("demo-container").appendChild(img)
+    // })
+
+
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
@@ -131,6 +141,7 @@ function App() {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
+
 useEffect(() => {
   if (src) {
 
@@ -149,6 +160,8 @@ useEffect(() => {
 
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
       upscaler.upscale(img, {
+        // output: 'tensor',
+        // progressOutput: 'base64',
         onProgress: (percentage) => setProgress(percentage),
       }).then((upscaledSrc) => {
         setUpscaledImageSrc(upscaledSrc)
@@ -170,6 +183,7 @@ useEffect(() => {
   }
 }, [src])
 
+
   useEffect(() => {
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
       let upscaledImageSrcTimer
@@ -187,6 +201,7 @@ useEffect(() => {
       }
     }
   }, [originalSize, isUpscaleClicked])
+
 
   const handleUpscale = () => {
     setIsUpscaleClicked(true)
@@ -251,6 +266,12 @@ useEffect(() => {
 
   
   const left = dragX * 100
+
+  // upscaler.upscale(sunset).then((upscaledImgSrc) => {
+  //   const img = document.createElement("img")
+  //   img.src = upscaledImgSrc
+  //   document.getElementById("demo-container").append(img)
+  // })
 
   
   return (
@@ -471,6 +492,8 @@ useEffect(() => {
 
             <div>
               Upscaled images are here
+              <div id="demo-container"></div>
+
             </div>
 
           </section>
