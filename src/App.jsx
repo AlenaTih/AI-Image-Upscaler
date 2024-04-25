@@ -73,7 +73,9 @@ function App() {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
-  const [isLightMode, setIsLightMode] = useState(true)
+  const [isLightMode, setIsLightMode] = useState(true) // Makes the app dark mode by default
+
+  // const [isLightMode, setIsLightMode] = useState(false) // Makes the app light mode by default
   
     const toggleMode = () => {
       console.log("clicked", isLightMode)
