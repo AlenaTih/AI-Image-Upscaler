@@ -76,6 +76,11 @@ function App() {
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
   const [isLightMode, setIsLightMode] = useState(true)
 
+
+  // const containerSunset = useRef()
+  // const [originalSizeSunset, setOriginalSizeSunset] = useState()
+  // const [upscaledImgSrcSunset, setUpscaledImageSrcSunset] = useState()
+
   // const [isLightMode, setIsLightMode] = useState(false) // Makes the app light mode by default
   
     const toggleMode = () => {
@@ -228,6 +233,17 @@ useEffect(() => {
     setDragging(false)
   }
 
+  // const dragSunset = (e) => {
+  //   if (dragging) {
+  //   const offsetWidth = containerSunset.current.offsetWidth
+  //   // const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
+  //   const x = e.clientX - containerSunset.current.getBoundingClientRect().left
+  //   setDragX(x / offsetWidth)
+
+  //   }
+  // }
+
+
   const downloadImage = () => {
     const link = document.createElement("a")
     const image = new Image()
@@ -267,11 +283,33 @@ useEffect(() => {
   
   const left = dragX * 100
 
+  // const leftSunset = dragX * 100
+
   // upscaler.upscale(sunset).then((upscaledImgSrc) => {
   //   const img = document.createElement("img")
   //   img.src = upscaledImgSrc
   //   document.getElementById("demo-container").append(img)
   // })
+
+
+//   useEffect(() => {
+//     upscaler.upscale(sunset).then((upscaledImgSrcSunset) => {
+//     const img = document.createElement("img")
+//     img.src = upscaledImgSrcSunset
+
+//     setUpscaledImageSrcSunset(upscaledImgSrcSunset)
+
+//     const width = img.width
+//     const height = img.height
+//     setOriginalSizeSunset({
+//       width,
+//       height,
+//     })
+    
+//   })
+//   }
+// )
+  
 
   
   return (
@@ -492,7 +530,60 @@ useEffect(() => {
 
             <div>
               Upscaled images are here
-              <div id="demo-container"></div>
+
+              {/* <div
+                  className="display"
+                  style={{
+                    width: originalSizeSunset ? originalSizeSunset.width * scale : null,
+                    height: originalSizeSunset ? originalSizeSunset.height * scale : null,
+                  }}
+                >
+                  {upscaledImgSrcSunset && (
+                    <div
+                      className="dragOverlay"
+                      ref={containerSunset}
+                      onMouseMove={dragSunset}
+                      onMouseUp={stopDragging}
+                    >
+                      <div
+                        className="dragger"
+                        onMouseDown={startDragging}
+                        style={{
+                          left: `calc(${leftSunset}%)`,
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div className="image-container original">
+                    <img
+                      src={sunset}
+                      alt="OriginalSunset"
+                      width={originalSizeSunset ? originalSizeSunset.width * scale : null}
+                      // style={{
+                      //   imageRendering: interpolation === 'none' ? 'pixelated' : null,
+                      // }}
+                    />
+                  </div>
+        
+                  {upscaledImgSrcSunset  && (
+                    <div
+                      className="image-container scaled-up"
+                      style={{
+                        width: `${100 - leftSunset}%`,
+                        left: `${leftSunset}%`,
+                      }}
+                    >
+                      <img
+                        style={{
+                          left: ((originalSizeSunset.width * scale * leftSunset) / 100) * -1,
+                        }}
+                        alt="Upscaled"
+                        src={upscaledImgSrcSunset}
+                        width={originalSizeSunset ? originalSizeSunset.width * scale : null}
+                      />
+                    </div>
+                  )}
+                </div> */}
 
             </div>
 
