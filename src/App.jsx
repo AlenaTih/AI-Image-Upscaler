@@ -63,13 +63,13 @@ function App() {
   const [src, setSrc] = useState()
   const [originalSize, setOriginalSize] = useState()
   const [scale, setScale] = useState(1)
-  const [interpolation, setInterpolation] = useState('bicubic')
+  const [interpolation, setInterpolation] = useState("bicubic")
   const [upscaledImageSrc, setUpscaledImageSrc] = useState()
   const [displayUpscaledImageSrc, setDisplayUpscaledImageSrc] = useState(false)
   const [dragX, setDragX] = useState(.5)
   const [dragging, setDragging] = useState(false)
   const container = useRef()
-  const [downloadFormat, setDownloadFormat] = useState('jpg') // Track selected download format
+  const [downloadFormat, setDownloadFormat] = useState("jpg") // Track selected download format
   const [scalingFactor, setScalingFactor] = useState(2) // Track selected scaling factor
   const [fileName, setFileName] = useState("")
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
@@ -77,29 +77,12 @@ function App() {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
-  // const [isLightMode, setIsLightMode] = useState(true)
 
 
   // const containerSunset = useRef()
   // const [originalSizeSunset, setOriginalSizeSunset] = useState()
   // const [upscaledImgSrcSunset, setUpscaledImageSrcSunset] = useState()
-
-  // const [isLightMode, setIsLightMode] = useState(false) // Makes the app light mode by default
   
-    const toggleMode = () => {
-      console.log("clicked", isLightMode)
-      setIsLightMode(!isLightMode)
-
-      const root = document.getElementById("root")
-
-      if (isLightMode) {
-        root.classList.add("light-mode")
-        root.classList.remove("dark-mode")
-     } else {
-          root.classList.add("dark-mode")
-          root.classList.remove("light-mode")
-     }
-    }
 
     // upscaler.upscale(sunset).then((upscaledImgSrc) => {
     //   const img = document.createElement("img")
@@ -133,6 +116,7 @@ function App() {
     setIsLoaderVisible(true)
 
     setFileName(newFileName)
+
     const fr = new FileReader()
     fr.onload = async () => {
       try {
@@ -146,6 +130,7 @@ function App() {
     fr.readAsDataURL(file)
 
   }, [])
+
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
@@ -217,9 +202,11 @@ useEffect(() => {
     setIsProgressBarVisible(true)
   }
 
+
   const startDragging = () => {
     setDragging(true)
   }
+
 
   const drag = (e) => {
     if (dragging) {
@@ -231,10 +218,12 @@ useEffect(() => {
     }
   }
 
+
   const stopDragging = () => {
     console.log('stop')
     setDragging(false)
   }
+
 
   // const dragSunset = (e) => {
   //   if (dragging) {
@@ -265,15 +254,18 @@ useEffect(() => {
     }
   }
 
+
   const handleScalingFactorChange = (factor) => {
     setScalingFactor(factor)
   }
+
 
   const handleDelete = () => {
     setSelectedForDeletion(true)
     setSrc(null)
     window.location.reload()
   } 
+
 
   const showDropzone = () => {
     if (src) {
@@ -457,56 +449,56 @@ useEffect(() => {
 
           <section className="buttons-section">
 
-          <div className="scaling-options">
-                <label>
-                  Scaling Factor:
-                  <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
-                    <option value={2}>2x</option>
-                    <option value={3}>3x</option>
-                    <option value={4}>4x</option>
-                  </select>
-                </label>
-          </div>
+            <div className="scaling-options">
+                  <label>
+                    Scaling Factor:
+                    <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
+                      <option value={2}>2x</option>
+                      <option value={3}>3x</option>
+                      <option value={4}>4x</option>
+                    </select>
+                  </label>
+            </div>
 
-          {displayUpscaledImageSrc && (
-                    <>
-                      <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
-                      
-                      <div className="download-options">
-                        <label>
-                          <input
-                            type="radio"
-                            value="jpg"
-                            checked={downloadFormat === "jpg"}
-                            onChange={() => setDownloadFormat("jpg")}
-                          />
-                          JPG
-                        </label>
-                        <label>
-                          <input
-                            type="radio"
-                            value="png"
-                            checked={downloadFormat === "png"}
-                            onChange={() => setDownloadFormat("png")}
-                          />
-                          PNG
-                        </label>
-                  </div>
-                  <button onClick={downloadImage}>Download Upscaled Image</button>
-        
-                    </>
+            {displayUpscaledImageSrc && (
+                      <>
+                        <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
+                        
+                        <div className="download-options">
+                          <label>
+                            <input
+                              type="radio"
+                              value="jpg"
+                              checked={downloadFormat === "jpg"}
+                              onChange={() => setDownloadFormat("jpg")}
+                            />
+                            JPG
+                          </label>
+                          <label>
+                            <input
+                              type="radio"
+                              value="png"
+                              checked={downloadFormat === "png"}
+                              onChange={() => setDownloadFormat("png")}
+                            />
+                            PNG
+                          </label>
+                    </div>
+                    <button onClick={downloadImage}>Download Upscaled Image</button>
+          
+                      </>
+                    )}
+
+            {src && (
+              <button className="delete-button" onClick={handleDelete}>Delete</button>
+            )}
+
+                {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
+                  // and upscale button is not clicked
+                    <div>
+                      <button onClick={handleUpscale}>Upscale image</button>
+                    </div>
                   )}
-
-          {src && (
-            <button className="delete-button" onClick={handleDelete}>Delete</button>
-          )}
-
-              {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
-                // and upscale button is not clicked
-                  <div>
-                    <button onClick={handleUpscale}>Upscale image</button>
-                  </div>
-                )}
 
 
           </section>

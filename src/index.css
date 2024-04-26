@@ -12,8 +12,13 @@
   background-color: #242424;
   /* Comment out the 2 lines above (color and background color) to make the app light mode by default */
 
+  /* Dark mode */
   --text-color: rgba(255, 255, 255, 0.87);
   --background-color: #242424;
+
+  /* Light mode */
+  --text-color: #213547;
+  --background-color: whitesmoke;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -78,8 +83,11 @@ h1 {
 }
 
 .light-mode {
-    color: #213547;
-    background-color: whitesmoke;
+    /* color: #213547;
+    background-color: whitesmoke; */
+
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 button {
