@@ -5,6 +5,7 @@ import Authors from "./components/Authors.jsx"
 import Footer from "./components/Footer.jsx"
 import ProgressBar from "./components/ProgressBar.jsx"
 // import sunset from "./assets/sunset.png"
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './App.css'
 
 import Upscaler from "upscaler"
@@ -82,7 +83,7 @@ function App() {
   // const containerSunset = useRef()
   // const [originalSizeSunset, setOriginalSizeSunset] = useState()
   // const [upscaledImgSrcSunset, setUpscaledImageSrcSunset] = useState()
-  
+
 
     // upscaler.upscale(sunset).then((upscaledImgSrc) => {
     //   const img = document.createElement("img")
@@ -346,7 +347,7 @@ useEffect(() => {
             </div>
 
               {src && (
-                <div>
+                <div className="upscale-container">
 
                 {isLoaderVisible && (<div className="loader"></div>)}
         
@@ -484,18 +485,23 @@ useEffect(() => {
                             PNG
                           </label>
                     </div>
-                    <button onClick={downloadImage}>Download Upscaled Image</button>
+                    <button className="download-button" onClick={downloadImage}>
+                      Download Upscaled Image
+                    </button>
           
                       </>
                     )}
 
             {src && (
-              <button className="delete-button" onClick={handleDelete}>Delete</button>
+              <button className="delete-button" onClick={handleDelete}>
+                {/* <FontAwesomeIcon icon="fa-regular fa-trash-can" /> */}
+                <i className="fa-regular fa-trash-can"></i>
+              </button>
             )}
 
                 {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
                   // and upscale button is not clicked
-                    <div>
+                    <div className="upscale-button">
                       <button onClick={handleUpscale}>Upscale image</button>
                     </div>
                   )}

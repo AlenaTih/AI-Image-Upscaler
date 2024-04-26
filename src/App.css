@@ -98,6 +98,11 @@ body {
   border-radius: 20px;
 }
 
+/* .upscale-container {
+  display: flex;
+  justify-content: center;
+} */
+
 .original-image {
   display: flex;
   flex-direction: column;
@@ -129,6 +134,12 @@ button:last-child{
 
 button.active {
   background: #c4c4ff;
+}
+
+.delete-button,
+.upscale-button,
+.download-button {
+  align-self: center;
 }
 
 .delete-button {
