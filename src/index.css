@@ -17,8 +17,8 @@
   --background-color: #242424;
 
   /* Light mode */
-  --text-color: #213547;
-  --background-color: whitesmoke;
+  --text-color-light: #213547;
+  --background-color-light: whitesmoke;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -86,8 +86,8 @@ h1 {
     /* color: #213547;
     background-color: whitesmoke; */
 
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: var(--text-color-light);
+    background-color: var(--background-color-light);
 }
 
 button {
