@@ -1,13 +1,16 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react'
-import { useDropzone } from 'react-dropzone'
-import ProgressBar from './components/ProgressBar.jsx'
-import sunset from "./assets/sunset.png"
+import React, { useCallback, useState, useEffect, useRef } from "react"
+import { useDropzone } from "react-dropzone"
+import Header from "./components/Header.jsx"
+import Authors from "./components/Authors.jsx"
+import Footer from "./components/Footer.jsx"
+import ProgressBar from "./components/ProgressBar.jsx"
+// import sunset from "./assets/sunset.png"
 import './App.css'
 
-import Upscaler from 'upscaler'
-import x2 from '@upscalerjs/esrgan-slim/2x'
-import x3 from '@upscalerjs/esrgan-slim/3x'
-import x4 from '@upscalerjs/esrgan-slim/4x'
+import Upscaler from "upscaler"
+import x2 from "@upscalerjs/esrgan-slim/2x"
+import x3 from "@upscalerjs/esrgan-slim/3x"
+import x4 from "@upscalerjs/esrgan-slim/4x"
 
 // import models from '@upscalerjs/esrgan-slim'
 // import * as models from '@upscalerjs/esrgan-slim'
@@ -74,7 +77,7 @@ function App() {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
-  const [isLightMode, setIsLightMode] = useState(true)
+  // const [isLightMode, setIsLightMode] = useState(true)
 
 
   // const containerSunset = useRef()
@@ -318,19 +321,7 @@ useEffect(() => {
         <div className="container">
 
           <header className="header">
-
-            <h2>Image Upscaler</h2>
-
-            <div className="navbar">
-
-              <h3>Upscaler</h3>
-              <a href="#how-it-works"><h3>How It Works</h3></a>
-              <a href="#authors"><h3>Authors</h3></a>
-
-              <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button>
-
-            </div>
-
+            <Header />
           </header>
 
           <main className="main">
@@ -590,33 +581,11 @@ useEffect(() => {
           </section>
 
           <section className="authors" id="authors">
-
-            <div>
-              <h1>Authors</h1>
-              <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
-                It uses artificial intelligence that enlarges images without loss of quality, 
-                making them clearer.</p>
-            </div>
-
-            <div>
-              Information about authors is here
-            </div>
-
+            <Authors />
           </section>
 
           <footer className="footer">
-
-            <h2>Image Upscaler</h2>
-
-            <div className="navbar">
-
-              <h3>Share</h3>
-              <h3>Facebook</h3>
-              <h3>Twitter (X)</h3>
-              <h3>LinkedIn</h3>
-
-            </div>
-
+            <Footer />
           </footer>
 
         </div>
