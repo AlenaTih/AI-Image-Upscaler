@@ -460,6 +460,7 @@ useEffect(() => {
                     <label className="level-label">Level</label>
                     <div className="label-input-container">
                       <input 
+                        className="slider-input"
                         type="range" 
                         min="2" 
                         max="4" 
