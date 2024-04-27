@@ -73,7 +73,9 @@ body {
 /* Typography */
 
 .title,
-.title-description {
+.title-description,
+.how-it-works-title,
+.authors.title {
   font-family: var(--font-family-primary);
 }
 
