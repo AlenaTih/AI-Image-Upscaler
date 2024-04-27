@@ -26,7 +26,7 @@ import x4 from "@upscalerjs/esrgan-slim/4x"
 // const upscaler = new Upscaler({
 //   model: models.x2,
 //   model: models.x3,
-//   model: models.x4,
+//   model: models.x4, container
 // })
 
 const upscaler = new Upscaler({
@@ -329,8 +329,8 @@ useEffect(() => {
 
             <div className="main-left">
 
-              <h2>AI tool</h2>
-              <h1>Increase the resolution of your image</h1>
+              <h2 className="title">AI tool</h2>
+              <h1 className="title-description">Increase the resolution of your image</h1>
               <p>Nam viverra scelerisque dignissim. Vestibulum ac libero turpis. 
                 Proin rutrum ultricies suscipit. Aliquam non aliquet dui, eget accumsan quam. 
                 Sed eu ornare nibh.</p>
@@ -542,14 +542,14 @@ useEffect(() => {
           
 
           <section className="how-it-works" id="how-it-works">
-            <div>
+            <div className="how-it-works-left">
             <h1>How It Works</h1>
             <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
               It uses artificial intelligence that enlarges images without loss of quality, 
               making them clearer.</p>
             </div>
 
-            <div>
+            <div className="how-it-works-right">
               Upscaled images are here
 
               {/* <div

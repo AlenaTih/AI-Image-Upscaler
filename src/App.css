@@ -7,6 +7,11 @@
   height: 100%;
 } */
 
+:root {
+  --font-family-primary: "Montserrat", sans-serif;
+  --font-family-fundamental: "Noto Sans", sans-serif;
+}
+
 #root {
   display: flex;
   text-align: center;
@@ -17,11 +22,17 @@
 
 body {
   display: flex;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
   height: 100%;
   padding: 0;
   margin: 0;
 }
+
+/* Typography */
+
+
+
+/* Layout */
 
 .main {
   display: flex;
@@ -71,6 +82,7 @@ body {
 }
 
 .level-label {
+  font-family: var(--font-family-primary);
   margin: 0 1.5em 0 0;
 }
 
@@ -127,13 +139,30 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
 }
 
-.how-it-works div,
-.authors div {
+.authors-right,
+.authors-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 50%;
   margin-top: 4.5rem;
+}
+
+.authors-left {
+  align-items: flex-start;
+}
+
+.how-it-works-right,
+.how-it-works-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin-top: 4.5rem;
+}
+
+.how-it-works-left {
+  align-items: flex-start;
 }
 
 .footer {

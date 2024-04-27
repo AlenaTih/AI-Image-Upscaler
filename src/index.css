@@ -2,17 +2,42 @@
   box-sizing: border-box;
 }
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+/* <uniquifier>: Use a unique and descriptive class name */
+/* <weight>: Use a value from 100 to 900 */
+
+/* .montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
+  font-style: normal;
+} */
+
+/* <uniquifier>: Use a unique and descriptive class name */
+/* <weight>: Use a value from 100 to 900 */
+
+/* .noto-sans {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+} */
+
+:root {
+  --font-family-primary: "Montserrat", sans-serif;
+  --font-family-fundamental: "Noto Sans", sans-serif;
+
+  font-family: "Noto Sans", sans-serif;
+  
+  line-height: 1.5;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */
+  background-color: #242424;
   /* Comment out the 2 lines above (color and background color) to make the app light mode by default */
 
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
 
   /* Dark mode */
   --text-color: rgba(255, 255, 255, 0.87);
@@ -34,7 +59,7 @@
   margin: 0;
 }
 
-/* To do. Use variables for colors */
+/* To do. Use variables for colors and fonst */
 
 body {
   display: flex;
@@ -45,18 +70,30 @@ body {
   margin: 0;
 }
 
-.header,
-.main,
-.how-it-works,
-.authors,
-.footer {
-  background-color: var(--background-color);
-  padding: 2rem 4.5rem;
+/* Typography */
+
+.title,
+.title-description {
+  font-family: var(--font-family-primary);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+/* Layout */
+
+.header,
+.main,
+.how-it-works,
+.authors,
+.footer {
+  display: flex;
+  /* color: var(--text-color);
+  background-color: var(--background-color); */
+  padding: 2rem 4.5rem;
+  border: 2px solid #242424;
 }
 
 .app {

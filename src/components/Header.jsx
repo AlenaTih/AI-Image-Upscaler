@@ -1,25 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
+import ToggleButton from "./ToggleButton.jsx"
 
 function Header() {
-
-    const [isLightMode, setIsLightMode] = useState(true)
-
-    // const [isLightMode, setIsLightMode] = useState(false) // Makes the app light mode by default
-
-    const toggleMode = () => {
-        console.log("clicked", isLightMode)
-        setIsLightMode(!isLightMode)
-  
-        const root = document.getElementById("root")
-  
-        if (isLightMode) {
-          root.classList.add("light-mode")
-          root.classList.remove("dark-mode")
-       } else {
-            root.classList.add("dark-mode")
-            root.classList.remove("light-mode")
-       }
-      }
 
     return (
         <>
@@ -31,7 +13,8 @@ function Header() {
                 <a href="#how-it-works"><h3>How It Works</h3></a>
                 <a href="#authors"><h3>Authors</h3></a>
 
-                <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button>
+                {/* <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button> */}
+                <ToggleButton />
 
             </div>
         </>
