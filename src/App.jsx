@@ -243,21 +243,27 @@ useEffect(() => {
     image.src = upscaledImageSrc
     image.onload = () => {
       const canvas = document.createElement("canvas")
-      canvas.width = image.width
       canvas.height = image.height
+      canvas.width = image.width
       const ctx = canvas.getContext("2d")
       ctx.drawImage(image, 0, 0)
-      link.href = canvas.toDataURL(`image/${downloadFormat}`) // Convert image to selected format
-      link.download = `${fileName}-upscaled.${downloadFormat}`
+      if (downloadFormat) {
+        link.href = canvas.toDataURL(`image/${downloadFormat}`) // Convert image to selected format
+        link.download = `${fileName}-upscaled.${downloadFormat}`
+      } else {
+        link.href = canvas.toDataURL
+        link.download = `${fileName}-upscaled`
+      }
+      
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
     }
   }
 
-
-  const handleScalingFactorChange = (factor) => {
-    setScalingFactor(factor)
+  const handleSliderChange = (e) => {
+    const value = parseInt(e.target.value)
+    setScalingFactor(value)
   }
 
 
@@ -450,61 +456,78 @@ useEffect(() => {
 
           <section className="buttons-section">
 
-            <div className="scaling-options">
-                  <label>
-                    Scaling Factor:
-                    <select value={scalingFactor} onChange={(e) => handleScalingFactorChange(parseInt(e.target.value))}>
-                      <option value={2}>2x</option>
-                      <option value={3}>3x</option>
-                      <option value={4}>4x</option>
-                    </select>
-                  </label>
-            </div>
-
-            {displayUpscaledImageSrc && (
-                      <>
-                        <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
-                        
-                        <div className="download-options">
-                          <label>
-                            <input
-                              type="radio"
-                              value="jpg"
-                              checked={downloadFormat === "jpg"}
-                              onChange={() => setDownloadFormat("jpg")}
-                            />
-                            JPG
-                          </label>
-                          <label>
-                            <input
-                              type="radio"
-                              value="png"
-                              checked={downloadFormat === "png"}
-                              onChange={() => setDownloadFormat("png")}
-                            />
-                            PNG
-                          </label>
+              <div className="scaling-slider">
+                    <label className="level-label">Level</label>
+                    <div className="label-input-container">
+                      <input 
+                        type="range" 
+                        min="2" 
+                        max="4" 
+                        step="1" 
+                        value={scalingFactor} 
+                        onChange={handleSliderChange}
+                      />
+                      <div className="scale-labels-container">
+                        <label className={`circle ${scalingFactor === 2 ? "active" : ""}`}
+                          onClick={() => setScalingFactor(2)}>x2</label>
+                        <label className={`circle ${scalingFactor === 3 ? "active" : ""}`}
+                          onClick={() => setScalingFactor(3)}>x3</label>
+                        <label className={`circle ${scalingFactor === 4 ? "active" : ""}`}
+                          onClick={() => setScalingFactor(4)}>x4</label>
+                      </div>
                     </div>
-                    <button className="download-button" onClick={downloadImage}>
-                      Download Upscaled Image
+              </div>
+
+              <div className="buttons-container-right">
+
+                <div className="delete-upscale-buttons-container">
+
+                  {src && !isUpscaleClicked && (
+                    <button className="delete-button" onClick={handleDelete}>
+                      {/* <FontAwesomeIcon icon="fa-regular fa-trash-can" /> */}
+                      <i className="fa-regular fa-trash-can"></i>
                     </button>
-          
+                  )}
+
+                      {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
+                        // and upscale button is not clicked
+                          <div className="upscale-button">
+                            <button onClick={handleUpscale}>Upscale image</button>
+                          </div>
+                        )}
+
+                </div>
+
+                {displayUpscaledImageSrc && (
+                        <>
+
+                          <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
+
+                          <div className="download-buttons-container">
+
+                            <button className="delete-button" onClick={handleDelete}>
+                              <i className="fa-regular fa-trash-can"></i>
+                            </button>
+
+                              <button className="download-button" onClick={downloadImage}>
+                                Download
+                              </button>
+
+                              <select className="download-button" value={downloadFormat}
+                                onChange={(e) => setDownloadFormat(e.target.value)}
+                                aria-label="Download the upscaled image">
+                                  <label for="jpg" onClick={downloadImage}>Download .jpg</label>
+                                  <option name="jpg" value=".jpg">Download .jpg</option>
+                                  <label for="png" onClick={downloadImage}>Download .png</label>
+                                  <option name="png" value=".png">Download .png</option>
+                              </select>
+
+                          </div>
+
                       </>
                     )}
 
-            {src && (
-              <button className="delete-button" onClick={handleDelete}>
-                {/* <FontAwesomeIcon icon="fa-regular fa-trash-can" /> */}
-                <i className="fa-regular fa-trash-can"></i>
-              </button>
-            )}
-
-                {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
-                  // and upscale button is not clicked
-                    <div className="upscale-button">
-                      <button onClick={handleUpscale}>Upscale image</button>
-                    </div>
-                  )}
+                </div>
 
 
           </section>

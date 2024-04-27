@@ -61,6 +61,63 @@ body {
   margin-top: 2.5rem;
 }
 
+.scaling-slider {
+  display: flex;
+}
+
+.level-label {
+  margin: 0 1.5em 0 0;
+}
+
+.label-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.scale-labels-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.circle {
+  background-color: #ccc;
+  height: 25px;
+  width: 25px;
+  /* padding: 0.5em; */
+  margin: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circle.active {
+  background-color: #4CAF50;
+}
+
+input[type="range"] {
+  background: #d3d3d3;
+  height: 10px;
+  width: 200px;
+  border-radius: 5px;
+  appearance: none; 
+  /* Remove default styles */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background: #4CAF50;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  appearance: none;
+  /* Remove default styles */
+}
+
+.buttons-container-right {
+  display: flex;
+  flex-direction: column;
+}
+
 .how-it-works,
 .authors {
   display: flex;
@@ -136,14 +193,14 @@ button.active {
   background: #c4c4ff;
 }
 
-.delete-button,
+/* .delete-button,
 .upscale-button,
 .download-button {
   align-self: center;
-}
+} */
 
 .delete-button {
-  margin-top: 2em;
+  margin-right: 2em;
 }
 
 .display {
@@ -187,6 +244,16 @@ button.active {
   position: absolute;
   /* transform: translate(50px 0); */
   cursor: pointer;
+}
+
+.delete-upscale-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.download-buttons-container {
+  display: flex;
 }
 
 .header {
