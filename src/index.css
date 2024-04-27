@@ -9,8 +9,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
   /* Comment out the 2 lines above (color and background color) to make the app light mode by default */
+
+  background-color: whitesmoke;
 
   /* Dark mode */
   --text-color: rgba(255, 255, 255, 0.87);
@@ -39,8 +41,17 @@ body {
   place-items: center;
   height: 100%;
   min-width: 320px;
-  /* padding: 0; */
+  padding: 0;
   margin: 0;
+}
+
+.header,
+.main,
+.how-it-works,
+.authors,
+.footer {
+  background-color: var(--background-color);
+  padding: 2rem 4.5rem;
 }
 
 h1 {
@@ -56,7 +67,7 @@ h1 {
   text-align: center;
   min-height: 100%;
   width: 100%;
-  padding: 4.5em 9em;
+  padding: 2rem 4.5rem;
   margin: 0 auto;
 }
 
@@ -69,8 +80,8 @@ h1 {
 
 .light-mode {
   :root {
-    color: #213547;
-    background-color: whitesmoke;
+    color: var(--text-color-light);
+    background-color: var(--background-color-light);
   }
 } */
 
@@ -97,13 +108,6 @@ button {
 .toggle-button {
   width: 40%;
   margin-bottom: 2em;
-}
-
-.download-options label,
-.download-options input,
-.scaling-options select,
-select option {
-  cursor: pointer;
 }
 
 .loader {

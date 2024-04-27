@@ -325,6 +325,8 @@ useEffect(() => {
 
           <main className="main">
 
+            <div className="left-and-right-container">
+
             <div className="main-left">
 
               <h2>AI tool</h2>
@@ -355,7 +357,7 @@ useEffect(() => {
               {src && (
                 <div className="upscale-container">
 
-                {isLoaderVisible && (<div className="loader"></div>)}
+                {/* {isLoaderVisible && (<div className="loader"></div>)} */}
         
         
               <div
@@ -441,6 +443,8 @@ useEffect(() => {
                   )}
                 </div>
 
+                {isLoaderVisible && (<div className="loader"></div>)}
+
                 {isProgressBarVisible && <ProgressBar progress={progress} />}
         
               </div>
@@ -452,7 +456,7 @@ useEffect(() => {
 
           </div>
 
-          </main>
+          </div>
 
           <section className="buttons-section">
 
@@ -532,6 +536,10 @@ useEffect(() => {
 
 
           </section>
+
+          </main>
+
+          
 
           <section className="how-it-works" id="how-it-works">
             <div>
