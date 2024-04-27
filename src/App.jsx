@@ -356,8 +356,6 @@ useEffect(() => {
 
               {src && (
                 <div className="upscale-container">
-
-                {/* {isLoaderVisible && (<div className="loader"></div>)} */}
         
         
               <div
