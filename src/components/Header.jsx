@@ -1,11 +1,15 @@
 import React from "react"
 import ToggleButton from "./ToggleButton.jsx"
+import Logo from "../assets/logo.png"
 
 function Header() {
 
     return (
         <>
-            <h2>Image Upscaler</h2>
+            <div className="logo-container">
+                <img className="logo-image" src={Logo}></img>
+                <h2>Image Upscaler</h2>
+            </div>
 
             <div className="navbar">
 

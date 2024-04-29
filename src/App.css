@@ -66,6 +66,15 @@ body {
   justify-content: space-between;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  margin-right: 0.75em;
+}
+
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -190,6 +199,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* .upscale-container {
   display: flex;
+  align-items: center;
   justify-content: center;
 } */
 
@@ -225,12 +235,6 @@ button:last-child{
 button.active {
   background: #c4c4ff;
 }
-
-/* .delete-button,
-.upscale-button,
-.download-button {
-  align-self: center;
-} */
 
 .delete-button {
   margin-right: 2em;
@@ -289,10 +293,11 @@ button.active {
   display: flex;
 }
 
-.header {
+.upscale-header {
   display: flex;
   min-height: 40px;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .interpolation {

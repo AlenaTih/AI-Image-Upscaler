@@ -366,7 +366,7 @@ useEffect(() => {
                 }}
               >
         
-                <div className="header">
+                <div className="upscale-header">
                   {displayUpscaledImageSrc && (
                   <>
                   <div className="interpolation">
