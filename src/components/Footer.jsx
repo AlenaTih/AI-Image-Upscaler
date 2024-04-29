@@ -1,9 +1,15 @@
 import React from "react"
 
 function Footer() {
+    const getDynamicYear = () => {
+        const date = new Date()
+        const year = date.getFullYear()
+        return year
+    }
+
     return (
         <>
-            <h2>Image Upscaler</h2>
+            <h2>{getDynamicYear()} &copy; Image Upscaler</h2>
 
             <div className="navbar">
 
