@@ -277,6 +277,7 @@ useEffect(() => {
   const showDropzone = () => {
     if (src) {
       document.querySelector(".dropzone").style.display = "none"
+      document.querySelector(".dropzone-container").style.display = "none"
     }
   }
 
@@ -341,17 +342,25 @@ useEffect(() => {
 
             <div>
 
-             <div className="dropzone" {...getRootProps()}>
+            <div className="dropzone-container">
+              <div className="dropzone" {...getRootProps()}>
 
-              <input type="file" accept=".jpg, .png" {...getInputProps()} />
-              {isDragActive ? (
-                <p>Drop the files here ...</p>
-              ) : (
-                <p>Drag 'n' drop some files here, or click to select files</p>
-              )}
-              <p>JPG / PNG format, up to 5 MB</p>
-              
+                <div className="dropzone-image">
+                  <i className="fa-regular fa-file"></i>
+                </div>
 
+                <div className="dropzone-input">
+                  <input type="file" accept=".jpg, .png" {...getInputProps()} />
+                  {isDragActive ? (
+                    <p>Drop the files here ...</p>
+                  ) : (
+                    // <p>Drag 'n' drop some files here, or click to select files</p>
+                    <p><span className="bold">Click or drop</span> image here</p>
+                  )}
+                  <p className="image-requirement">JPG / PNG format, up to 5 MB</p>
+                </div>
+                
+              </div>
             </div>
 
               {src && (

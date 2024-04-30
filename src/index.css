@@ -80,9 +80,21 @@ body {
   font-family: var(--font-family-primary);
 }
 
+.title {
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: #FF4D4D;
+  padding: 0.2em 0.625em; /* 3.2px, 10px */
+  border-radius: 4px;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 /* Layout */
