@@ -186,6 +186,8 @@ button {
   100% { transform: rotate(360deg) }
 }
 
+/* Media queries */
+
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -198,3 +200,45 @@ button {
     background-color: #f9f9f9;
   }
 } */
+
+/* Media queries for mobile screen */
+
+/* @media (width <= 600px) */
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Layout */
+
+  .app {
+    padding: 2rem;
+  }
+
+  .header,
+  .main,
+  .main-left-and-right-container,
+  .how-it-works,
+  .authors,
+  .footer {
+    width: 100%;
+    padding: 1.125rem;
+  }
+
+  .main-left-and-right-container,
+  .how-it-works,
+  .authors {
+    flex-direction: column;
+  }
+
+  .main-right,
+  .main-left,
+  .authors-right,
+  .authors-left,
+  .how-it-works-right,
+  .how-it-works-left {
+    width: 100%;
+  }
+  
+}

@@ -17,6 +17,7 @@
   text-align: center;
   height: fit-content;
   min-height: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
   margin: 0 auto;
 }
 
@@ -194,12 +195,14 @@ input[type="range"]::-webkit-slider-thumb {
   align-items: center;
   justify-content: center;
   background-color: #F5F5F7;
-  height: 100%;
+  /* height: 100%; */
   /* min-height: 509px; */
-  height: 440px;
+  /* height: 440px; */
+  height: 100%;
   /* width: 100%; */
   /* width: 728px; */
-  width: 590px;
+  /* width: 590px; */
+  width: 100%;
   padding: 2.5rem;
   margin: 2em auto 0;
   border-radius: 16px;
@@ -213,12 +216,14 @@ input[type="range"]::-webkit-slider-thumb {
   flex: 1;
   gap: 2em;
   background-color: #F5F5F7;
-  height: 100%;
+  /* height: 100%; */
   /* min-height: 469px; */
   height: 400px;
+  /* height: 100%; */
   /* width: 100%; */
   /* width: 688px; */
-  width: 550px;
+  /* width: 550px; */
+  width: 100%;
   padding: 40px;
   /* margin: 2em auto 0; */
   cursor: move; /* fallback if grab cursor is unsupported */
@@ -335,6 +340,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* Buttons */
 
+button {
+  cursor: pointer;
+}
+
 .button-no-interpolation,
 .button-bicubic {
   background: #DDD;
@@ -356,6 +365,74 @@ input[type="range"]::-webkit-slider-thumb {
   background: #c4c4ff;
 }
 
+
 .delete-button {
+  font-family: inherit;
   margin-right: 2em;
 }
+
+.delete-button:hover {
+  background-color: cornflowerblue;
+}
+
+.delete-button:focus {
+  outline: 2px dotted cornflowerblue;
+}
+
+.delete-button:active {
+  outline: 2px solid cornflowerblue;
+}
+
+.delete-button:disabled {
+  background-color: whitesmoke;
+}
+
+
+.upscale.button {
+  font-family: inherit;
+}
+
+.upscale-button:hover {
+  background-color: cornflowerblue;
+}
+
+.upscale-button:focus {
+  outline: 2px dotted cornflowerblue;
+}
+
+.upscale-button:active {
+  outline: 2px solid cornflowerblue;
+}
+
+.upscale-button:disabled {
+  background-color: whitesmoke;
+}
+
+
+.download-button {
+  font-family: inherit;
+}
+
+.download-button:hover {
+  background-color: cornflowerblue;
+}
+
+.download-button:focus {
+  outline: 2px dotted cornflowerblue;
+}
+
+.download-button:active {
+  outline: 2px solid cornflowerblue;
+}
+
+.download-button:disabled {
+  background-color: whitesmoke;
+}
+
+
+.download-format-select {
+  font-family: var(--font-family-fundamental);
+}
+
+
+/* Media queries */
