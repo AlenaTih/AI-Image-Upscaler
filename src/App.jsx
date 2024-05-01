@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx"
 import Authors from "./components/Authors.jsx"
 import Footer from "./components/Footer.jsx"
 import ProgressBar from "./components/ProgressBar.jsx"
+import DemoImageCat from "./assets/demo-image-cat.png"
 // import sunset from "./assets/sunset.png"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './App.css'
@@ -326,142 +327,138 @@ useEffect(() => {
 
           <main className="main">
 
-            <div className="left-and-right-container">
+            <div className="main-left-and-right-container">
 
-            <div className="main-left">
+              <div className="main-left">
 
-              <h2 className="title">AI tool</h2>
-              <h1 className="title-description">Increase the resolution of your image</h1>
-              <p>Nam viverra scelerisque dignissim. Vestibulum ac libero turpis. 
-                Proin rutrum ultricies suscipit. Aliquam non aliquet dui, eget accumsan quam. 
-                Sed eu ornare nibh.</p>
+                <h2 className="title">AI tool</h2>
+                <h1 className="title-description">Increase the resolution of your image</h1>
+                <p>Nam viverra scelerisque dignissim. Vestibulum ac libero turpis. 
+                  Proin rutrum ultricies suscipit. Aliquam non aliquet dui, eget accumsan quam. 
+                  Sed eu ornare nibh.</p>
 
-            </div>
-
-          <div className="main-right">
-
-            <div>
-
-            <div className="dropzone-container">
-              <div className="dropzone" {...getRootProps()}>
-
-                <div className="dropzone-image">
-                  <i className="fa-regular fa-file"></i>
-                </div>
-
-                <div className="dropzone-input">
-                  <input type="file" accept=".jpg, .png" {...getInputProps()} />
-                  {isDragActive ? (
-                    <p>Drop the files here ...</p>
-                  ) : (
-                    // <p>Drag 'n' drop some files here, or click to select files</p>
-                    <p><span className="bold">Click or drop</span> image here</p>
-                  )}
-                  <p className="image-requirement">JPG / PNG format, up to 5 MB</p>
-                </div>
-                
               </div>
-            </div>
 
-              {src && (
-                <div className="upscale-container">
-        
-        
-              <div
-                className="original-image"
-        
-                style={{
-                  width: originalSize ? originalSize.width * scale : null,
-                }}
-              >
-        
-                <div className="upscale-header">
-                  {displayUpscaledImageSrc && (
-                  <>
-                  <div className="interpolation">
-                    <button
-                      className={interpolation === 'none' ? 'active' : null}
-                      onClick={() => setInterpolation('none')}
-                    >
-                      None
-                    </button>
-                    <button
-                      className={interpolation === 'bicubic' ? 'active' : null}
-                      onClick={() => setInterpolation('bicubic')}
-                    >
-                      Bicubic interpolation
-                    </button>
+            <div className="main-right">
+
+              <div className="dropzone-container">
+                <div className="dropzone" {...getRootProps()}>
+
+                  <div className="dropzone-image">
+                    <i className="fa-regular fa-file"></i>
                   </div>
-                  <div>Upscaled image</div>
-                  </>
-                  )}
+
+                  <div className="dropzone-input">
+                    <input type="file" accept=".jpg, .png" {...getInputProps()} />
+                    {isDragActive ? (
+                      <p>Drop the files here ...</p>
+                    ) : (
+                      // <p>Drag 'n' drop some files here, or click to select files</p>
+                      <p><span className="bold">Click or drop</span> image here</p>
+                    )}
+                    <p className="image-requirement">JPG / PNG format, up to 5 MB</p>
+                  </div>
+                  
                 </div>
+              </div>
+
+                {src && (
+                  <div className="upscale-container">
+          
+          
                 <div
-                  className="display"
+                  className="original-image"
+          
                   style={{
                     width: originalSize ? originalSize.width * scale : null,
-                    height: originalSize ? originalSize.height * scale : null,
                   }}
                 >
-                  {displayUpscaledImageSrc && (
-                    <div
-                      className="dragOverlay"
-                      ref={container}
-                      onMouseMove={drag}
-                      onMouseUp={stopDragging}
-                    >
-                      <div
-                        className="dragger"
-                        onMouseDown={startDragging}
-                        style={{
-                          left: `calc(${left}%)`,
-                        }}
-                      />
+          
+                  <div className="upscale-header">
+                    {displayUpscaledImageSrc && (
+                    <>
+                    <div className="interpolation">
+                      <button
+                        className={interpolation === 'none' ? 'active' : null}
+                        onClick={() => setInterpolation('none')}
+                      >
+                        None
+                      </button>
+                      <button
+                        className={interpolation === 'bicubic' ? 'active' : null}
+                        onClick={() => setInterpolation('bicubic')}
+                      >
+                        Bicubic interpolation
+                      </button>
                     </div>
-                  )}
-                  <div className="image-container original">
-                    <img
-                      src={src}
-                      alt="Original"
-                      width={originalSize ? originalSize.width * scale : null}
-                      style={{
-                        imageRendering: interpolation === 'none' ? 'pixelated' : null,
-                      }}
-                    />
+                    <div>Upscaled image</div>
+                    </>
+                    )}
                   </div>
-        
-                  {displayUpscaledImageSrc && isUpscaleClicked && !selectedForDeletion  && (
-                    <div
-                      className="image-container scaled-up"
-                      style={{
-                        width: `${100 - left}%`,
-                        left: `${left}%`,
-                      }}
-                    >
+                  <div
+                    className="display"
+                    style={{
+                      width: originalSize ? originalSize.width * scale : null,
+                      height: originalSize ? originalSize.height * scale : null,
+                    }}
+                  >
+                    {displayUpscaledImageSrc && (
+                      <div
+                        className="dragOverlay"
+                        ref={container}
+                        onMouseMove={drag}
+                        onMouseUp={stopDragging}
+                      >
+                        <div
+                          className="dragger"
+                          onMouseDown={startDragging}
+                          style={{
+                            left: `calc(${left}%)`,
+                          }}
+                        />
+                      </div>
+                    )}
+                    <div className="image-container original">
                       <img
-                        style={{
-                          left: ((originalSize.width * scale * left) / 100) * -1,
-                        }}
-                        alt="Upscaled"
-                        src={upscaledImageSrc}
+                        src={src}
+                        alt="Original"
                         width={originalSize ? originalSize.width * scale : null}
+                        style={{
+                          imageRendering: interpolation === 'none' ? 'pixelated' : null,
+                        }}
                       />
                     </div>
-                  )}
+          
+                    {displayUpscaledImageSrc && isUpscaleClicked && !selectedForDeletion  && (
+                      <div
+                        className="image-container scaled-up"
+                        style={{
+                          width: `${100 - left}%`,
+                          left: `${left}%`,
+                        }}
+                      >
+                        <img
+                          style={{
+                            left: ((originalSize.width * scale * left) / 100) * -1,
+                          }}
+                          alt="Upscaled"
+                          src={upscaledImageSrc}
+                          width={originalSize ? originalSize.width * scale : null}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {isLoaderVisible && (<div className="loader"></div>)}
+
+                  {isProgressBarVisible && <ProgressBar progress={progress} />}
+          
                 </div>
-
-                {isLoaderVisible && (<div className="loader"></div>)}
-
-                {isProgressBarVisible && <ProgressBar progress={progress} />}
-        
-              </div>
-              </div>
-              )
-              }
+                </div>
+                )
+                }
 
             </div>
-
-          </div>
 
           </div>
 
@@ -557,7 +554,8 @@ useEffect(() => {
             </div>
 
             <div className="how-it-works-right">
-              Upscaled images are here
+              <p>Upscaled images are here</p>
+              <img className="demo-image-cat" src={DemoImageCat}></img>
 
               {/* <div
                   className="display"

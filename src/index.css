@@ -44,7 +44,8 @@
   --background-color: #242424;
 
   /* Light mode */
-  --text-color-light: #213547;
+  /* --text-color-light: #213547; */
+  --text-color-light: #2A303C;
   --background-color-light: whitesmoke;
 
   font-synthesis: none;
