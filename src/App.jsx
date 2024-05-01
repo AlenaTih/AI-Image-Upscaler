@@ -379,14 +379,14 @@ useEffect(() => {
                     <>
                     <div className="interpolation">
                       <button
-                        className={interpolation === 'none' ? 'active' : null}
-                        onClick={() => setInterpolation('none')}
+                        className={`button-no-interpolation ${interpolation === "none" ? "active" : null}`}
+                        onClick={() => setInterpolation("none")}
                       >
                         None
                       </button>
                       <button
-                        className={interpolation === 'bicubic' ? 'active' : null}
-                        onClick={() => setInterpolation('bicubic')}
+                        className={`button-bicubic ${interpolation === "bicubic" ? "active" : null}`}
+                        onClick={() => setInterpolation("bicubic")}
                       >
                         Bicubic interpolation
                       </button>
@@ -466,7 +466,7 @@ useEffect(() => {
 
               <div className="scaling-slider">
                     <label className="level-label">Level</label>
-                    <div className="label-input-container">
+                    <div className="input-label-container">
                       <input 
                         className="slider-input"
                         type="range" 

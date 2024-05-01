@@ -104,7 +104,7 @@ body {
   margin: 0 1.5em 0 0;
 }
 
-.label-input-container {
+.input-label-container {
   display: flex;
   flex-direction: column;
 }
@@ -268,29 +268,6 @@ input[type="range"]::-webkit-slider-thumb {
   position: relative;
 }
 
-button {
-  background: #DDD;
-  padding: 5px 10px;
-  border: 1px solid #AAA;
-}
-
-button:first-child{
-  border-right: none;
-  border-radius: 5px 0 0 5px;
-}
-
-button:last-child{
-  border-radius: 0 5px 5px 0;
-}
-
-button.active {
-  background: #c4c4ff;
-}
-
-.delete-button {
-  margin-right: 2em;
-}
-
 .display {
   display: flex;
   justify-content: center;
@@ -354,4 +331,31 @@ button.active {
 .interpolation {
   display: flex;
   flex: 1;
+}
+
+/* Buttons */
+
+.button-no-interpolation,
+.button-bicubic {
+  background: #DDD;
+  padding: 5px 10px;
+  border: 1px solid #AAA;
+}
+
+.button-no-interpolation {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.button-bicubic {
+  border-radius: 0 5px 5px 0;
+}
+
+.button-no-interpolation.active,
+.button-bicubic.active {
+  background: #c4c4ff;
+}
+
+.delete-button {
+  margin-right: 2em;
 }
