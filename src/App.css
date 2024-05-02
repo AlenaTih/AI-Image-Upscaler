@@ -126,15 +126,17 @@ body {
   cursor: pointer;
 }
 
-.circle.active {
+/* .circle.active {
   background-color: #FF668A;
-}
+} */
 
 .slider-input {
   background: #d3d3d3;
   height: 10px;
   width: 200px;
   border-radius: 5px;
+  /* transition: 0.4s; */
+  transition: 1s;
   cursor: pointer;
   appearance: none; /* Remove default styles */
 }

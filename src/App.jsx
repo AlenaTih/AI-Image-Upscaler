@@ -262,9 +262,35 @@ useEffect(() => {
     }
   }
 
+  // const handleSliderChange = (e) => {
+  //   // setScalingFactor(2)
+
+  //   const value = parseInt(e.target.value)
+  //   setScalingFactor(value)
+
+  //   if (value === 2) {
+  //     document.querySelector(".slider-input").style.backgroundColor = "#d3d3d3"
+  //   } else if (value === 3) {
+  //     document.querySelector(".slider-input").style.background = "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)";
+  //   } else if (value === 4) {
+  //     document.querySelector(".slider-input").style.backgroundColor = "#FF668A"
+  //   }
+
+  //   console.log(value)
+    
+  // }
+
   const handleSliderChange = (e) => {
     const value = parseInt(e.target.value)
     setScalingFactor(value)
+  
+    if (value === 2 || value === 3) {
+      document.querySelector(".slider-input").style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
+    } else if (value === 3 || value === 4) {
+      document.querySelector(".slider-input").style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
+    }
+  
+    console.log(value)
   }
 
 
