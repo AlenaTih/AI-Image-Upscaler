@@ -16,6 +16,9 @@ const ToggleButton = () => {
         if (isLightMode) {
           root.classList.add("light-mode")
           root.classList.remove("dark-mode")
+
+          // document.querySelector(".dropzone-container").style.backgroundColor = "#F5F5F7"
+          // document.querySelector(".dropzone").style.backgroundColor = "#F5F5F7"
        } else {
             root.classList.add("dark-mode")
             root.classList.remove("light-mode")
