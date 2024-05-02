@@ -4,8 +4,9 @@ import Header from "./components/Header.jsx"
 import Authors from "./components/Authors.jsx"
 import Footer from "./components/Footer.jsx"
 import ProgressBar from "./components/ProgressBar.jsx"
-import DemoImageCat from "./assets/demo-image-cat.png"
-// import sunset from "./assets/sunset.png"
+import DemoContainer from "./components/DemoContainer.jsx"
+// import DemoImageCat from "./assets/demo-image-cat.png"
+// import Sunset from "./assets/sunset.png"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './App.css'
 
@@ -262,23 +263,6 @@ useEffect(() => {
     }
   }
 
-  // const handleSliderChange = (e) => {
-  //   // setScalingFactor(2)
-
-  //   const value = parseInt(e.target.value)
-  //   setScalingFactor(value)
-
-  //   if (value === 2) {
-  //     document.querySelector(".slider-input").style.backgroundColor = "#d3d3d3"
-  //   } else if (value === 3) {
-  //     document.querySelector(".slider-input").style.background = "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)";
-  //   } else if (value === 4) {
-  //     document.querySelector(".slider-input").style.backgroundColor = "#FF668A"
-  //   }
-
-  //   console.log(value)
-    
-  // }
 
   const handleSliderChange = (e) => {
     const value = parseInt(e.target.value)
@@ -315,7 +299,7 @@ useEffect(() => {
 
   // const leftSunset = dragX * 100
 
-  // upscaler.upscale(sunset).then((upscaledImgSrc) => {
+  // upscaler.upscale(Sunset).then((upscaledImgSrc) => {
   //   const img = document.createElement("img")
   //   img.src = upscaledImgSrc
   //   document.getElementById("demo-container").append(img)
@@ -323,7 +307,7 @@ useEffect(() => {
 
 
 //   useEffect(() => {
-//     upscaler.upscale(sunset).then((upscaledImgSrcSunset) => {
+//     upscaler.upscale(Sunset).then((upscaledImgSrcSunset) => {
 //     const img = document.createElement("img")
 //     img.src = upscaledImgSrcSunset
 
@@ -581,7 +565,8 @@ useEffect(() => {
 
             <div className="how-it-works-right">
               <p>Upscaled images are here</p>
-              <img className="demo-image-cat" src={DemoImageCat}></img>
+              {/* <img className="demo-image-cat" src={DemoImageCat}></img> */}
+              <DemoContainer />
 
               {/* <div
                   className="display"

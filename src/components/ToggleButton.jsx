@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import "./ToggleButton.css"
 
-const ToggleButton = () => {
+function ToggleButton() {
 
   // const [isLightMode, setIsLightMode] = useState(true)
 

@@ -1,0 +1,113 @@
+/* .demo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+  .demo-image-container {
+    /* position: relative; */
+    position: absolute;
+    height: 100%; /* Ensure the container covers the entire height */
+    width: 100%; /* Ensure the container covers the entire width */
+    overflow: hidden; /* Hide overflow to ensure only one image is visible */
+  }
+  
+  .tabs {
+    display: flex;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    background-color: #ccc;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #f0f0f0;
+  }
+  
+  .image-pair {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .image-pair.active {
+    height: 400px; /* Set the height of the active image pair */
+    width: 400px;
+  }
+  
+  .image-pair img {
+    /* width: 50%; */ /* Each image takes up half of the container */
+    width: 100%;
+  }
+  
+  .demo-image-container {
+    position: relative;
+    width: 100%; /* Ensure the container covers the entire width */
+    height: 100%; /* Ensure the container covers the entire height */
+  }
+
+  .demo-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.3s ease; /* Smooth transition for opacity change */
+    opacity: 0; /* Initially hide all images */
+  }
+
+  .demo-image-container img.active {
+    opacity: 1; /* Show active image */
+  }
+
+  .demo-image-dragger-container {
+    position: relative;
+    width: 100%; /* Ensure the container covers the entire width */
+    height: 100%; /* Ensure the container covers the entire height */
+    z-index: 1;
+  }
+  
+  .demo-image-dragger {
+    height: 100%;
+    width: 3px;
+    background-color: black;
+    position: relative;
+    top: 0;
+    left: 50%; /* Position the dragger in the middle */
+    /* transform: translateX(-50%); */
+    /* transform: translate(50px 0); */
+    cursor: pointer;
+  }
+
+
+  
+  
+  
+
+  
+  /* .demo-images-container {
+    display: block;
+    margin: 0;
+    position: absolute;
+    left: 0%;
+  }
+
+  .demo-image-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .demo-image-dragger {
+    background: rgba(255, 255, 255, 0.8);
+    height: 100%;
+    width: 4px;
+    position: absolute;
+    cursor: pointer;
+  } */
+  
