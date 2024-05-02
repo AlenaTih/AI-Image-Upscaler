@@ -524,7 +524,7 @@ useEffect(() => {
 
                               <select className="download-format-select" value={downloadFormat}
                                 onChange={(e) => setDownloadFormat(e.target.value)}
-                                aria-label="Download the upscaled image">
+                                aria-label="Select format to download the upscaled image">
                                   {/* <label htmlFor="jpg" onClick={downloadImage}>Download .jpg</label> */}
                                   <option name="jpg" value="jpg" onClick={downloadImage}>Download .jpg</option>
                                   {/* <label htmlFor="png" onClick={downloadImage}>Download .png</label> */}
