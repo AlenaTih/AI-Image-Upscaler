@@ -3,14 +3,6 @@
     flex-direction: column;
     align-items: center;
   } */
-
-  .demo-image-container {
-    /* position: relative; */
-    position: absolute;
-    height: 100%; /* Ensure the container covers the entire height */
-    width: 100%; /* Ensure the container covers the entire width */
-    overflow: hidden; /* Hide overflow to ensure only one image is visible */
-  }
   
   .tabs {
     display: flex;
@@ -48,6 +40,7 @@
     position: relative;
     width: 100%; /* Ensure the container covers the entire width */
     height: 100%; /* Ensure the container covers the entire height */
+    overflow: hidden; /* Hide overflow to ensure only one image is visible */
   }
 
   .demo-image-container img {
