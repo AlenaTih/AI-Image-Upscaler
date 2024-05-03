@@ -37,25 +37,13 @@
     width: 100%;
   }
   
-  /* .image-pair { */
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-    /* position: absolute; */
-    /* margin-top: 20px; */
-    /* width: 100%; */
-  /* } */
-  
   .image-pair.active {
-    height: 400px; /* Set the height of the active image pair */
-    /* min-width: 400px; */
+    height: 400px;
     /* width: 100%; */
     width: 400px;
   }
   
   .image-pair img {
-    /* width: 50%; */ /* Each image takes up half of the container */
     width: 100%;
   }
 
@@ -68,7 +56,6 @@
   .demo-image-one.active,
   .demo-image-two-active {
     width: 100%;
-    /* z-index: 1; */
     display: block;
     margin: 0;
     position: absolute;
@@ -77,17 +64,10 @@
   
   .demo-image-container {
     display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%; /* Ensure the container covers the entire width */
-    height: 100%; /* Ensure the container covers the entire height */
-    /* overflow: hidden; */ /* Hide overflow to ensure only one image is visible */
-    /* z-index: 1; */
-
-    display: flex;
     align-items: center;
     justify-content: center;
     /* position: absolute; */
+    position: relative;
     top: 0;
     left: 0;
     height: 100%;
@@ -112,30 +92,9 @@
 
   .demo-image-dragger-container {
     position: relative;
-    width: 100%; /* Ensure the container covers the entire width */
-    height: 100%; /* Ensure the container covers the entire height */
-    /* z-index: 1; */
-  }
-  
-  /* .demo-image-dragger {
     height: 100%;
-    width: 4px;
-    background-color: black; */
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: 50%; */ /* Position the dragger in the middle */
-    /* transform: translateX(-50%); */
-    /* transform: translate(50px 0); */
-    /* cursor: pointer; */
-    /* z-index: 1; */
-
-    
-    /* position: absolute;
-    top: 0;
-    left: calc(50% -2px);
-    transform: translateX(-50%);
-    z-index: 3;
-  } */
+    width: 100%;
+  }
 
   .image-pair {
     margin-top: 20px;
@@ -153,33 +112,4 @@
     z-index: 3; /* Increase the z-index value */
     cursor: pointer;
   }
-  
-
-
-  
-  
-  
-
-  
-  /* .demo-images-container {
-    display: block;
-    margin: 0;
-    position: absolute;
-    left: 0%;
-  }
-
-  .demo-image-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-  
-  .demo-image-dragger {
-    background: rgba(255, 255, 255, 0.8);
-    height: 100%;
-    width: 4px;
-    position: absolute;
-    cursor: pointer;
-  } */
   
