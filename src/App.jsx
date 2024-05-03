@@ -82,20 +82,6 @@ function App() {
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
 
 
-  // const containerSunset = useRef()
-  // const [originalSizeSunset, setOriginalSizeSunset] = useState()
-  // const [upscaledImgSrcSunset, setUpscaledImageSrcSunset] = useState()
-
-
-    // upscaler.upscale(sunset).then((upscaledImgSrc) => {
-    //   const img = document.createElement("img")
-    //   img.src = upscaledImgSrc
-    //   if (!document.getElementById("demo-container").hasChildNodes)
-    //     console.log("It works")
-    //     document.getElementById("demo-container").appendChild(img)
-    // })
-
-
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
@@ -228,17 +214,6 @@ useEffect(() => {
   }
 
 
-  // const dragSunset = (e) => {
-  //   if (dragging) {
-  //   const offsetWidth = containerSunset.current.offsetWidth
-  //   // const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
-  //   const x = e.clientX - containerSunset.current.getBoundingClientRect().left
-  //   setDragX(x / offsetWidth)
-
-  //   }
-  // }
-
-
   const downloadImage = () => {
     const link = document.createElement("a")
     const image = new Image()
@@ -296,36 +271,8 @@ useEffect(() => {
 
   
   const left = dragX * 100
-
-  // const leftSunset = dragX * 100
-
-  // upscaler.upscale(Sunset).then((upscaledImgSrc) => {
-  //   const img = document.createElement("img")
-  //   img.src = upscaledImgSrc
-  //   document.getElementById("demo-container").append(img)
-  // })
-
-
-//   useEffect(() => {
-//     upscaler.upscale(Sunset).then((upscaledImgSrcSunset) => {
-//     const img = document.createElement("img")
-//     img.src = upscaledImgSrcSunset
-
-//     setUpscaledImageSrcSunset(upscaledImgSrcSunset)
-
-//     const width = img.width
-//     const height = img.height
-//     setOriginalSizeSunset({
-//       width,
-//       height,
-//     })
-    
-//   })
-//   }
-// )
   
 
-  
   return (
     
 
@@ -567,60 +514,6 @@ useEffect(() => {
               <p>Upscaled images are here</p>
               {/* <img className="demo-image-cat" src={DemoImageCat}></img> */}
               <DemoContainer />
-
-              {/* <div
-                  className="display"
-                  style={{
-                    width: originalSizeSunset ? originalSizeSunset.width * scale : null,
-                    height: originalSizeSunset ? originalSizeSunset.height * scale : null,
-                  }}
-                >
-                  {upscaledImgSrcSunset && (
-                    <div
-                      className="dragOverlay"
-                      ref={containerSunset}
-                      onMouseMove={dragSunset}
-                      onMouseUp={stopDragging}
-                    >
-                      <div
-                        className="dragger"
-                        onMouseDown={startDragging}
-                        style={{
-                          left: `calc(${leftSunset}%)`,
-                        }}
-                      />
-                    </div>
-                  )}
-                  <div className="image-container original">
-                    <img
-                      src={sunset}
-                      alt="OriginalSunset"
-                      width={originalSizeSunset ? originalSizeSunset.width * scale : null}
-                      // style={{
-                      //   imageRendering: interpolation === 'none' ? 'pixelated' : null,
-                      // }}
-                    />
-                  </div>
-        
-                  {upscaledImgSrcSunset  && (
-                    <div
-                      className="image-container scaled-up"
-                      style={{
-                        width: `${100 - leftSunset}%`,
-                        left: `${leftSunset}%`,
-                      }}
-                    >
-                      <img
-                        style={{
-                          left: ((originalSizeSunset.width * scale * leftSunset) / 100) * -1,
-                        }}
-                        alt="Upscaled"
-                        src={upscaledImgSrcSunset}
-                        width={originalSizeSunset ? originalSizeSunset.width * scale : null}
-                      />
-                    </div>
-                  )}
-                </div> */}
 
             </div>
 
