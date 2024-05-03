@@ -2,17 +2,17 @@ import React, { useState, useRef } from 'react'
 import DemoImageCat from "../assets/demo-image-cat.png"
 import Sunset from "../assets/sunset.png"
 
-const ImagePair = ({ active }) => {
+function ImagePair({ active }) {
 
-    const [dragX, setDragX] = useState(.5)
-    const [dragging, setDragging] = useState(false)
-    const container = useRef()
+  const [dragX, setDragX] = useState(.5)
+  const [dragging, setDragging] = useState(false)
+  const container = useRef()
 
-    const startDragging = () => {
+  const startDragging = () => {
         setDragging(true)
       }
     
-      const drag = (e) => {
+  const drag = (e) => {
         if (dragging) {
         const offsetWidth = container.current.offsetWidth
         // const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
@@ -22,20 +22,19 @@ const ImagePair = ({ active }) => {
         }
       }
     
-      const stopDragging = () => {
+  const stopDragging = () => {
         console.log('stop')
         setDragging(false)
       }
 
-      const left = dragX * 100
+  const left = dragX * 100
 
   return (
-    <div className={`image-pair ${active ? 'active' : ''}`}
-      ref={container}
-        onMouseMove={drag}
-        onMouseUp={stopDragging}
+        <div className={`image-pair ${active ? 'active' : ''}`}
+          ref={container}
+          onMouseMove={drag}
+          onMouseUp={stopDragging}
         >
-      
         
         <div
             className="demo-image-dragger"
@@ -59,32 +58,7 @@ const ImagePair = ({ active }) => {
       </div>
     </div>
   )
-
-  // return (
-  //   <div className={`image-pair ${active ? 'active' : ''}`}>
-  //     <div className="demo-image-container">
-  //       <img
-  //         src={DemoImageCat}
-  //         alt="Image 1"
-  //         className={`${dragPosition < 0.5 ? "active" : ""}`}
-  //       />
-  //       <img
-  //         src={Sunset}
-  //         alt="Image 2"
-  //         className={`${dragPosition >= 0.5 ? active : ""}`}
-  //       />
-  //     </div>
-  //     <div
-  //       className="demo-image-dragger"
-  //       style={{ left: `calc(${dragPosition * 100}% - 1.5px)` }}
-  //       onMouseDown={handleDragStart}
-  //     ></div>
-  //   </div>
-  // )
   
 }
 
 export default ImagePair
-
-
-

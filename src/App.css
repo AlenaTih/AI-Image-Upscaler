@@ -468,7 +468,7 @@ button {
 }
 
 /* .download-format-select option  */
-.download-format-select option .download-option {
+select .download-format-select option .download-option {
   color: var(--text-color-light);
   font-family: var(--font-family-fundamental);
   background: #d3d3d3;
