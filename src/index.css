@@ -59,6 +59,8 @@
 
   padding: 0;
   margin: 0;
+
+  user-select: none;
 }
 
 /* To do. Use variables for colors and fonst */

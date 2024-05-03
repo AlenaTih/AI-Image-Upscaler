@@ -510,8 +510,8 @@ useEffect(() => {
 
                       {src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
                         // and upscale button is not clicked
-                          <div className="upscale-button">
-                            <button onClick={handleUpscale}>Upscale image</button>
+                          <div>
+                            <button className="upscale-button" onClick={handleUpscale}>Upscale image</button>
                           </div>
                         )}
 
@@ -536,9 +536,9 @@ useEffect(() => {
                                 onChange={(e) => setDownloadFormat(e.target.value)}
                                 aria-label="Select format to download the upscaled image">
                                   {/* <label htmlFor="jpg" onClick={downloadImage}>Download .jpg</label> */}
-                                  <option name="jpg" value="jpg" onClick={downloadImage}>Download .jpg</option>
+                                  <option className="download-option" name="jpg" value="jpg" onClick={downloadImage}>.jpg</option>
                                   {/* <label htmlFor="png" onClick={downloadImage}>Download .png</label> */}
-                                  <option name="png" value="png" onClick={downloadImage}>Download .png</option>
+                                  <option className="download-option" name="png" value="png" onClick={downloadImage}>.png</option>
                               </select>
 
                           </div>

@@ -10,6 +10,15 @@
 :root {
   --font-family-primary: "Montserrat", sans-serif;
   --font-family-fundamental: "Noto Sans", sans-serif;
+
+  /* Dark mode */
+  --text-color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
+
+  /* Light mode */
+  /* --text-color-light: #213547; */
+  --text-color-light: #2A303C;
+  --background-color-light: whitesmoke;
 }
 
 #root {
@@ -177,9 +186,9 @@ input[type="range"]::-webkit-slider-thumb {
   align-items: center;
 }
 
-.demo-image-cat {
+/* .demo-image-cat {
   width: 100%;
-}
+} */
 
 .how-it-works-left,
 .authors-left {
@@ -370,7 +379,11 @@ button {
 
 .delete-button {
   font-family: inherit;
+  font-size: 1.125rem; /* 18px */
   margin-right: 2em;
+  padding: 0.75rem; /* 12px */
+  border: 1px solid #C1C7D7;
+  border-radius: 6px;
 }
 
 .delete-button:hover {
@@ -390,8 +403,14 @@ button {
 }
 
 
-.upscale.button {
+.upscale-button {
+  color: var(--text-color);
   font-family: inherit;
+  background-color: #3392FF;
+  font-size: 0.875rem; /* 14px */
+  padding: 1.125rem 2rem; /* 18px 32px */
+  border: none;
+  border-radius: 6px;
 }
 
 .upscale-button:hover {
@@ -412,7 +431,13 @@ button {
 
 
 .download-button {
+  color: var(--text-color);
   font-family: inherit;
+  background-color: #3392FF;
+  font-size: 0.875rem; /* 14px */
+  padding: 1.125rem 1.5rem; /* 18px 24px */
+  border: none;
+  border-radius: 6px;
 }
 
 .download-button:hover {
@@ -433,7 +458,30 @@ button {
 
 
 .download-format-select {
+  color: var(--text-color);
   font-family: var(--font-family-fundamental);
+  background-color: #3392FF;
+  font-size: 0.875rem; /* 14px */
+  padding: 1.125rem 1.5rem; /* 18px 24px */
+  border: none;
+  border-radius: 6px;
+}
+
+/* .download-format-select option  */
+.download-format-select option .download-option {
+  color: var(--text-color-light);
+  font-family: var(--font-family-fundamental);
+  background: #d3d3d3;
+  font-size: 0.875rem; /* 14px */
+  width: 100px;
+  padding: 1.125rem 1.5rem; /* 18px 24px */
+  border: none;
+  border-radius: 6px;
+}
+
+.download-format-select option .download-option:hover {
+  color: var(--text-color-light);
+  background: #d3d3d3;
 }
 
 
