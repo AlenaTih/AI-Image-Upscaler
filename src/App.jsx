@@ -242,22 +242,34 @@ useEffect(() => {
   const handleSliderChange = (e) => {
     const value = parseInt(e.target.value)
     setScalingFactor(value)
+
+    const sliderInput = document.querySelector(".slider-input")
   
     if (value === 2 || value === 3) {
-      document.querySelector(".slider-input").style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
+      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
     } else if (value === 3 || value === 4) {
-      document.querySelector(".slider-input").style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
+      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
     }
-
-    // if (scalingFactor === 2 || scalingFactor === 3) {
-    //   document.querySelector(".slider-input").style.background = scalingFactor === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
-    // } else if (scalingFactor === 3 || scalingFactor === 4) {
-    //   document.querySelector(".slider-input").style.background = scalingFactor === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
-    // }
   
     console.log(value)
   }
 
+
+  const handleLabelClick = (value) => {
+    setScalingFactor(value)
+    updateSliderColor(value)
+  }
+
+
+  const updateSliderColor = (value) => {
+    const sliderInput = document.querySelector(".slider-input")
+    if (value === 2 || value === 3) {
+      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
+    } else if (value === 3 || value === 4) {
+      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
+    }
+  }
+  
 
   const handleDelete = () => {
     setSelectedForDeletion(true)
@@ -427,28 +439,40 @@ useEffect(() => {
 
           <section className="buttons-section">
 
-              <div className="scaling-slider">
-                    <label className="level-label">Level</label>
-                    <div className="input-label-container">
-                      <input 
-                        className="slider-input"
-                        type="range" 
-                        min="2" 
-                        max="4" 
-                        step="1" 
-                        value={scalingFactor} 
-                        onChange={handleSliderChange}
-                      />
-                      <div className="scale-labels-container">
-                        <label className={`circle ${scalingFactor === 2 ? "active" : ""}`}
-                          onClick={() => setScalingFactor(2)}>x2</label>
-                        <label className={`circle ${scalingFactor === 3 ? "active" : ""}`}
-                          onClick={() => setScalingFactor(3)}>x3</label>
-                        <label className={`circle ${scalingFactor === 4 ? "active" : ""}`}
-                          onClick={() => setScalingFactor(4)}>x4</label>
-                      </div>
+                <div className="scaling-slider">
+                  <label className="level-label">Level</label>
+                  <div className="input-label-container">
+                    <input 
+                      className="slider-input"
+                      type="range" 
+                      min="2" 
+                      max="4" 
+                      step="1" 
+                      value={scalingFactor} 
+                      onChange={handleSliderChange}
+                    />
+                    <div className="scale-labels-container">
+                      <label 
+                        className={`circle ${scalingFactor === 2 ? "active" : ""}`}
+                        onClick={() => handleLabelClick(2)}
+                      >
+                        x2
+                      </label>
+                      <label 
+                        className={`circle ${scalingFactor === 3 ? "active" : ""}`}
+                        onClick={() => handleLabelClick(3)}
+                      >
+                        x3
+                      </label>
+                      <label 
+                        className={`circle ${scalingFactor === 4 ? "active" : ""}`}
+                        onClick={() => handleLabelClick(4)}
+                      >
+                        x4
+                      </label>
                     </div>
-              </div>
+                  </div>
+                </div>
 
               <div className="buttons-container-right">
 
