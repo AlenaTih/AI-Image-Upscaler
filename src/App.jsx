@@ -248,6 +248,12 @@ useEffect(() => {
     } else if (value === 3 || value === 4) {
       document.querySelector(".slider-input").style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
     }
+
+    // if (scalingFactor === 2 || scalingFactor === 3) {
+    //   document.querySelector(".slider-input").style.background = scalingFactor === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
+    // } else if (scalingFactor === 3 || scalingFactor === 4) {
+    //   document.querySelector(".slider-input").style.background = scalingFactor === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
+    // }
   
     console.log(value)
   }
