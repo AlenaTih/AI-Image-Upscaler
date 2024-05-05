@@ -234,15 +234,10 @@ useEffect(() => {
       if (format === "jpg") {
         setDownloadFormat("jpg")
         downloadImage()
-
-        // setDownloadFormat("png")
       } else if (format === "png") {
       setDownloadFormat("png")
-      downloadImage()
-
-      // setDownloadFormat("jpg")
+        downloadImage()
       }
-    // }
 
     
     console.log(downloadFormat)
