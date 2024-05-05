@@ -159,11 +159,6 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none; /* Remove default styles */
 }
 
-.buttons-container-right {
-  display: flex;
-  flex-direction: column;
-}
-
 .how-it-works,
 .authors {
   display: flex;
@@ -327,6 +322,11 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
+.buttons-container-right {
+  display: flex;
+  flex-direction: column;
+}
+
 .delete-upscale-buttons-container {
   display: flex;
   align-items: center;
@@ -335,6 +335,12 @@ input[type="range"]::-webkit-slider-thumb {
 
 .download-buttons-container {
   display: flex;
+  align-items: center;
+}
+
+.download-formats-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .upscale-header {

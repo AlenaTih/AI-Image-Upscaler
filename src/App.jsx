@@ -213,6 +213,43 @@ useEffect(() => {
     setDragging(false)
   }
 
+  // document.addEventListener("click", function(e) {
+  //   if (e.target.id === "download-format-jpg") {
+  //         e.preventDefault()
+  //         console.log(downloadFormat)
+  //         downloadImage()
+  //       } else if (e.target.id === "download-format-png") {
+  //         e.preventDefault()
+  //         console.log(downloadFormat)
+  //         downloadImage()
+  //       }
+
+  //     })
+
+  const updateDownloadFormat = (e) => {
+  //   setDownloadFormat(e.target.dataset.format)
+
+  const format = e.target.dataset.format
+
+      if (format === "jpg") {
+        setDownloadFormat("jpg")
+        downloadImage()
+
+        // setDownloadFormat("png")
+      } else if (format === "png") {
+      setDownloadFormat("png")
+      downloadImage()
+
+      // setDownloadFormat("jpg")
+      }
+    // }
+
+    
+    console.log(downloadFormat)
+
+    // downloadImage()
+  }
+
 
   const downloadImage = () => {
     const link = document.createElement("a")
@@ -509,14 +546,34 @@ useEffect(() => {
                                 Download
                               </button>
 
-                              <select className="download-format-select" value={downloadFormat}
+                              {/* <select className="download-format-select" value={downloadFormat}
                                 onChange={(e) => setDownloadFormat(e.target.value)}
-                                aria-label="Select format to download the upscaled image">
+                                aria-label="Select format to download the upscaled image"> */}
                                   {/* <label htmlFor="jpg" onClick={downloadImage}>Download .jpg</label> */}
-                                  <option className="download-option" name="jpg" value="jpg" onClick={downloadImage}>.jpg</option>
+                                  {/* <option className="download-option" name="jpg" value="jpg" onClick={downloadImage}>.jpg</option> */}
                                   {/* <label htmlFor="png" onClick={downloadImage}>Download .png</label> */}
-                                  <option className="download-option" name="png" value="png" onClick={downloadImage}>.png</option>
-                              </select>
+                                  {/* <option className="download-option" name="png" value="png" onClick={downloadImage}>.png</option>
+                              </select> */}
+
+                              <div className="download-formats-container">
+
+                                <button className="download-button" data-format="jpg" onClick={updateDownloadFormat}>
+                                  Download .jpg
+                                </button>
+
+                                <button className="download-button" data-format="png" onClick={updateDownloadFormat}>
+                                  Download .png
+                                </button>
+
+                                {/* <button className="download-button" id="download-format-jpg" onClick={setDownloadFormat("jpg")}>
+                                  Download .jpg
+                                </button>
+
+                                <button className="download-button" id="download-format-png" onClick={setDownloadFormat("png")}>
+                                  Download .png
+                                </button> */}
+
+                              </div>
 
                           </div>
 
