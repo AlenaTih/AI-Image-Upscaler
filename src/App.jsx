@@ -49,16 +49,16 @@ const upscaler = new Upscaler({
 //   console.log("All cleaned up!");
 // })
 
-// To do. Model dropdown —  make after the first release
 
-// Set output folder
+// To do. Model dropdown —  make after the first release
 
 // Loader for uploading an image, and progress bar — for upscaling it
 
 
-// To do. Make a possibility to delete an uploaded image before upscaling it
+// To do. Make a possibility to delete an uploaded image before upscaling it — done
 
-// To do. Make validation of input — set limitations for size and format of an image
+// To do. Make validation of input — set limitations for size and format of an image — done
+
 
 // function App({ isLightMode, toggleMode })
 
