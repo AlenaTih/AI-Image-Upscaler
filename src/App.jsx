@@ -303,9 +303,9 @@ const downloadCallback = () => {
     const sliderInput = document.querySelector(".slider-input")
   
     if (value === 2 || value === 3) {
-      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
+      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)"
     } else if (value === 3 || value === 4) {
-      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
+      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)" : "#FF668A"
     }
   
     console.log(value)
@@ -321,9 +321,9 @@ const downloadCallback = () => {
   const updateSliderColor = (value) => {
     const sliderInput = document.querySelector(".slider-input")
     if (value === 2 || value === 3) {
-      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)"
+      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)"
     } else if (value === 3 || value === 4) {
-      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, whitesmoke 50%)" : "#FF668A"
+      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)" : "#FF668A"
     }
   }
   
