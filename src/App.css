@@ -27,12 +27,12 @@
   height: fit-content;
   min-height: 100%;
   overflow-x: hidden; /* Prevents horizontal scrolling */
+  padding: 0;
   margin: 0 auto;
 }
 
 body {
   display: flex;
-  /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
   height: 100%;
   padding: 0;
   margin: 0;
