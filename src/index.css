@@ -44,6 +44,9 @@
   background-repeat: no-repeat;
   background-position: center; */
 
+  color: #2A303C;
+  background-color: whitesmoke;
+
   /* Dark mode */
   --text-color: rgba(255, 255, 255, 0.87);
   --background-color: #242424;
@@ -107,12 +110,31 @@ h1 {
 
 /* Layout */
 
-.container {
-  border-radius: 16px;
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  /* background-color: cornflowerblue; */
+  min-height: 100%;
+  width: 100%;
+  /* padding: 2rem 4.5rem; */
+  padding: 0;
+  margin: 0 auto;
+  /* margin: 2rem 4.5rem; */
 }
 
-.header,
-.main,
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border-radius: 16px; */
+}
+
+/* .header,
+.main, */
 .how-it-works,
 .authors,
 .footer {
@@ -122,29 +144,39 @@ h1 {
   /* background-color: var(--background-color-light); */
   width: 100%;
   padding: 2rem 4.5rem;
+  margin: 2rem 4.5rem;
   /* border: 2px solid #242424; */
   /* border-radius: 16px; */
 }
 
-.main,
+/* .main, */
 .how-it-works,
 .authors {
-  padding: 2rem 7.5rem; /* 32px 120px */
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 11rem;
+  margin: 0 auto;
 }
 
-.app {
+.header,
+.main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  text-align: center;
   /* background-color: cornflowerblue; */
-  min-height: 100%;
+  /* background-image: url(./assets/spring.png); */
+  /* background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="2" fill="#dddddd" /></pattern></defs><rect width="100%" height="100%" fill="white" /><rect width="100%" height="100%" fill="url(#dots)" /></svg>'); */
+  background-image: url(./assets/dotted-background.svg);
+  /* background-position: center; */
+  /* background-size: auto; */
+  /* background-repeat: no-repeat; */
+  /* padding: 0; */
+  /* position: absolute; */
+  /* background-size: auto; */
+  margin: 0;
   width: 100%;
-  padding: 2rem 4.5rem;
-  margin: 0 auto;
-  /* margin: 2rem 4.5rem; */
+  /* z-index: 1000; */
 }
+
+/* https://freesvg.org/dot-seamless-pattern */
 
 /* .dark-mode {
   :root {

@@ -13,16 +13,28 @@ function ToggleButton() {
   
         const root = document.getElementById("root")
         // const root = document.querySelector(".container")
+
+        const headerContainer = document.querySelector(".header-container")
+        const mainContainer = document.querySelector(".main-container")
   
         if (isLightMode) {
           root.classList.add("light-mode")
           root.classList.remove("dark-mode")
 
-          // document.querySelector(".dropzone-container").style.backgroundColor = "#F5F5F7"
-          // document.querySelector(".dropzone").style.backgroundColor = "#F5F5F7"
+          headerContainer.classList.add("light-mode")
+          headerContainer.classList.remove("dark-mode")
+
+          mainContainer.classList.add("light-mode")
+          mainContainer.classList.remove("dark-mode")
        } else {
             root.classList.add("dark-mode")
             root.classList.remove("light-mode")
+
+            headerContainer.classList.add("dark-mode")
+            headerContainer.classList.remove("light-mode")
+
+            mainContainer.classList.add("dark-mode")
+            mainContainer.classList.remove("light-mode")
        }
       }
 
