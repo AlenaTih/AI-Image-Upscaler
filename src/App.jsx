@@ -354,10 +354,14 @@ const downloadCallback = () => {
         <div className="container">
 
           <header className="header">
-            <Header />
+            <div className="header-container light-mode">
+              <Header />
+            </div>
           </header>
 
           <main className="main">
+
+            <div className="main-container light-mode">
 
             <div className="main-left-and-right-container">
 
@@ -625,6 +629,8 @@ const downloadCallback = () => {
 
 
           </section>
+
+          </div>
 
           </main>
 
