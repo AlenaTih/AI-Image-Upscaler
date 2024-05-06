@@ -107,6 +107,10 @@ h1 {
 
 /* Layout */
 
+.container {
+  border-radius: 16px;
+}
+
 .header,
 .main,
 .how-it-works,
@@ -118,7 +122,8 @@ h1 {
   /* background-color: var(--background-color-light); */
   width: 100%;
   padding: 2rem 4.5rem;
-  border: 2px solid #242424;
+  /* border: 2px solid #242424; */
+  /* border-radius: 16px; */
 }
 
 .main,
