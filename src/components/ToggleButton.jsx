@@ -11,8 +11,8 @@ function ToggleButton() {
         console.log("clicked", isLightMode)
         setIsLightMode(!isLightMode)
   
-        const root = document.getElementById("root")
-        // const root = document.querySelector(".app")
+        // const root = document.getElementById("root")
+        const root = document.querySelector(".app")
   
         if (isLightMode) {
           root.classList.add("light-mode")

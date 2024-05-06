@@ -113,11 +113,12 @@ h1 {
 .authors,
 .footer {
   display: flex;
-  /* color: var(--text-color);
-  background-color: var(--background-color); */
+  /* color: var(--text-color); */
+  /* background-color: var(--background-color); */
+  /* background-color: var(--background-color-light); */
   width: 100%;
   padding: 2rem 4.5rem;
-  /* border: 2px solid #242424; */
+  border: 2px solid #242424;
 }
 
 .main,
@@ -132,10 +133,12 @@ h1 {
   align-items: center;
   flex: 1;
   text-align: center;
+  /* background-color: cornflowerblue; */
   min-height: 100%;
   width: 100%;
   padding: 2rem 4.5rem;
   margin: 0 auto;
+  /* margin: 2rem 4.5rem; */
 }
 
 /* .dark-mode {
