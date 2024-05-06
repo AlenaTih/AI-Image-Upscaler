@@ -63,7 +63,13 @@ body {
 }
 
 .main-right {
+  align-items: center;
   justify-content: center;
+  background-color: #F5F5F7;
+  min-height: 400px;
+  height: 100%;
+  padding: 2.5em;
+  border-radius: 16px;
 }
 
 .main-left {
@@ -209,9 +215,12 @@ input[type="range"]::-webkit-slider-thumb {
   /* width: 728px; */
   /* width: 590px; */
   width: 100%;
-  padding: 2.5rem;
-  margin: 2em auto 0;
+  /* padding: 2.5rem; */
+  padding: 0;
+  /* margin: 2em auto 0; */
+  margin: 0 auto;
   border-radius: 16px;
+  /* position: relative; */
 }
 
 .dropzone {
@@ -230,7 +239,7 @@ input[type="range"]::-webkit-slider-thumb {
   /* width: 688px; */
   /* width: 550px; */
   width: 100%;
-  padding: 40px;
+  /* padding: 40px; */
   /* margin: 2em auto 0; */
   cursor: move; /* fallback if grab cursor is unsupported */
   cursor: grab;
@@ -259,11 +268,14 @@ input[type="range"]::-webkit-slider-thumb {
   font-size: 0.875rem; /* 14px */
 }
 
-/* .upscale-container {
+.upscale-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-} */
+  /* position: absolute; */
+  /* z-index: 4; */
+}
 
 .original-image {
   display: flex;
@@ -281,6 +293,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .display {
   display: flex;
+  align-items: center;
   justify-content: center;
   position: relative;
   margin-top: 5px;
@@ -333,14 +346,28 @@ input[type="range"]::-webkit-slider-thumb {
   gap: 2rem;
 }
 
-.download-buttons-container {
+.delete-download-buttons-container {
   display: flex;
   align-items: center;
+}
+
+.download-buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.download-arrow-container {
+  display: flex;
+}
+
+.fa-angle-down {
+  color: var(--text-color);
 }
 
 .download-formats-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .upscale-header {

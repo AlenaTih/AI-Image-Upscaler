@@ -75,18 +75,24 @@ function App() {
   const [downloadFormat, setDownloadFormat] = useState("jpg") // Track selected download format
   const [scalingFactor, setScalingFactor] = useState(2) // Track selected scaling factor
   const [fileName, setFileName] = useState("")
+  const [originalFormat, setOriginalFormat] = useState("jpg")
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  
 
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
     console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
+
+    console.log(file.name.split(".")[1])
+    const newOriginalFormat = file.name.split(".")[1]
 
     if (file.type !== "image/jpeg" && file.type !== "image/png") {
       alert("Please upload only jpg or png files!")
@@ -105,6 +111,8 @@ function App() {
     setIsLoaderVisible(true)
 
     setFileName(newFileName)
+
+    setOriginalFormat(newOriginalFormat)
 
     const fr = new FileReader()
     fr.onload = async () => {
@@ -141,6 +149,7 @@ useEffect(() => {
       }
 
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+
       upscaler.upscale(img, {
         // output: 'tensor',
         // progressOutput: 'base64',
@@ -213,37 +222,32 @@ useEffect(() => {
     setDragging(false)
   }
 
-  // document.addEventListener("click", function(e) {
-  //   if (e.target.id === "download-format-jpg") {
-  //         e.preventDefault()
-  //         console.log(downloadFormat)
-  //         downloadImage()
-  //       } else if (e.target.id === "download-format-png") {
-  //         e.preventDefault()
-  //         console.log(downloadFormat)
-  //         downloadImage()
-  //       }
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen)
+  }
 
-  //     })
+
+  let imageFormat = ""
 
   const updateDownloadFormat = (e) => {
   //   setDownloadFormat(e.target.dataset.format)
 
   const format = e.target.dataset.format
 
-      if (format === "jpg") {
-        setDownloadFormat("jpg")
-        downloadImage()
-      } else if (format === "png") {
-      setDownloadFormat("png")
-        downloadImage()
-      }
+  imageFormat = format
 
-    
-    console.log(downloadFormat)
+  console.log(imageFormat)
 
-    // downloadImage()
-  }
+  setDownloadFormat(imageFormat)
+
+  downloadCallback()
+}
+
+
+const downloadCallback = () => {
+  console.log(downloadFormat)
+  downloadImage()
+}
 
 
   const downloadImage = () => {
@@ -256,13 +260,34 @@ useEffect(() => {
       canvas.width = image.width
       const ctx = canvas.getContext("2d")
       ctx.drawImage(image, 0, 0)
-      if (downloadFormat) {
-        link.href = canvas.toDataURL(`image/${downloadFormat}`) // Convert image to selected format
-        link.download = `${fileName}-upscaled.${downloadFormat}`
-      } else {
-        link.href = canvas.toDataURL
-        link.download = `${fileName}-upscaled`
-      }
+      // if (imageFormat) {
+        link.href = canvas.toDataURL(`image/${imageFormat}`) // Convert image to selected format
+        link.download = `${fileName}-upscaled.${imageFormat}`
+      // } else {
+      //   link.href = canvas.toDataURL(`image/${originalFormat}`)
+      //   link.download = `${fileName}-upscaled.${originalFormat}`
+      // }
+      
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
+
+
+  const downloadImageOriginalFormat = () => {
+    const link = document.createElement("a")
+    const image = new Image()
+    image.src = upscaledImageSrc
+    image.onload = () => {
+      const canvas = document.createElement("canvas")
+      canvas.height = image.height
+      canvas.width = image.width
+      const ctx = canvas.getContext("2d")
+      ctx.drawImage(image, 0, 0)
+      
+      link.href = canvas.toDataURL(`image/${originalFormat}`)
+      link.download = `${fileName}-upscaled.${originalFormat}`
       
       document.body.appendChild(link)
       link.click()
@@ -465,6 +490,27 @@ useEffect(() => {
                 )
                 }
 
+              {/* <div className="dropzone-container">
+                <div className="dropzone" {...getRootProps()}>
+
+                  <div className="dropzone-image">
+                    <i className="fa-regular fa-file"></i>
+                  </div>
+
+                  <div className="dropzone-input">
+                    <input type="file" accept=".jpg, .png" {...getInputProps()} />
+                    {isDragActive ? (
+                      <p>Drop the files here ...</p>
+                    ) : (
+                      // <p>Drag 'n' drop some files here, or click to select files</p>
+                      <p><span className="bold">Click or drop</span> image here</p>
+                    )}
+                    <p className="image-requirement">JPG / PNG format, up to 5 MB</p>
+                  </div>
+                  
+                </div>
+              </div> */}
+
             </div>
 
           </div>
@@ -531,44 +577,44 @@ useEffect(() => {
 
                           <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
 
-                          <div className="download-buttons-container">
+                          
 
-                            <button className="delete-button" onClick={handleDelete}>
-                              <i className="fa-regular fa-trash-can"></i>
-                            </button>
+                          <div className="delete-download-buttons-container">
 
-                              <button className="download-button" onClick={downloadImage}>
-                                Download
+                              <button className="delete-button" onClick={handleDelete}>
+                                <i className="fa-regular fa-trash-can"></i>
                               </button>
 
-                              {/* <select className="download-format-select" value={downloadFormat}
-                                onChange={(e) => setDownloadFormat(e.target.value)}
-                                aria-label="Select format to download the upscaled image"> */}
-                                  {/* <label htmlFor="jpg" onClick={downloadImage}>Download .jpg</label> */}
-                                  {/* <option className="download-option" name="jpg" value="jpg" onClick={downloadImage}>.jpg</option> */}
-                                  {/* <label htmlFor="png" onClick={downloadImage}>Download .png</label> */}
-                                  {/* <option className="download-option" name="png" value="png" onClick={downloadImage}>.png</option>
-                              </select> */}
+                              <div className="download-buttons-container">
 
-                              <div className="download-formats-container">
+                                <div className="download-arrow-container">
 
-                                <button className="download-button" data-format="jpg" onClick={updateDownloadFormat}>
-                                  Download .jpg
-                                </button>
+                                  <button className="download-button" onClick={downloadImageOriginalFormat}>
+                                    Download
+                                  </button>
 
-                                <button className="download-button" data-format="png" onClick={updateDownloadFormat}>
-                                  Download .png
-                                </button>
+                                  <button className="download-button arrow" onClick={toggleDropdown}>
+                                    <i className="fa-solid fa-caret-down"></i>
+                                  </button>
 
-                                {/* <button className="download-button" id="download-format-jpg" onClick={setDownloadFormat("jpg")}>
-                                  Download .jpg
-                                </button>
+                                </div>
 
-                                <button className="download-button" id="download-format-png" onClick={setDownloadFormat("png")}>
-                                  Download .png
-                                </button> */}
 
-                              </div>
+                                  {isDropdownOpen && (
+                                    <div className="download-formats-container">
+
+                                      <button className="download-button" data-format="jpg" onClick={updateDownloadFormat}>
+                                      Download .jpg
+                                    </button>
+
+                                    <button className="download-button" data-format="png" onClick={updateDownloadFormat}>
+                                      Download .png
+                                    </button>
+
+                                  </div>
+                                  )}
+
+                               </div> 
 
                           </div>
 
