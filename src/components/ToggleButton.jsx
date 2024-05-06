@@ -16,6 +16,7 @@ function ToggleButton() {
 
         const headerContainer = document.querySelector(".header-container")
         const mainContainer = document.querySelector(".main-container")
+        const authors = document.querySelector(".authors")
   
         if (isLightMode) {
           root.classList.add("light-mode")
@@ -26,6 +27,8 @@ function ToggleButton() {
 
           mainContainer.classList.add("light-mode")
           mainContainer.classList.remove("dark-mode")
+
+          authors.style.backgroundColor = "#C1C7D7"
        } else {
             root.classList.add("dark-mode")
             root.classList.remove("light-mode")
@@ -35,6 +38,8 @@ function ToggleButton() {
 
             mainContainer.classList.add("dark-mode")
             mainContainer.classList.remove("light-mode")
+
+            authors.style.backgroundColor = "#575757"
        }
       }
 
