@@ -492,19 +492,21 @@ button {
 }
 
 .upscale-button:hover {
-  background-color: cornflowerblue;
+  background-color: #1A85FF;
 }
 
 .upscale-button:focus {
-  outline: 2px dotted cornflowerblue;
+  background-color: #3392FF;
+  outline: 1px solid #2A303C;
 }
 
 .upscale-button:active {
-  outline: 2px solid cornflowerblue;
+  background-color: #1A85FF;
 }
 
 .upscale-button:disabled {
-  background-color: whitesmoke;
+  color: var(--text-color-light);
+  background-color: #E0E3EB;
 }
 
 
@@ -515,51 +517,92 @@ button {
   font-size: 0.875rem; /* 14px */
   padding: 1.125rem 1.5rem; /* 18px 24px */
   border: none;
-  border-radius: 6px;
+  border-right: 1px solid #005FCC;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .download-button:hover {
-  background-color: cornflowerblue;
+  background-color: #1A85FF;
 }
 
 .download-button:focus {
-  outline: 2px dotted cornflowerblue;
+  background-color: #3392FF;
+  outline: 1px solid #2A303C;
 }
 
 .download-button:active {
-  outline: 2px solid cornflowerblue;
+  background-color: #1A85FF;
 }
 
 .download-button:disabled {
-  background-color: whitesmoke;
+  color: var(--text-color-light);
+  background-color: #E0E3EB;
+  border-right: 1px solid #C1C7D7;
 }
 
 
-.download-format-select {
+.arrow-button {
   color: var(--text-color);
-  font-family: var(--font-family-fundamental);
+  font-family: inherit;
   background-color: #3392FF;
   font-size: 0.875rem; /* 14px */
   padding: 1.125rem 1.5rem; /* 18px 24px */
   border: none;
-  border-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
-/* .download-format-select option  */
-select .download-format-select option .download-option {
+.arrow-button:hover {
+  background-color: #1A85FF;
+}
+
+.arrow-button:focus {
+  background-color: #3392FF;
+  outline: 1px solid #2A303C;
+}
+
+.arrow-button:active {
+  background-color: #1A85FF;
+}
+
+.arrow-button:disabled {
+  color: #949AAB;
+  background-color: #E0E3EB;
+}
+
+
+.download-button-jpg,
+.download-button-png {
   color: var(--text-color-light);
-  font-family: var(--font-family-fundamental);
-  background: #d3d3d3;
+  font-family: inherit;
+  background-color: #d3d3d3;
   font-size: 0.875rem; /* 14px */
-  width: 100px;
-  padding: 1.125rem 1.5rem; /* 18px 24px */
+  padding: 1rem 1.5rem; /* 16px 24px */
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
-.download-format-select option .download-option:hover {
+.download-button-jpg:hover,
+.download-button-png:hover {
+  background-color: #C1C7D7;
+}
+
+.download-button-jpg:focus,
+.download-button-png:focus {
+  background-color: #d3d3d3;
+  outline: 1px solid #2A303C;
+}
+
+.download-button-jpg:active,
+.download-button-png:active {
+  background-color: #C1C7D7;
+}
+
+.download-button-jpg:disabled,
+.download-button-png:disabled {
   color: var(--text-color-light);
-  background: #d3d3d3;
+  background-color: #E0E3EB;
 }
 
 

@@ -576,7 +576,7 @@ const downloadCallback = () => {
                                     Download
                                   </button>
 
-                                  <button className="download-button arrow" onClick={toggleDropdown}>
+                                  <button className="arrow-button" onClick={toggleDropdown}>
                                     <i className="fa-solid fa-caret-down"></i>
                                   </button>
 
@@ -586,11 +586,11 @@ const downloadCallback = () => {
                                   {isDropdownOpen && (
                                     <div className="download-formats-container">
 
-                                      <button className="download-button" data-format="jpg" onClick={updateDownloadFormat}>
+                                      <button className="download-button-jpg" data-format="jpg" onClick={updateDownloadFormat}>
                                       Download .jpg
                                     </button>
 
-                                    <button className="download-button" data-format="png" onClick={updateDownloadFormat}>
+                                    <button className="download-button-png" data-format="png" onClick={updateDownloadFormat}>
                                       Download .png
                                     </button>
 
