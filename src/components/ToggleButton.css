@@ -9,10 +9,13 @@
     position: relative;
     height: 40px;
     width: 80px;
+    /* height: 20px;
+    width: 34px; */
   }
 
   .toggle-text {
-    margin-right: 1.25rem;
+    font-size: 0.875rem; /* 14px */
+    margin-right: 0.75rem;
   }
   
   .toggle input {
@@ -20,11 +23,11 @@
   }
   
   .toggle .slider {
-    background-color: #d8d8d8; 
+    background-color: #3F485A;
     position: absolute;
     inset: 0;
     outline: none;
-    border: 1px solid #d8d8d8;
+    border: 1px solid #3F485A;
     border-radius: 30px;
     transition: 0.4s;
     cursor: pointer;

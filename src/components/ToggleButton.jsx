@@ -46,7 +46,10 @@ function ToggleButton() {
 
   return (
     <div className="toggle-button-container">
-      <p className="toggle-text">Toggle Mode</p>
+      {isLightMode ?
+        (<p className="toggle-text">Light</p>) 
+        : (<p className="toggle-text">Dark</p>)}
+      {/* <p className="toggle-text">Toggle Mode</p> */}
       <label className="toggle">
         <input type="checkbox" 
           onChange={toggleMode}

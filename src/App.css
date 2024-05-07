@@ -151,31 +151,37 @@ body {
 
 .scaling-slider {
   display: flex;
+  align-items: flex-start;
 }
 
 .level-label {
+  display: inline;
   font-family: var(--font-family-primary);
-  margin: 0 1.5em 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  padding: 0;
+  margin: -0.5rem 2rem 0 0;
 }
 
 .input-label-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .scale-labels-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 0.75rem;
 }
 
 .circle {
-  /* background-color: #ccc; */
-  height: 25px;
-  width: 25px;
-  /* padding: 0.5em; */
+  font-size: 0.82rem;
+  /* height: 24px;
+  width: 24px; */
   margin: 5px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   cursor: pointer;
 }
 
@@ -184,9 +190,11 @@ body {
 } */
 
 .slider-input {
-  background: #d3d3d3;
-  height: 10px;
-  width: 200px;
+  /* background: #d3d3d3; */
+  background-color: #E0E3EB;
+  height: 16px;
+  /* width: 160px; */
+  width: 184px;
   border-radius: 5px;
   /* transition: 0.4s; */
   transition: 1s;
@@ -195,12 +203,25 @@ body {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  background: #FF668A;
-  height: 20px;
-  width: 20px;
+  background: var(--background-color-light);
+  height: 24px;
+  width: 24px;
+  border: 8px solid #FF668A;
   border-radius: 50%;
   cursor: pointer;
   appearance: none; /* Remove default styles */
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  outline: 1px solid #2A303C;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  outline: 1px solid #2A303C;
+}
+
+.slider-input:disabled {
+  background-color: #FF99B1; /* All filled, disabled */
 }
 
 .how-it-works,
@@ -388,7 +409,6 @@ input[type="range"]::-webkit-slider-thumb {
 .delete-upscale-buttons-container {
   display: flex;
   align-items: center;
-  gap: 2rem;
 }
 
 .delete-download-buttons-container {
@@ -456,28 +476,31 @@ button {
 
 
 .delete-button {
+  color: var(--text-color-light);
+  background-color: var(--background-color-light);
   font-family: inherit;
   font-size: 1.125rem; /* 18px */
-  margin-right: 2em;
   padding: 0.75rem; /* 12px */
+  margin-right: 1.5rem;
   border: 1px solid #C1C7D7;
   border-radius: 6px;
 }
 
 .delete-button:hover {
-  background-color: cornflowerblue;
+  outline: 1px solid #2A303C;
 }
 
 .delete-button:focus {
-  outline: 2px dotted cornflowerblue;
+  outline: 1px solid #2A303C;
 }
 
 .delete-button:active {
-  outline: 2px solid cornflowerblue;
+  outline: 1px solid #2A303C;
 }
 
 .delete-button:disabled {
-  background-color: whitesmoke;
+  color: #C1C7D7;
+  outline: 1px solid #C1C7D7;
 }
 
 
@@ -487,6 +510,7 @@ button {
   background-color: #3392FF;
   font-size: 0.875rem; /* 14px */
   padding: 1.125rem 2rem; /* 18px 32px */
+  margin-left: 0;
   border: none;
   border-radius: 6px;
 }
@@ -516,6 +540,7 @@ button {
   background-color: #3392FF;
   font-size: 0.875rem; /* 14px */
   padding: 1.125rem 1.5rem; /* 18px 24px */
+  margin: 0;
   border: none;
   border-right: 1px solid #005FCC;
   border-top-left-radius: 6px;
@@ -581,6 +606,14 @@ button {
   padding: 1rem 1.5rem; /* 16px 24px */
   border: none;
   border-radius: 4px;
+}
+
+.download-button-jpg {
+  margin: 0.2px 0 0.5px;
+}
+
+.download-button-png {
+  margin-top: 0.5px;
 }
 
 .download-button-jpg:hover,

@@ -303,9 +303,9 @@ const downloadCallback = () => {
     const sliderInput = document.querySelector(".slider-input")
   
     if (value === 2 || value === 3) {
-      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)"
+      sliderInput.style.background = value === 2 ? "#E0E3EB" : "linear-gradient(to right, #FF668A 50%, #E0E3EB 50%)"
     } else if (value === 3 || value === 4) {
-      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)" : "#FF668A"
+      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #E0E3EB 50%)" : "#FF668A"
     }
   
     console.log(value)
@@ -321,9 +321,9 @@ const downloadCallback = () => {
   const updateSliderColor = (value) => {
     const sliderInput = document.querySelector(".slider-input")
     if (value === 2 || value === 3) {
-      sliderInput.style.background = value === 2 ? "#d3d3d3" : "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)"
+      sliderInput.style.background = value === 2 ? "#E0E3EB" : "linear-gradient(to right, #FF668A 50%, #E0E3EB 50%)"
     } else if (value === 3 || value === 4) {
-      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #d3d3d3 50%)" : "#FF668A"
+      sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #E0E3EB 50%)" : "#FF668A"
     }
   }
   
@@ -501,7 +501,7 @@ const downloadCallback = () => {
           <section className="buttons-section">
 
                 <div className="scaling-slider">
-                  <label className="level-label">Level</label>
+                  <h4 className="level-label">Level</h4>
                   <div className="input-label-container">
                     <input 
                       className="slider-input"
