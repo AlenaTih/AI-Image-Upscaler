@@ -503,6 +503,7 @@ button {
 
 .delete-button:hover {
   outline: 1px solid #2A303C;
+  box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .delete-button:focus {
@@ -511,6 +512,7 @@ button {
 
 .delete-button:active {
   outline: 1px solid #2A303C;
+  box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .delete-button:disabled {
@@ -528,10 +530,13 @@ button {
   margin-left: 0;
   border: none;
   border-radius: 6px;
+  /* box-shadow: 0 4px 8px #2A303C; */
+  /* box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16); */
 }
 
 .upscale-button:hover {
   background-color: #1A85FF;
+  box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .upscale-button:focus {
@@ -541,6 +546,7 @@ button {
 
 .upscale-button:active {
   background-color: #1A85FF;
+  box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .upscale-button:disabled {
