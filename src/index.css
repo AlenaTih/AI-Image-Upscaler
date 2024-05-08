@@ -136,7 +136,7 @@ h1 {
 /* .header,
 .main,
 .authors, */
-.how-it-works,
+/* .how-it-works, */
 .footer {
   display: flex;
   /* color: var(--text-color); */
@@ -285,7 +285,23 @@ button {
     padding: 2.5rem;
   }
 
-  .header,
+  .header {
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 2rem 0;
+  }
+
+  .header-container {
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .logo-container,
+  .navbar {
+    width: 100%;
+  }
+
   .main,
   .main-container {
     justify-content: center;
@@ -293,17 +309,8 @@ button {
     margin: 0 auto;
   }
 
-  .header-container {
-    justify-content: space-between;
-  }
-
   .main {
     padding: 0 2rem 4.5rem;
-  }
-
-  .header {
-    justify-content: space-between;
-    padding: 2rem 2rem 0;
   }
 
   .how-it-works,
