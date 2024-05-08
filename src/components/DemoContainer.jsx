@@ -15,7 +15,7 @@ function DemoContainer() {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (tabIndex) => {
-    setActiveTab(tabIndex);
+    setActiveTab(tabIndex)
   }
 
   // Array of image paths for each tab

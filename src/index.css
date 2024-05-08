@@ -326,6 +326,12 @@ button {
     width: 100%;
   }
 
+  .how-it-works-left,
+  .authors-left {
+  align-items: center;
+  /* text-align: center; */
+  }
+
   .footer {
     display: flex;
     align-self: center;

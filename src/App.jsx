@@ -451,7 +451,9 @@ const downloadCallback = () => {
                           style={{
                             left: `calc(${left}%)`,
                           }}
-                        />
+                        >
+                          <div className="dragger-circle"></div>
+                        </div>
                       </div>
                     )}
                     <div className="image-container original">
