@@ -14,9 +14,9 @@ function Footer() {
             <div className="footer-navbar">
 
                 <h3 className="footer-share">Share</h3>
-                <h3>Facebook</h3>
-                <h3>Twitter (X)</h3>
-                <h3>LinkedIn</h3>
+                <h3 className="footer-social">Facebook</h3>
+                <h3 className="footer-social">Twitter (X)</h3>
+                <h3 className="footer-social">LinkedIn</h3>
 
             </div>
         </>

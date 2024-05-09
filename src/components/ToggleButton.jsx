@@ -12,11 +12,12 @@ function ToggleButton() {
         setIsLightMode(!isLightMode)
   
         const root = document.getElementById("root")
-        // const root = document.querySelector(".container")
 
         const headerContainer = document.querySelector(".header-container")
         const mainContainer = document.querySelector(".main-container")
         const authors = document.querySelector(".authors")
+
+        // const backgroundSvg = document.querySelectorAll(".background-svg")
   
         if (isLightMode) {
           root.classList.add("light-mode")
@@ -29,6 +30,9 @@ function ToggleButton() {
           mainContainer.classList.remove("dark-mode")
 
           authors.style.backgroundColor = "#C1C7D7"
+
+          // backgroundSvg.classList.add("light-mode")
+          // backgroundSvg.classList.remove("dark-mode")
        } else {
             root.classList.add("dark-mode")
             root.classList.remove("light-mode")
@@ -40,6 +44,9 @@ function ToggleButton() {
             mainContainer.classList.remove("light-mode")
 
             authors.style.backgroundColor = "#575757"
+
+            // backgroundSvg.classList.add("dark-mode")
+            // backgroundSvg.classList.remove("light-mode")
        }
       }
 
