@@ -1,14 +1,22 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .demo-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    /* align-items: center; */
+    /* align-items: flex-end; */
+    height: 100%;
+    /* width: 100%; */
 }
   
   .tabs {
     display: flex;
     justify-content: space-between;
+    align-self: center;
     margin-top: 2rem;
+    gap: 1.25rem;
   }
   
   .tab {
@@ -37,22 +45,25 @@
   .image-pairs {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    width: 100%;
-  }
-  
-  .image-pair.active {
-    height: 400px;
     /* width: 100%; */
-    width: 400px;
     /* height: 509px;
     width: 728px; */
   }
   
+  .image-pair.active {
+    /* height: 400px; */
+    /* width: 100%; */
+    /* width: 400px; */
+    height: 509px;
+    /* width: 728px; */
+    width: 650px;
+  }
+  
   .image-pair img {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     border-radius: 16px;
   }
 
@@ -64,39 +75,43 @@
 
   .demo-image-one.active,
   .demo-image-two-active {
-    width: 100%;
-    display: block;
+    /* width: 100%; */
+    /* width: 728px; */
+    /* display: block; */
     margin: 0;
     position: absolute;
-    left: 0%;
+    right: 0%;
   }
   
   .demo-image-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     /* position: absolute; */
     position: relative;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     overflow: hidden;
   }
 
   .demo-image-container img {
-    align-self: center;
+    /* align-self: center; */
     position: absolute;
     top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    right: 0;
+    /* height: 100%; */
+    /* width: 100%; */
+    /* width: 728px; */
     /* transition: opacity 0.3s ease; */ /* Smooth transition for opacity change */
     opacity: 0; /* Initially hide all images */
   }
 
   .demo-image-container img.active {
     opacity: 1; /* Show active image */
+    /* width: 728px; */
+    width: 650px;
   }
 
   .demo-image-dragger-container {

@@ -43,7 +43,7 @@ function ImagePair({ active, imagePaths }) {
         />
       </div>
     </div>
-  );
+  )
 }
 
 export default ImagePair
