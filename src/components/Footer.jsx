@@ -11,9 +11,9 @@ function Footer() {
         <>
             <h2 className="footer-title">{getDynamicYear()} &copy; Image Upscaler</h2>
 
-            <div className="navbar">
+            <div className="footer-navbar">
 
-                <h3>Share</h3>
+                <h3 className="footer-share">Share</h3>
                 <h3>Facebook</h3>
                 <h3>Twitter (X)</h3>
                 <h3>LinkedIn</h3>

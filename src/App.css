@@ -140,7 +140,8 @@ body {
   margin-right: 0.75em;
 }
 
-.navbar {
+.navbar,
+.footer-navbar {
   display: flex;
   align-items: center;
   justify-content: space-around;

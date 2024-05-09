@@ -84,6 +84,15 @@ body {
 
 /* Typography */
 
+.navbar h3,
+.footer-title,
+.footer-navbar h3 {
+  /* font-size: 0.875rem; */ /* 14px */
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 130%;
+}
+
 .title,
 .title-description,
 .how-it-works-title,
@@ -114,6 +123,10 @@ body {
   line-height: 160%;
   /* width: 360px; */
   margin-right: 178px;
+}
+
+.footer-navbar h3:nth-of-type(1) {
+  font-weight: 700;
 }
 
 .bold {
@@ -276,6 +289,16 @@ button {
 
 /* @media (width <= 600px) */
 @media (max-width: 600px) {
+  /* Typography */
+
+  .main-left p,
+  .how-it-works-left p,
+  .authors-left p {
+    margin-right: 0;
+    width: 360px;
+  }
+
+  /* Layout */
   body {
     flex-direction: column;
     width: 100%;
@@ -348,7 +371,7 @@ button {
 
   .how-it-works-left,
   .authors-left {
-  align-items: center;
+    align-items: center;
   /* text-align: center; */
   }
 
