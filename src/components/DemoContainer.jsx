@@ -20,10 +20,14 @@ function DemoContainer() {
 
   // Array of image paths for each tab
   const imagePaths = [
-    [DemoImageCat, Sunset], // Tab 1
+    // [DemoImageCat, Sunset], // Tab 1
+    // [Coffee, CoffeeLaptop], // tab 2
+    // [Spring, Succulent],   
+    // [NatureLover, SustainableStay]
+    [DemoImageCat, DemoImageCat], // Tab 1
     [Coffee, CoffeeLaptop], // tab 2
-    [Spring, Succulent],   
-    [NatureLover, SustainableStay]
+    [Spring, Spring],   
+    [SustainableStay, SustainableStay]
     // Add more image pairs for other tabs as needed
   ];
 
