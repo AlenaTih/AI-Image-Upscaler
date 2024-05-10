@@ -419,6 +419,7 @@ button {
   .how-it-works-left,
   .authors-left {
     align-items: center;
+    justify-content: center;
   /* text-align: center; */
   }
 
