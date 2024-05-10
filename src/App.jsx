@@ -166,6 +166,7 @@ useEffect(() => {
         })
       }).catch(error => {
         console.error('Error upscaling image:', error)
+        alert('Error upscaling image:', error)
         setIsProgressBarVisible(false) // Hide progress bar in case of error
       }) .finally(() => {
         setIsProgressBarVisible(false)
