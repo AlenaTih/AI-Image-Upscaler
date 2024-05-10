@@ -90,6 +90,8 @@ function App() {
     console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
 
+    alert(file.name)
+
     console.log(file.name.split(".")[1])
     const newOriginalFormat = file.name.split(".")[1]
 
