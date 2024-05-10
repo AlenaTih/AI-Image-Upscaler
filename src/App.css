@@ -100,7 +100,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem 0 0;
+  padding: 1.5rem 0 0;
 }
 
 .header-container,
@@ -118,7 +118,7 @@ body {
 
 .header-container {
   justify-content: space-between;
-  padding: 2rem;
+  padding: 3rem 4rem 0;
   margin-top: 2rem;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -127,8 +127,7 @@ body {
 .main-container {
   flex-direction: column;
   /* gap: 2rem; */
-  padding: 2rem 6.5rem;
-  margin: 0 4.5rem;
+  padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
@@ -139,7 +138,9 @@ body {
 }
 
 .logo-image {
-  margin-right: 0.75em;
+  height: 44px;
+  width: 43px;
+  margin-right: 0.75rem;
 }
 
 .navbar,
@@ -162,7 +163,7 @@ body {
 .buttons-section {
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
   margin-top: 2.5rem;
   border-top: 1px solid #C1C7D7;
 }
@@ -363,7 +364,9 @@ input[type="range"]::-webkit-slider-thumb:active {
   border-radius: 12px;
 }
 
-.dropzone-image i {
+.dropzone-image i,
+.fa-file {
+  color: var(--text-color-light);
   font-size: 2.5rem;
 }
 
@@ -541,30 +544,53 @@ button {
   color: var(--text-color-light);
   background-color: var(--background-color-light);
   font-family: inherit;
-  font-size: 1.125rem; /* 18px */
-  padding: 0.75rem; /* 12px */
+  font-size: 1rem;
+  /* padding: 0.75rem; */
+  padding: 16px 17px;
+  transition: 0.2s;
   margin-right: 1.5rem;
   border: 1px solid #C1C7D7;
   border-radius: 6px;
 }
 
 .delete-button:hover {
+  font-size: 1rem;
+  padding: 16px 17px;
   outline: 1px solid #2A303C;
   box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .delete-button:focus {
+  font-size: 1rem;
+  padding: 16px 17px;
   outline: 1px solid #2A303C;
 }
 
 .delete-button:active {
+  font-size: 0.875rem; /* 14px */
+  padding: 17px 18px;
   outline: 1px solid #2A303C;
   box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .delete-button:disabled {
+  font-size: 1rem;
+  padding: 16px 17px;
   color: #C1C7D7;
-  outline: 1px solid #C1C7D7;
+  border: 1px solid #C1C7D7;
+}
+
+.delete-button-disabled {
+  color: #C1C7D7;
+  font-family: inherit;
+  background-color: var(--background-color-light);
+  /* font-size: 1.125rem;
+  padding: 0.75rem; */
+  font-size: 1rem;
+  padding: 16px 17px;
+  margin-right: 1.5rem;
+  border: 1px solid #C1C7D7;
+  border-radius: 6px;
 }
 
 
@@ -574,6 +600,7 @@ button {
   background-color: #3392FF;
   font-size: 0.875rem; /* 14px */
   padding: 1.125rem 2rem; /* 18px 32px */
+  transition: 0.2s;
   margin-left: 0;
   border: none;
   border-radius: 6px;
@@ -593,12 +620,25 @@ button {
 
 .upscale-button:active {
   background-color: #1A85FF;
+  padding: 1rem 1.875rem; /* 16px 30px */
   box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .upscale-button:disabled {
   color: var(--text-color-light);
+  padding: 1.125rem 2.1rem; /* 18px 33.6px */
   background-color: #E0E3EB;
+}
+
+.upscale-button-disabled {
+  color: var(--text-color-light);
+  font-family: inherit;
+  background-color: #E0E3EB;
+  font-size: 0.875rem; /* 14px */
+  padding: 1.125rem 2.1rem; /* 18px 33.6px */
+  margin-left: 0;
+  border: none;
+  border-radius: 6px;
 }
 
 
@@ -608,6 +648,7 @@ button {
   background-color: #3392FF;
   font-size: 0.875rem; /* 14px */
   padding: 1.125rem 1.5rem; /* 18px 24px */
+  transition: 0.2s;
   margin: 0;
   border: none;
   border-right: 1px solid #005FCC;
@@ -626,10 +667,12 @@ button {
 
 .download-button:active {
   background-color: #1A85FF;
+  padding: 1rem 1.375rem; /* 16px 22px */
 }
 
 .download-button:disabled {
   color: var(--text-color-light);
+  padding: 1.125rem 1.625rem; /* 18px 26px */
   background-color: #E0E3EB;
   border-right: 1px solid #C1C7D7;
 }
@@ -640,7 +683,8 @@ button {
   font-family: inherit;
   background-color: #3392FF;
   font-size: 0.875rem; /* 14px */
-  padding: 1.125rem 1.5rem; /* 18px 24px */
+  padding: 1.125rem 0.75rem; /* 18px 12px */
+  transition: 0.2s;
   border: none;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -657,6 +701,7 @@ button {
 
 .arrow-button:active {
   background-color: #1A85FF;
+  padding: 1rem 0.625rem; /* 16px 10px */
 }
 
 .arrow-button:disabled {

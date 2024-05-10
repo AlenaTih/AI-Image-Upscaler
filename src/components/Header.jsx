@@ -8,7 +8,7 @@ function Header() {
         <>
             <div className="logo-container">
                 <img className="logo-image" src={Logo}></img>
-                <h2>Image Upscaler</h2>
+                <h2 className="logo-text">Image Upscaler</h2>
             </div>
 
             <div className="navbar">

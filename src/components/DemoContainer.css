@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     /* align-items: center; */
+    justify-content: center;
     /* align-items: flex-end; */
     height: 100%;
     /* width: 100%; */
@@ -14,9 +15,9 @@
   .tabs {
     display: flex;
     justify-content: space-between;
-    align-self: center;
-    margin-top: 2rem;
-    gap: 1.25rem;
+    /* align-self: center; */
+    align-self: flex-start;
+    margin-top: 1.5rem;
   }
   
   .tab {
@@ -27,7 +28,7 @@
     height: 73px;
     /* width: 100%; */
     width: 106px;
-    margin-right: 10px;
+    margin-right: 1rem;
     border-radius: 4px;
     cursor: pointer;
   }
@@ -35,6 +36,7 @@
   .tab img {
     height: 100%;
     width: 100%;
+    border-radius: 4px;
   }
   
   .tab.active {

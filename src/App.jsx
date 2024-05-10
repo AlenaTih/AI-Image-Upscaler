@@ -356,8 +356,8 @@ const downloadCallback = () => {
           <header className="header">
 
             <svg className="background-svg" width="100%" height="100%">
-              <pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-                <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#000"></circle>
+              <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
               </pattern>
               <rect  id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
             </svg>
@@ -373,8 +373,8 @@ const downloadCallback = () => {
           <main className="main">
 
             <svg className="background-svg" width="100%" height="100%">
-              <pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-                <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#000"></circle>
+              <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
               </pattern>
               <rect  id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
             </svg>
@@ -557,6 +557,24 @@ const downloadCallback = () => {
 
               <div className="buttons-container-right">
 
+              <div className="delete-upscale-buttons-container">
+
+                  {!src && !isUpscaleClicked && (
+                    <button className="delete-button-disabled">
+                      {/* <FontAwesomeIcon icon="fa-regular fa-trash-can" /> */}
+                      <i className="fa-regular fa-trash-can"></i>
+                    </button>
+                  )}
+
+                      {!src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
+                        // and upscale button is not clicked
+                          <div>
+                            <button className="upscale-button-disabled">Upscale image</button>
+                          </div>
+                        )}
+
+                </div>
+
                 <div className="delete-upscale-buttons-container">
 
                   {src && !isUpscaleClicked && (
@@ -644,7 +662,7 @@ const downloadCallback = () => {
             </div>
 
             <div className="how-it-works-right">
-              <p>Upscaled images are here</p>
+              {/* <p>Upscaled images are here</p> */}
               {/* <img className="demo-image-cat" src={DemoImageCat}></img> */}
               <DemoContainer />
 

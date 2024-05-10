@@ -84,6 +84,19 @@ body {
 
 /* Typography */
 
+.logo-title,
+.title,
+.title-description,
+.how-it-works-title,
+.authors-title {
+  font-family: var(--font-family-primary);
+}
+
+.logo-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
 .navbar h3,
 .footer-title,
 .footer-navbar h3 {
@@ -94,15 +107,12 @@ body {
 }
 
 .navbar h3 {
-  color: var(--text-color-light);
+  /* color: var(--text-color-light); */
   text-decoration: underline;
 }
 
-.title,
-.title-description,
-.how-it-works-title,
-.authors-title {
-  font-family: var(--font-family-primary);
+.navbar a {
+  color: inherit;
 }
 
 .title {
@@ -110,6 +120,7 @@ body {
   color: var(--text-color);
   background-color: #FF4D4D;
   padding: 0.2em 0.625em; /* 3.2px, 10px */
+  margin-bottom: 0;
   border-radius: 4px;
 }
 
@@ -122,12 +133,21 @@ body {
   line-height: 130%;
 }
 
+.title-description {
+  margin: 1.75rem 0 2.5rem; /* 28px 0 40px */
+}
+
+.how-it-works-title,
+.authors-title {
+  margin-bottom: 2.5rem;
+}
+
 .main-left p,
 .how-it-works-left p,
 .authors-left p {
   line-height: 160%;
   /* width: 360px; */
-  margin-right: 178px;
+  margin: 0 178px 0 0;
 }
 
 .footer-navbar .footer-share {
@@ -138,6 +158,7 @@ body {
 .footer-social {
   text-decoration: underline;
   margin-left: 1rem;
+  cursor: pointer;
 }
 
 .bold {
@@ -171,20 +192,12 @@ body {
   /* position: relative; */
 }
 
-/* .header,
-.main,
-.authors, */
-/* .how-it-works, */
 .footer {
   display: flex;
-  /* color: var(--text-color); */
-  /* background-color: var(--background-color); */
-  /* background-color: var(--background-color-light); */
   width: 100%;
-  padding: 2rem 4.5rem;
-  margin: 2rem 4.5rem;
-  /* border: 2px solid #242424; */
-  /* border-radius: 16px; */
+  padding: 3.75rem 8.5rem; /* 60px 136px */
+  /* margin: 2rem 4.5rem; */
+  margin: 0;
 }
 
 /* .main, */
@@ -193,7 +206,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 3.5rem 11rem 4.5rem;
+  /* padding: 3.5rem 12.3rem 4.5rem; */
   margin: 0 auto;
 }
 
@@ -226,12 +239,13 @@ body {
 }
 
 .how-it-works {
-  padding-bottom: 5.5rem;
+  padding: 2.5rem 12.3rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
 }
 
 .authors {
   background-color: #C1C7D7;
-  /* background-color: #575757; */
+  /* background-color: #F5F5F7; — almost matches the background color*/
+  padding: 5.125rem 12.3rem 7rem; /* 82px 196.8px 112px (4.5rem — 72px) */
   margin: 0 4.5rem;
 }
 
