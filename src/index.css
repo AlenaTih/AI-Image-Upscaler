@@ -340,13 +340,12 @@ button {
 
   /* Layout */
 
-  /* .app {
-    padding: 2rem;
-  } */
+  .app,
+  .container {
+    height: 100%;
+    width: 100%;
+  }
 
-  /* .header,
-  .main, */
-  /* .main-left-and-right-container, */
   .how-it-works,
   .authors,
   .footer {
