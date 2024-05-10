@@ -121,6 +121,7 @@ function App() {
       }
       catch (error) {
         console.error("Error uploading a file:", error)
+        alert("Error uploading a file:", error)
       }
     }
     fr.readAsDataURL(file)
