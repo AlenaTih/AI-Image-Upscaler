@@ -152,7 +152,7 @@ useEffect(() => {
 
       upscaler.upscale(img, {
         // output: 'tensor',
-        // progressOutput: 'base64',
+        progressOutput: 'base64',
         onProgress: (percentage) => setProgress(percentage),
       }).then((upscaledSrc) => {
         setUpscaledImageSrc(upscaledSrc)
@@ -214,7 +214,7 @@ useEffect(() => {
     const x = e.clientX - container.current.getBoundingClientRect().left
     setTimeout(() => {
       setDragX(x / offsetWidth)
-    }, 1000)
+    }, 100)
   
     }
   }
