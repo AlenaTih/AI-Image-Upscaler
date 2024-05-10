@@ -5,7 +5,7 @@ import './index.css'
 
   function Main() {
     return (
-      <div className="app" id="app">
+      <div className="app">
         <App />
       </div>
     )
