@@ -392,6 +392,7 @@ button {
   .how-it-works,
   .authors {
     flex-direction: column;
+    align-items: center;
   }
 
   .main-right,
