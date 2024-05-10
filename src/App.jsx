@@ -212,8 +212,11 @@ useEffect(() => {
     if (dragging) {
     const offsetWidth = container.current.offsetWidth
     // const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
-    const x = e.clientX - container.current.getBoundingClientRect().left
-    setDragX(x / offsetWidth)
+    setTimeout(() => {
+      const x = e.clientX - container.current.getBoundingClientRect().left
+      setDragX(x / offsetWidth)
+    }, 1000)
+    
 
     }
   }
