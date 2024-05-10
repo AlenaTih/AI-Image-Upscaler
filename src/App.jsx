@@ -142,7 +142,8 @@ useEffect(() => {
     }
 
     const img = new Image()
-    img.crossOrigin = "anonymous"
+    // img.crossOrigin = "anonymous"
+    img.crossOrigin = "use-credentials"
     img.src = src
     img.onload = async () => {
       if (img.height > 1000 || img.width > 1000) {
