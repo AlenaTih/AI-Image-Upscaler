@@ -404,13 +404,13 @@ const downloadCallback = () => {
 
                   <div className="dropzone-input">
                     {/* <input type="file" accept=".jpg, .png" accept="image/*" {...getInputProps()} /> */}
-                    <input type="file" {...getInputProps()} />
-                    {/* {isDragActive ? (
+                    <input type="file" accept="image/*" {...getInputProps()} />
+                    {isDragActive ? (
                       <p>Drop the files here ...</p>
-                    ) : ( */}
-                      {/* <p>Drag 'n' drop some files here, or click to select files</p> */}
+                    ) : (
+                      // <p>Drag 'n' drop some files here, or click to select files</p>
                       <p><span className="bold">Click or drop</span> image here</p>
-                    {/* )} */}
+                    )}
                     <p className="image-requirement">JPG / PNG format, up to 5 MB</p>
                   </div>
                   
