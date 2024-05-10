@@ -19,6 +19,8 @@
   /* --text-color-light: #213547; */
   --text-color-light: #2A303C;
   --background-color-light: whitesmoke;
+
+    min-height: 100%;
 }
 
 #root {

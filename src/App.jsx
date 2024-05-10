@@ -81,7 +81,6 @@ function App() {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
   const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   
 
@@ -403,6 +402,7 @@ const downloadCallback = () => {
                   </div>
 
                   <div className="dropzone-input">
+                    {/* <input type="file" accept=".jpg, .png" {...getInputProps()} /> */}
                     <input type="file" accept=".jpg, .png" {...getInputProps()} />
                     {isDragActive ? (
                       <p>Drop the files here ...</p>
