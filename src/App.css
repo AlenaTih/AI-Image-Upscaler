@@ -461,6 +461,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   height: 12px;
   width: 40px;
   margin-top: 250px;
+  /* margin-top: 30%; */
   border: 12px solid #3392FF;
   border-radius: 50%;
   cursor: pointer;

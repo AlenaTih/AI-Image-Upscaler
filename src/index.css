@@ -328,7 +328,7 @@ button {
   .main-left p,
   .how-it-works-left p,
   .authors-left p {
-    margin-right: 0;
+    margin: 0 0 2.5rem 0;
     width: 360px;
   }
 
@@ -385,7 +385,7 @@ button {
 
   .how-it-works,
   .authors {
-    padding-bottom: 4.5rem;
+    padding-bottom: 7.5rem; /* 120px */
   }
 
   .main-left-and-right-container,
@@ -401,6 +401,18 @@ button {
   .how-it-works-right,
   .how-it-works-left {
     width: 100%;
+  }
+
+  .buttons-container-right {
+    margin-left: 2.5rem;
+  }
+
+  .how-it-works-right {
+    align-items: center;
+  }
+
+  .tabs {
+    align-self: center;
   }
 
   .main-left,
