@@ -403,8 +403,8 @@ const downloadCallback = () => {
                   </div>
 
                   <div className="dropzone-input">
-                    {/* <input type="file" accept=".jpg, .png" {...getInputProps()} /> */}
-                    <input type="file" accept="image/*" {...getInputProps()} />
+                    {/* <input type="file" accept=".jpg, .png" accept="image/*" {...getInputProps()} /> */}
+                    <input type="file" {...getInputProps()} />
                     {isDragActive ? (
                       <p>Drop the files here ...</p>
                     ) : (
