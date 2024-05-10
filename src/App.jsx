@@ -152,7 +152,7 @@ useEffect(() => {
 
       upscaler.upscale(img, {
         // output: 'tensor',
-        progressOutput: 'base64',
+        // progressOutput: 'base64',
         onProgress: (percentage) => setProgress(percentage),
       }).then((upscaledSrc) => {
         setUpscaledImageSrc(upscaledSrc)
