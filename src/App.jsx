@@ -116,8 +116,10 @@ function App() {
     const fr = new FileReader()
     fr.onload = async () => {
       try {
-        // throw (Error("I'm an error"))
-        setSrc(fr.result)
+        await new Promise((resolve, reject) => {
+          setSrc(fr.result)
+          resolve()
+        })
       }
       catch (error) {
         console.error("Error uploading a file:", error)
@@ -142,7 +144,7 @@ useEffect(() => {
     const img = new Image()
     img.crossOrigin = "anonymous"
     img.src = src
-    img.onload = () => {
+    img.onload = async () => {
       if (img.height > 1000 || img.width > 1000) {
         alert("Image dimensions should not exceed 1000px")
         return
@@ -150,11 +152,12 @@ useEffect(() => {
 
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
 
-      upscaler.upscale(img, {
-        // output: 'tensor',
-        // progressOutput: 'base64',
-        onProgress: (percentage) => setProgress(percentage),
-      }).then((upscaledSrc) => {
+      try {
+        const upscaledSrc = await upscaler.upscale(img, {
+          // output: 'tensor',
+          // progressOutput: 'base64',
+          onProgress: (percentage) => setProgress(percentage),
+        })
         setUpscaledImageSrc(upscaledSrc)
         setIsLoaderVisible(false)
         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
@@ -164,13 +167,12 @@ useEffect(() => {
           width,
           height,
         })
-      }).catch(error => {
+      } catch (error) {
         console.error('Error upscaling image:', error)
         alert('Error upscaling image:', error)
-        setIsProgressBarVisible(false) // Hide progress bar in case of error
-      }) .finally(() => {
+      } finally {
         setIsProgressBarVisible(false)
-      })
+      }
     }
   }
 }, [src])
