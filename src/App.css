@@ -755,7 +755,7 @@ button {
 }
 
 
-/* Media queries */
+/* Media queries for mobile screens */
 
 /* @media (width <= 600px) */
 @media (max-width: 600px) {
@@ -769,20 +769,19 @@ button {
   }
 
   /* Layout */
-  body {
-    flex-direction: column;
+
+  .app,
+  .container {
+    height: 100%;
     width: 100%;
   }
 
-  /* Layout */
+  body {
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+  }
 
-  /* .app {
-    padding: 2rem;
-  } */
-
-  /* .header,
-  .main, */
-  /* .main-left-and-right-container, */
   .how-it-works,
   .authors,
   .footer {

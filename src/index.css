@@ -333,16 +333,15 @@ button {
   }
 
   /* Layout */
-  body {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  /* Layout */
 
   .app,
   .container {
     height: 100%;
+    width: 100%;
+  }
+
+  body {
+    flex-direction: column;
     width: 100%;
   }
 
