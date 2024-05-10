@@ -120,7 +120,6 @@ function App() {
       try {
         // throw (Error("I'm an error"))
         setSrc(fr.result)
-        setIsLoaderVisible(false)
       }
       catch (error) {
         console.error("Error uploading a file:", error)
