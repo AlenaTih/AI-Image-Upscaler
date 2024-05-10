@@ -462,10 +462,13 @@ const downloadCallback = () => {
                         ref={container}
                         onMouseMove={drag}
                         onMouseUp={stopDragging}
+                        // onTouchMove={drag}
+                        // onTouchEnd={stopDragging}
                       >
                         <div
                           className="dragger"
                           onMouseDown={startDragging}
+                          // onTouchStart={startDragging}
                           style={{
                             left: `calc(${left}%)`,
                           }}
