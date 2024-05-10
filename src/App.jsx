@@ -153,11 +153,12 @@ useEffect(() => {
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
 
       try {
-        const upscaledSrc = await upscaler.upscale(img, {
+        const upscaledSrc = await upscaler.upscale(img) 
+          // {
           // output: 'tensor',
           // progressOutput: 'base64',
-          onProgress: (percentage) => setProgress(percentage),
-        })
+          // onProgress: (percentage) => setProgress(percentage),
+        // })
         setUpscaledImageSrc(upscaledSrc)
         setIsLoaderVisible(false)
         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
