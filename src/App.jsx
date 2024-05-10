@@ -109,6 +109,8 @@ function App() {
 
     setIsLoaderVisible(true)
 
+    alert (`File name: ${newFileName}`)
+
     setFileName(newFileName)
 
     setOriginalFormat(newOriginalFormat)
