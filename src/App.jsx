@@ -170,7 +170,8 @@ useEffect(() => {
         })
       } catch (error) {
         console.error('Error upscaling image:', error)
-        alert('Error upscaling image:', error)
+        const someError = error
+        alert('Error upscaling image:', someError)
       } finally {
         setIsProgressBarVisible(false)
       }
