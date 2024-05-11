@@ -84,94 +84,52 @@ function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   
 
-  // const onDrop = useCallback((acceptedFiles) => {
-  //   // setIsLoaderVisible(true)
-  //   const file = acceptedFiles[0]
-  //   console.log(file.name.split(".")[0])
-  //   const newFileName = file.name.split(".")[0]
-
-  //   console.log(file.name.split(".")[1])
-  //   const newOriginalFormat = file.name.split(".")[1]
-
-  //   if (file.type !== "image/jpeg" && file.type !== "image/png") {
-  //     alert("Please upload only jpg or png files!")
-  //     return
-  //   }
-
-  //   if (file.size > 5 * 1024 * 1024) {
-  //     alert("File size exceeds 5 MB limit")
-  //     return
-  //   }
-
-  //   if (selectedForDeletion) {
-  //     return
-  //   }
-
-  //   setIsLoaderVisible(true)
-
-  //   setFileName(newFileName)
-
-  //   setOriginalFormat(newOriginalFormat)
-
-  //   const fr = new FileReader()
-  //   fr.onload = async () => {
-  //     try {
-  //       await new Promise((resolve, reject) => {
-  //         setSrc(fr.result)
-  //         resolve()
-  //       })
-  //     }
-  //     catch (error) {
-  //       console.error("Error uploading a file:", error)
-  //       alert("Error uploading a file:", error)
-  //     }
-  //   }
-  //   fr.readAsDataURL(file)
-
-  // }, [])
-
-
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
     console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
-  
+
     console.log(file.name.split(".")[1])
     const newOriginalFormat = file.name.split(".")[1]
-  
+
     if (file.type !== "image/jpeg" && file.type !== "image/png") {
       alert("Please upload only jpg or png files!")
       return
     }
-  
+
     if (file.size > 5 * 1024 * 1024) {
       alert("File size exceeds 5 MB limit")
       return
     }
-  
+
     if (selectedForDeletion) {
       return
     }
-  
+
     setIsLoaderVisible(true)
-  
+
     setFileName(newFileName)
-  
+
     setOriginalFormat(newOriginalFormat)
-  
+
     const fr = new FileReader()
-    fr.onload = () => {
+    fr.onload = async () => {
       try {
-        setSrc(fr.result)
-      } catch (error) {
+        await new Promise((resolve, reject) => {
+          setSrc(fr.result)
+          resolve()
+        })
+      }
+      catch (error) {
         console.error("Error uploading a file:", error)
-      } finally {
-        setIsLoaderVisible(false)
+        alert("Error uploading a file:", error)
       }
     }
     fr.readAsDataURL(file)
+
   }, [])
+
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
