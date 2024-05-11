@@ -163,7 +163,7 @@ body {
 }
 
 .buttons-section {
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
   margin-top: 2.5rem;
@@ -173,6 +173,7 @@ body {
 .scaling-slider {
   display: flex;
   align-items: flex-start;
+  margin-top: 3rem;
 }
 
 .level-label {
