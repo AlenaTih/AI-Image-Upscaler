@@ -1,0 +1,238 @@
+{
+  "name": "upscaler",
+  "version": "1.0.0-beta.19",
+  "description": "Enhance Images with Javascript and AI. Increase resolution, retouch, denoise, and more. Open Source, Browser and Node Compatible, MIT License.",
+  "exports": {
+    "./node": {
+      "types": "./dist/node/upscalerjs/src/node/cjs/index.d.ts",
+      "require": "./dist/node/upscalerjs/src/node/cjs/index.js"
+    },
+    "./node-gpu": {
+      "types": "./dist/node-gpu/upscalerjs/src/node-gpu/cjs/index.d.ts",
+      "require": "./dist/node-gpu/upscalerjs/src/node-gpu/cjs/index.js"
+    },
+    ".": {
+      "types": "./dist/browser/esm/upscalerjs/src/browser/esm/index.d.ts",
+      "import": "./dist/browser/esm/upscalerjs/src/browser/esm/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=16.0"
+  },
+  "module": "dist/browser/esm/upscalerjs/src/browser/esm/index.js",
+  "types": "dist/browser/esm/upscalerjs/src/browser/esm/index.d.ts",
+  "umd:main": "dist/browser/umd/upscaler.min.js",
+  "keywords": [
+    "image enhancement",
+    "super resolution",
+    "upscaling",
+    "tensorflow.js",
+    "neural network",
+    "ai",
+    "retouching",
+    "low light",
+    "deblur",
+    "denoise",
+    "dehaze",
+    "derain",
+    "esrgan",
+    "maxim"
+  ],
+  "files": [
+    ".npmrc",
+    "LICENSE",
+    "CHANGELOG.md",
+    "dist/**/*"
+  ],
+  "wireit": {
+    "build": {
+      "command": "pnpm build:node-gpu && pnpm build:node && pnpm build:browser",
+      "files": [
+        "src/**/*.ts",
+        "!src/**/*.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.browser.esm.json",
+        "tsconfig.node.cjs.json",
+        "tsconfig.node-gpu.cjs.json",
+        "tsconfig.browser.umd.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/**"
+      ]
+    },
+    "build:browser": {
+      "command": "pnpm build:browser:esm && pnpm build:browser:umd",
+      "files": [
+        "src/shared/**/*.ts",
+        "src/browser/**/*.ts",
+        "!src/**/*.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.browser.esm.json",
+        "tsconfig.browser.umd.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/browser/**"
+      ]
+    },
+    "build:browser:esm": {
+      "command": "tsc -p ./tsconfig.browser.esm.json --outDir ./dist/browser/esm",
+      "dependencies": [
+        "../../models/default-model:build"
+      ],
+      "files": [
+        "src/shared/**/*.ts",
+        "src/browser/**/*.ts",
+        "!src/**/*.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.browser.esm.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/browser/esm/**"
+      ]
+    },
+    "build:browser:umd": {
+      "command": "pnpm build:browser:umd:tsc && pnpm build:browser:umd:rollup && pnpm build:browser:umd:uglify && rimraf ./dist/browser/tmp",
+      "dependencies": [
+        "../../models/default-model:build"
+      ],
+      "files": [
+        "src/shared/**/*.ts",
+        "src/browser/**/*.ts",
+        "!src/**/*.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.browser.umd.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/browser/umd/**"
+      ]
+    },
+    "build:browser:umd:tsc": {
+      "command": "tsc -p ./tsconfig.browser.umd.json --outDir ./dist/browser/tmp"
+    },
+    "build:browser:umd:rollup": {
+      "command": "rollup -c ./rollup.config.mjs --input ./dist/browser/tmp/upscalerjs/src/browser/umd/index.js --file ./dist/browser/umd/upscaler.js --name Upscaler --format umd"
+    },
+    "build:browser:umd:uglify": {
+      "command": "uglifyjs ./dist/browser/umd/upscaler.js --output ./dist/browser/umd/upscaler.min.js --compress --mangle --source-map"
+    },
+    "build:node": {
+      "command": "tsc -p ./tsconfig.node.cjs.json --outDir ./dist/node",
+      "dependencies": [
+        "../../models/default-model:build"
+      ],
+      "files": [
+        "src/shared/**/*.ts",
+        "src/node/**/*.ts",
+        "!src/**/*.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.node.cjs.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/node/**"
+      ]
+    },
+    "build:node-gpu": {
+      "command": "tsc -p ./tsconfig.node-gpu.cjs.json --outDir ./dist/node-gpu",
+      "dependencies": [
+        "../../models/default-model:build"
+      ],
+      "files": [
+        "src/shared/**/*.ts",
+        "src/node/**/*.ts",
+        "src/node-gpu/**/*.ts",
+        "!src/**/*.test.ts",
+        "package.json",
+        "vite.config.ts",
+        "tsconfig.node-gpu.cjs.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/node-gpu/**"
+      ]
+    },
+    "preversion": {
+      "command": "pnpm lint"
+    },
+    "prepublishOnly": {
+      "command": "pnpm lint && pnpm test && pnpm build"
+    },
+    "format": {
+      "command": "echo 'Formatting code' && prettier --write \"src/**/*.ts\""
+    },
+    "lint": {
+      "command": "eslint -c .eslintrc.js src --ext .ts"
+    },
+    "test": {
+      "command": "pnpm test:unit:browser:playwright && pnpm test:unit:browser:vite -- --run && pnpm test:unit:node -- --run"
+    },
+    "test:unit:browser:playwright": {
+      "command": "playwright-test --config playwright.config.json"
+    },
+    "test:unit:browser:vite": {
+      "command": "vitest --config vite.browser.ts"
+    },
+    "test:unit:node": {
+      "command": "vitest --config vite.node.ts"
+    },
+    "validate:build": {
+      "command": "pnpm --filter @upscalerjs/scripts validate:build packages/upscalerjs -c './dist/node/upscalerjs/src/node/cjs/index.js' -c './dist/node/upscalerjs/src/node/cjs/index.d.ts' -c './dist/node-gpu/upscalerjs/src/node-gpu/cjs/index.js' -c './dist/node-gpu/upscalerjs/src/node-gpu/cjs/index.d.ts' -c './dist/browser/esm/upscalerjs/src/browser/esm/index.js' -c './dist/browser/esm/upscalerjs/src/browser/esm/index.d.ts' -c './dist/browser/umd/upscaler.js' -c './dist/browser/umd/upscaler.min.js'"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekevinscott/UpscalerJS.git"
+  },
+  "author": "Kevin Scott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thekevinscott/UpscalerJS/issues"
+  },
+  "homepage": "https://github.com/thekevinscott/UpscalerJS#readme",
+  "peerDependencies": {
+    "@tensorflow/tfjs": "~4.11.0"
+  },
+  "dependencies": {
+    "wireit": "^0.14.0",
+    "@upscalerjs/default-model": "1.0.0-beta.17"
+  },
+  "devDependencies": {
+    "@tensorflow/tfjs": "~4.11.0",
+    "@tensorflow/tfjs-core": "~4.11.0",
+    "@tensorflow/tfjs-layers": "~4.11.0",
+    "@tensorflow/tfjs-node": "~4.11.0",
+    "@tensorflow/tfjs-node-gpu": "~4.11.0",
+    "@types/jest": "^29.5.3",
+    "eslint": "8.47.0",
+    "seedrandom": "3.0.5",
+    "vitest": "^0.34.5"
+  },
+  "scripts": {
+    "build": "wireit",
+    "build:browser:esm": "wireit",
+    "build:browser:umd": "wireit",
+    "build:browser:umd:tsc": "wireit",
+    "build:browser:umd:rollup": "wireit",
+    "build:browser:umd:uglify": "wireit",
+    "build:browser": "wireit",
+    "build:node": "wireit",
+    "build:node-gpu": "wireit",
+    "preversion": "wireit",
+    "format": "wireit",
+    "lint": "wireit",
+    "test": "wireit",
+    "test:unit:browser:playwright": "wireit",
+    "test:unit:browser:vite": "wireit",
+    "test:unit:node": "wireit",
+    "validate:build": "wireit"
+  }
+}
