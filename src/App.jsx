@@ -79,7 +79,7 @@ function App() {
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
-  const [progress, setProgress] = useState(0)
+  // const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   
@@ -154,11 +154,11 @@ useEffect(() => {
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
 
       try {
-        const upscaledSrc = await upscaler.upscale(img, {
+        const upscaledSrc = await upscaler.upscale(img)
           // output: 'tensor',
           // progressOutput: 'base64',
-          onProgress: (percentage) => setProgress(percentage),
-        })
+          // onProgress: (percentage) => setProgress(percentage),
+        // })
         setUpscaledImageSrc(upscaledSrc)
         setIsLoaderVisible(false)
         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
@@ -517,7 +517,9 @@ const downloadCallback = () => {
 
                   {isLoaderVisible && (<div className="loader"></div>)}
 
-                  {isProgressBarVisible && <ProgressBar progress={progress} />}
+                  {/* {isProgressBarVisible && <ProgressBar progress={progress} />} */}
+
+                  {isProgressBarVisible && <ProgressBar />}
           
                 </div>
                 </div>
