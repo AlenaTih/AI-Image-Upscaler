@@ -142,7 +142,7 @@ useEffect(() => {
     }
 
     const img = new Image()
-    // img.crossOrigin = "anonymous"
+    img.crossOrigin = "anonymous"
     // img.crossOrigin = "use-credentials"
     img.src = src
     img.onload = async () => {
