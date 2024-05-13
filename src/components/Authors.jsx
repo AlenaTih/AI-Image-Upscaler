@@ -39,7 +39,9 @@ function Authors() {
 
                 <div className="upscaler-link-container">
                   <img className="github-logo" src={GitHubLogo}></img>
-                  <p className="upscaler-description"><span className="bold">UpscalerJS</span> — the library is on GitHub, and you can visit the official website with documentation</p>
+                  <p className="upscaler-description"><span className="bold">UpscalerJS</span> — the library is on
+                  <a href="#"> GitHub</a>, 
+                  and you can visit the <a href="#">official website</a> with documentation</p>
                 </div>
               </div>
 
