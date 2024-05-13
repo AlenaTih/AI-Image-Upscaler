@@ -241,13 +241,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color: #FF99B1; /* All filled, disabled */
 }
 
-.how-it-works,
-.authors {
-  display: flex;
-  /* justify-content: center; */
-  /* gap: 2rem; */
-}
-
 .authors-right,
 .authors-left,
 .how-it-works-left {
@@ -284,12 +277,9 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .authors-right {
+  display: flex;
   align-items: center;
 }
-
-/* .demo-image-cat {
-  width: 100%;
-} */
 
 .how-it-works-left,
 .authors-left {
