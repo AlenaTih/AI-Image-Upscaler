@@ -113,11 +113,6 @@ body {
   /* border: 2px solid #242424; */
 }
 
-/* .header svg,
-.main svg {
-  position: relative;
-} */
-
 .header-container {
   justify-content: space-between;
   padding: 3rem 4rem 0;
