@@ -13,11 +13,17 @@ function ToggleButton() {
   
         const root = document.getElementById("root")
 
+        const backgroundSvgHeader = document.querySelector(".background-svg-header")
+        const backgroundSvgMain = document.querySelector(".background-svg-main")
+
         const headerContainer = document.querySelector(".header-container")
         const mainContainer = document.querySelector(".main-container")
         const authors = document.querySelector(".authors")
 
-        // const backgroundSvg = document.querySelectorAll(".background-svg")
+        const designerContainer = document.querySelector(".designer-container")
+        const frontendDeveloperContainer = document.querySelector(".frontend-developer-container")
+        const backgroundSvgDesigner = document.querySelector(".background-svg-designer")
+        const backgroundSvgFrontend = document.querySelector(".background-svg-frontend")
   
         if (isLightMode) {
           root.classList.add("light-mode")
@@ -29,10 +35,18 @@ function ToggleButton() {
           mainContainer.classList.add("light-mode")
           mainContainer.classList.remove("dark-mode")
 
+          backgroundSvgHeader.style.backgroundColor = "#C1C7D7"
+          backgroundSvgMain.style.backgroundColor = "#C1C7D7"
+
           authors.style.backgroundColor = "#C1C7D7"
 
-          // backgroundSvg.classList.add("light-mode")
-          // backgroundSvg.classList.remove("dark-mode")
+          designerContainer.style.backgroundColor = "whitesmoke"
+          frontendDeveloperContainer.style.backgroundColor = "whitesmoke"
+          backgroundSvgDesigner.style.backgroundColor = "whitesmoke"
+          backgroundSvgFrontend.style.backgroundColor = "whitesmoke"
+
+          // backgroundSvgHeader.classList.add("light-mode")
+          // backgroundSvgMain.classList.remove("dark-mode")
        } else {
             root.classList.add("dark-mode")
             root.classList.remove("light-mode")
@@ -45,8 +59,16 @@ function ToggleButton() {
 
             authors.style.backgroundColor = "#575757"
 
-            // backgroundSvg.classList.add("dark-mode")
-            // backgroundSvg.classList.remove("light-mode")
+            designerContainer.style.backgroundColor = "#2A303C"
+            frontendDeveloperContainer.style.backgroundColor = "#2A303C"
+            backgroundSvgDesigner.style.backgroundColor = "#2A303C"
+            backgroundSvgFrontend.style.backgroundColor = "#2A303C"
+
+            backgroundSvgHeader.style.backgroundColor = "#2A303C"
+            backgroundSvgMain.style.backgroundColor = "#2A303C"
+
+            // backgroundSvgHeader.classList.add("dark-mode")
+            // backgroundSvgMain.classList.remove("light-mode")
        }
       }
 

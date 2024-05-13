@@ -241,7 +241,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color: #FF99B1; /* All filled, disabled */
 }
 
-.authors-right,
 .authors-left,
 .how-it-works-left {
   display: flex;
@@ -276,10 +275,103 @@ input[type="range"]::-webkit-slider-thumb:active {
   border-radius: 16px; */
 }
 
+
 .authors-right {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
 }
+
+.designer-upscaler-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.5rem;
+  width: 352px;
+}
+
+/* TODO Make the designer-container and frontend-developer-container of the same width, but responsive */
+.designer-container,
+.frontend-developer-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color-light);
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+}
+
+.frontend-developer-container {
+  width: 352px;
+}
+
+.author-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-bottom: 1.75rem; /* 28px */
+  position: relative;
+  z-index: 5;
+}
+
+.author-data-container svg {
+  background-color: var(--background-color-light);
+  position: absolute;
+  height: 75%;
+  width: 40%;
+  top: 0;
+  right: 0;
+  z-index: -4;
+  margin-top: -2rem;
+  margin-right: -1.5rem;
+}
+
+.author-image {
+  /* width: 100%; */
+  width: 96px;
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0;
+}
+
+.author-role {
+  margin: 1rem 0 0;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid #C1C7D7;
+}
+
+.upscaler-link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  margin-top: 2.25rem; /* 36px */
+  border: 1px solid var(--text-color-light);
+  border-radius: 0.5rem;
+}
+
+.github-logo {
+  /* width: 100%; */
+  width: 55px;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.upscaler-description {
+  text-align: start;
+}
+
 
 .how-it-works-left,
 .authors-left {
@@ -843,6 +935,20 @@ button {
     align-items: center;
     justify-content: center;
   /* text-align: center; */
+  }
+
+  .authors-right {
+    flex-direction: column;
+    /* width: 80%; */
+  }
+
+  .designer-upscaler-container,
+  .frontend-developer-container {
+    width: 70%;
+  }
+  
+  .frontend-developer-container {
+    margin-top: 2.5rem;
   }
 
   .footer {

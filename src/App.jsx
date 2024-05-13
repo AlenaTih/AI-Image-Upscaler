@@ -361,7 +361,7 @@ const downloadCallback = () => {
 
           <header className="header">
 
-            <svg className="background-svg" width="100%" height="100%">
+            <svg className="background-svg-header" width="100%" height="100%">
               <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
                 <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
               </pattern>
@@ -378,7 +378,7 @@ const downloadCallback = () => {
 
           <main className="main">
 
-            <svg className="background-svg" width="100%" height="100%">
+            <svg className="background-svg-main" width="100%" height="100%">
               <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
                 <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
               </pattern>
