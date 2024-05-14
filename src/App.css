@@ -156,6 +156,7 @@ body {
 
 .header-navbar-links h3,
 .header-navbar-links a {
+  color: inherit;
   margin: 0 0 0 3rem;
 }
 

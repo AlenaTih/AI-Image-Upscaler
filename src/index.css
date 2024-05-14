@@ -93,6 +93,7 @@ body {
 .footer-title,
 .footer-navbar h3,
 .footer-navbar a {
+  color: inherit;
   /* font-size: 0.875rem; */ /* 14px */
   font-size: 1rem;
   font-weight: 400;
