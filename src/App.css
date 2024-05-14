@@ -150,11 +150,13 @@ body {
 
 .header-navbar-links {
   display: flex;
+  align-items: center;
   margin-right: 4rem; /* 64px */
 }
 
-.header-navbar-links h3 {
-  margin-left: 3rem;
+.header-navbar-links h3,
+.header-navbar-links a {
+  margin: 0 0 0 3rem;
 }
 
 .buttons-section {
