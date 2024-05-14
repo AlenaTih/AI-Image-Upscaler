@@ -19,7 +19,6 @@ function Header() {
                     <a href="#authors">Authors</a>
                 </div>
 
-                {/* <button className="toggle-button" onClick={toggleMode}>Toggle Mode</button> */}
                 <ToggleButton />
 
             </div>
