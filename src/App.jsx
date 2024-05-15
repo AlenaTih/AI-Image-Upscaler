@@ -146,10 +146,10 @@ useEffect(() => {
     // img.crossOrigin = "use-credentials"
     img.src = src
     img.onload = async () => {
-      if (img.height > 1000 || img.width > 1000) {
-        alert("Image dimensions should not exceed 1000px")
-        return
-      }
+      // if (img.height > 1000 || img.width > 1000) {
+      //   alert("Image dimensions should not exceed 1000px")
+      //   return
+      // }
 
       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
 
