@@ -155,6 +155,8 @@ useEffect(() => {
 
       try {
         const upscaledSrc = await upscaler.upscale(img, {
+          patchSize: 32,
+          padding: 2,
           // output: 'tensor',
           // progressOutput: 'base64',
           onProgress: (percentage) => setProgress(percentage),
