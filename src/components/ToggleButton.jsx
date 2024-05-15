@@ -57,15 +57,15 @@ function ToggleButton() {
             mainContainer.classList.add("dark-mode")
             mainContainer.classList.remove("light-mode")
 
+            backgroundSvgHeader.style.backgroundColor = "#2A303C"
+            backgroundSvgMain.style.backgroundColor = "#2A303C"
+
             authors.style.backgroundColor = "#575757"
 
             designerContainer.style.backgroundColor = "#2A303C"
             frontendDeveloperContainer.style.backgroundColor = "#2A303C"
             backgroundSvgDesigner.style.backgroundColor = "#2A303C"
             backgroundSvgFrontend.style.backgroundColor = "#2A303C"
-
-            backgroundSvgHeader.style.backgroundColor = "#2A303C"
-            backgroundSvgMain.style.backgroundColor = "#2A303C"
 
             // backgroundSvgHeader.classList.add("dark-mode")
             // backgroundSvgMain.classList.remove("light-mode")
