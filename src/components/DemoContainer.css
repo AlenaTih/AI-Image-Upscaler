@@ -138,4 +138,20 @@
     z-index: 3; /* Increase the z-index value */
     cursor: pointer;
   }
+
+
+  /* Media queries for mobile screen */
+
+/* @media (width <= 600px) */
+/* @media (max-width: 600px) {
+
+  .image-pair.active {
+    height: 100%;
+    width: 100%;
+  }
+
+  .demo-image-container img.active {
+    width: 100%;
+  }
+} */
   

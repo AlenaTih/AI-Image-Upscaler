@@ -123,8 +123,12 @@ body {
 .authors-title {
   font-size: 2.5rem;
   font-weight: 700;
-  width: 360px;
+  /* width: 360px; */
   line-height: 130%;
+}
+
+.title-description {
+  width: 360px;
 }
 
 .title-description {
@@ -324,6 +328,10 @@ button {
     width: 360px;
   }
 
+  .title-description {
+    margin-right: 0;
+  }
+
   /* Layout */
 
   .app,
@@ -391,6 +399,11 @@ button {
   .authors-left,
   .how-it-works-right,
   .how-it-works-left {
+    width: 100%;
+  }
+
+  .main-right {
+    height: 100%;
     width: 100%;
   }
 
