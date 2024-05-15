@@ -4,19 +4,17 @@ import "./ProgressBar.css"
 // function ProgressBar(progress) {
 //     return (
 //         <div className="progress-bar-container">
-//             <div className="progress-bar" style={{ width: `${progress}%`}}>
-//                 <p>{`${progress}%`}</p>
-//             </div>
+//             <div className="progress-bar"></div>
 //             {console.log(progress)}
 //         </div>
 //     )
 // }
 
-function ProgressBar(progress) {
+
+function ProgressBar() {
     return (
         <div className="progress-bar-container">
             <div className="progress-bar"></div>
-            {console.log(progress)}
         </div>
     )
 }

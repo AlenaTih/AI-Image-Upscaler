@@ -79,10 +79,15 @@ function App() {
   const [isUpscaleClicked, setIsUpscaleClicked] = useState(false) // Track whether the upscale button has been clicked
   const [isLoaderVisible, setIsLoaderVisible] = useState(false)
   const [isProgressBarVisible, setIsProgressBarVisible] = useState(false)
-  const [progress, setProgress] = useState(0)
+  // const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   
+
+  upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+    console.log("All warmed up!")
+  })
+
 
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
@@ -155,11 +160,11 @@ useEffect(() => {
 
       try {
         const upscaledSrc = await upscaler.upscale(img, {
-          patchSize: 32,
+          patchSize: 64,
           padding: 2,
           // output: 'tensor',
           // progressOutput: 'base64',
-          onProgress: (percentage) => setProgress(percentage),
+          // onProgress: (percentage) => setProgress(percentage),
         })
         setUpscaledImageSrc(upscaledSrc)
         setIsLoaderVisible(false)
@@ -179,6 +184,58 @@ useEffect(() => {
     }
   }
 }, [src])
+
+
+// useEffect(() => {
+//   if (src) {
+
+//     if (selectedForDeletion) {
+//       return
+//     }
+
+//     const img = new Image()
+//     img.crossOrigin = "anonymous"
+//     // img.crossOrigin = "use-credentials"
+//     img.src = src
+//     img.onload = upscaleUploadedImage
+//   }
+// }, [src])
+
+
+// const upscaleUploadedImage = async () => {
+//   async () => {
+//     // if (img.height > 1000 || img.width > 1000) {
+//     //   alert("Image dimensions should not exceed 1000px")
+//     //   return
+//     // }
+
+//     setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+
+//     try {
+//       const upscaledSrc = await upscaler.upscale(img, {
+//         patchSize: 32,
+//         padding: 2,
+//         // output: 'tensor',
+//         // progressOutput: 'base64',
+//         onProgress: (percentage) => setProgress(percentage),
+//       })
+//       setUpscaledImageSrc(upscaledSrc)
+//       setIsLoaderVisible(false)
+//       setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+//       const width = img.width
+//       const height = img.height
+//       setOriginalSize({
+//         width,
+//         height,
+//       })
+//     } catch (error) {
+//       console.error('Error upscaling image:', error)
+//       alert('Error upscaling image:', error)
+//     } finally {
+//       setIsProgressBarVisible(false)
+//     }
+//   }
+// }
 
 
   useEffect(() => {
@@ -217,10 +274,7 @@ useEffect(() => {
     const offsetWidth = container.current.offsetWidth
     // const x = e.clientX - (window.innerWidth - offsetWidth) / 2 - 10
     const x = e.clientX - container.current.getBoundingClientRect().left
-    setTimeout(() => {
-      setDragX(x / offsetWidth)
-    }, 100)
-  
+    setDragX(x / offsetWidth)
     }
   }
 
@@ -519,7 +573,8 @@ const downloadCallback = () => {
 
                   {isLoaderVisible && (<div className="loader"></div>)}
 
-                  {isProgressBarVisible && <ProgressBar progress={progress} />}
+                  {/* {isProgressBarVisible && <ProgressBar progress={progress} />} */}
+                  {isProgressBarVisible && <ProgressBar />}
           
                 </div>
                 </div>
