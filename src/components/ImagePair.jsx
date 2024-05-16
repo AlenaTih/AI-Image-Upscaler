@@ -46,4 +46,4 @@ function ImagePair({ active, imagePaths }) {
   )
 }
 
-export default ImagePair
+export default ImagePair                    
