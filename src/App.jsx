@@ -153,6 +153,9 @@ useEffect(() => {
     img.onload = async () => {
       if (img.height > 1000 || img.width > 1000) {
         alert("Image dimensions should not exceed 1000px")
+        setIsLoaderVisible(false)
+        setIsProgressBarVisible(false)
+        window.location.reload()
         return
       }
 
