@@ -284,6 +284,26 @@ useEffect(() => {
     setDragging(false)
   }
 
+
+  // Touch event handlers
+const touchStartDragging = () => {
+  setDragging(true)
+}
+
+const touchDrag = (e) => {
+  if (dragging) {
+    const offsetWidth = container.current.offsetWidth
+    const touch = e.touches[0]
+    const x = touch.clientX - container.current.getBoundingClientRect().left
+    setDragX(x / offsetWidth)
+  }
+}
+
+const touchStopDragging = () => {
+  setDragging(false)
+}
+
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen)
   }
@@ -525,13 +545,13 @@ const downloadCallback = () => {
                         ref={container}
                         onMouseMove={drag}
                         onMouseUp={stopDragging}
-                        // onTouchMove={drag}
-                        // onTouchEnd={stopDragging}
+                        onTouchMove={touchDrag}
+                        onTouchEnd={touchStopDragging}
                       >
                         <div
                           className="dragger"
                           onMouseDown={startDragging}
-                          // onTouchStart={startDragging}
+                          onTouchStart={touchStartDragging}
                           style={{
                             left: `calc(${left}%)`,
                           }}
