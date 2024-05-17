@@ -141,26 +141,6 @@
   }
 
 
-  /* Media queries for larger screen */
-
-/* @media (width >= 600px) */
-/* @media (min-width: 600px) {
-
-  .image-pair.active {
-    width: 650px;
-  }
-
-  .demo-image-container img.active {
-    width: 650px;
-  }
-
-  .tab {
-    width: 106px;
-  }
-
-} */
-
-
   /* Media queries for mobile screen */
 
 /* @media (width <= 599px) */
@@ -175,4 +155,24 @@
     width: 100%;
   }
 } */
+
+
+/* Media queries for larger screen */
+
+/* @media (width >= 600px) */
+@media (min-width: 600px) {
+
+  .image-pair.active {
+    width: 650px;
+  }
+
+  .demo-image-container img.active {
+    width: 650px;
+  }
+
+  .tab {
+    width: 106px;
+  }
+
+}
   

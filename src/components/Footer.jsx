@@ -9,7 +9,9 @@ function Footer() {
 
     return (
         <>
-            <h2 className="footer-title">{getDynamicYear()} &copy; Image Upscaler</h2>
+            <div className="footer-title-container">
+                <h2 className="footer-title">{getDynamicYear()} &copy; Image Upscaler</h2>
+            </div>
 
             <div className="footer-navbar">
 
