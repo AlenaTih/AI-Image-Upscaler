@@ -202,7 +202,7 @@ body {
 .footer {
   display: flex;
   width: 100%;
-  padding: 3.75rem 8.5rem; /* 60px 136px */
+  /* padding: 3.75rem 8.5rem; */ /* 60px 136px */
   /* margin: 2rem 4.5rem; */
   margin: 0;
 }
@@ -243,14 +243,14 @@ body {
   z-index: -4;
 }
 
-.how-it-works {
+/* .how-it-works {
   padding: 2.5rem 12.3rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
-}
+/* } */
 
 .authors {
   background-color: #C1C7D7;
   /* background-color: #F5F5F7; — almost matches the root background color*/
-  padding: 5.125rem 12.3rem 7rem; /* 82px 196.8px (7rem — 112px) (4.5rem — 72px) */
+  /* padding: 5.125rem 12.3rem 7rem; */ /* 82px 196.8px (7rem — 112px) (4.5rem — 72px) */
   margin: 0 4.5rem;
 }
 
@@ -324,10 +324,49 @@ button {
   }
 } */
 
+/* Media queries for larger screens */
+
+@media (min-width: 600px) {
+
+  .header-container {
+    padding: 3rem 4rem 0;
+  }
+
+  .main-container {
+    padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
+  }
+
+  .main-right {
+    width: 728px;
+  }
+
+  .buttons-section {
+    padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
+  }
+
+  .how-it-works {
+    padding: 2.5rem 12.3rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
+  }
+
+  .authors {
+    padding: 5.125rem 12.3rem 7rem; /* 82px 196.8px (7rem — 112px) (4.5rem — 72px) */
+  }
+
+  .designer-upscaler-container,
+  .frontend-developer-container {
+    width: 352px;
+  }
+
+  .footer {
+    padding: 3.75rem 8.5rem;
+  }
+  
+}
+
 /* Media queries for mobile screen */
 
-/* @media (width <= 600px) */
-@media (max-width: 600px) {
+/* @media (width <= 599px) */
+@media (max-width: 599px) {
   /* Typography */
 
   .main-left p,

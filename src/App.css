@@ -81,7 +81,8 @@ body {
   /* height: 509px; */
   min-height: 509px;
   height: 100%;
-  width: 728px;
+  /* width: 728px; */
+  width: 100%;
   padding: 0;
   margin: 0;
   border-radius: 16px;
@@ -116,7 +117,7 @@ body {
 
 .header-container {
   justify-content: space-between;
-  padding: 3rem 4rem 0;
+  /* padding: 3rem 4rem 0; */
   margin-top: 2rem;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -125,7 +126,7 @@ body {
 .main-container {
   flex-direction: column;
   /* gap: 2rem; */
-  padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
+  /* padding: 5rem 7.8rem 0; */ /* 80px 124.8px 0 */
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
@@ -164,7 +165,7 @@ body {
 .buttons-section {
   align-items: flex-start;
   justify-content: space-between;
-  padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
+  /* padding: 2rem 0 5.4rem; */ /* 32px 0 86.4px */
   margin-top: 2.5rem;
   border-top: 1px solid #C1C7D7;
 }
@@ -292,7 +293,8 @@ input[type="range"]::-webkit-slider-thumb:active {
   display: flex;
   flex-direction: column;
   margin-right: 1.5rem;
-  width: 352px;
+  /* width: 352px; */
+  width: 100%;
 }
 
 /* TODO Make the designer-container and frontend-developer-container of the same width, but responsive */
@@ -306,7 +308,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .frontend-developer-container {
-  width: 352px;
+  /* width: 352px; */
+  width: 100%;
 }
 
 .author-data-container {
@@ -839,8 +842,8 @@ button {
 
 /* Media queries for mobile screens */
 
-/* @media (width <= 600px) */
-@media (max-width: 600px) {
+/* @media (width <= 599px) */
+@media (max-width: 599px) {
   /* Typography */
 
   .main-left p,

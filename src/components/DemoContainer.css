@@ -61,6 +61,7 @@
     height: 509px;
     /* width: 728px; */
     width: 650px;
+    /* width: 100%; */
   }
   
   .image-pair img {
@@ -140,10 +141,30 @@
   }
 
 
+  /* Media queries for larger screen */
+
+/* @media (width >= 600px) */
+/* @media (min-width: 600px) {
+
+  .image-pair.active {
+    width: 650px;
+  }
+
+  .demo-image-container img.active {
+    width: 650px;
+  }
+
+  .tab {
+    width: 106px;
+  }
+
+} */
+
+
   /* Media queries for mobile screen */
 
-/* @media (width <= 600px) */
-/* @media (max-width: 600px) {
+/* @media (width <= 599px) */
+/* @media (max-width: 599px) {
 
   .image-pair.active {
     height: 100%;
