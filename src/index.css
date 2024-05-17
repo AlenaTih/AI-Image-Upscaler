@@ -137,10 +137,6 @@ body {
 }
 
 .title-description {
-  width: 360px;
-}
-
-.title-description {
   margin: 1.75rem 0 2.5rem; /* 28px 0 40px */
 }
 
@@ -194,7 +190,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   /* border-radius: 16px; */
   /* position: relative; */
 }
@@ -324,45 +320,6 @@ button {
   }
 } */
 
-/* Media queries for larger screens */
-
-@media (min-width: 600px) {
-
-  .header-container {
-    padding: 3rem 4rem 0;
-  }
-
-  .main-container {
-    padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
-  }
-
-  .main-right {
-    width: 728px;
-  }
-
-  .buttons-section {
-    padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
-  }
-
-  .how-it-works {
-    padding: 2.5rem 12.3rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
-  }
-
-  .authors {
-    padding: 5.125rem 12.3rem 7rem; /* 82px 196.8px (7rem — 112px) (4.5rem — 72px) */
-  }
-
-  .designer-upscaler-container,
-  .frontend-developer-container {
-    width: 352px;
-  }
-
-  .footer {
-    padding: 3.75rem 8.5rem;
-  }
-  
-}
-
 /* Media queries for mobile screen */
 
 /* @media (width <= 599px) */
@@ -373,7 +330,7 @@ button {
   .how-it-works-left p,
   .authors-left p {
     margin: 0 0 2.5rem 0;
-    width: 360px;
+    /* width: 360px; */
   }
 
   .title-description {
@@ -496,6 +453,57 @@ button {
     justify-content: space-between;
     /* width: 100%;
     margin: 0 auto; */
+  }
+  
+}
+
+/* Media queries for larger screens */
+
+/* @media (width >= 600px) */
+@media (min-width: 600px) {
+  /* Typography */
+
+  .title-description {
+    width: 360px;
+  }
+
+  /* Layout */
+
+  .header-container {
+    padding: 3rem 4rem 0;
+  }
+
+  .main-container {
+    padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
+  }
+
+  .main-right {
+    width: 728px;
+  }
+
+  .buttons-section {
+    padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
+  }
+
+  .slider-input {
+    width: 184px;
+  }
+
+  .how-it-works {
+    padding: 2.5rem 12.3rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
+  }
+
+  .authors {
+    padding: 5.125rem 12.3rem 7rem; /* 82px 196.8px (7rem — 112px) (4.5rem — 72px) */
+  }
+
+  .designer-upscaler-container,
+  .frontend-developer-container {
+    width: 352px;
+  }
+
+  .footer {
+    padding: 3.75rem 8.5rem;
   }
   
 }
