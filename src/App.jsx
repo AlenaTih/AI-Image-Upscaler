@@ -84,9 +84,12 @@ function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   
 
-  upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+  if (src && !isUpscaleClicked) {
+    upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
     console.log("All warmed up!")
   })
+  }
+  
 
 
   const onDrop = useCallback((acceptedFiles) => {
