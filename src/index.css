@@ -379,9 +379,18 @@ button {
 
   .logo-container,
   .navbar,
-  .footer-title-container
+  .footer-title-container,
   .footer-navbar {
     width: 100%;
+  }
+
+  .navbar,
+  .footer-navbar {
+    justify-content: center;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
   }
 
   .logo-container {
@@ -531,6 +540,11 @@ button {
 
   .footer {
     padding: 3.75rem 8.5rem;
+  }
+
+  .navbar,
+  .footer-navbar {
+    justify-content: flex-end;
   }
   
 }
