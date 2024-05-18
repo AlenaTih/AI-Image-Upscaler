@@ -93,7 +93,8 @@ body {
 
 .main-left {
   text-align: start;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding-left: 0;
   width: 50%;
 }
@@ -267,7 +268,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   padding: 0;
   margin: 0;
 }
-
 
 .authors-right {
   display: flex;
@@ -890,7 +890,7 @@ button {
 
   .header {
     width: 100%;
-    padding: 2rem 2rem 0;
+    padding: 2.5rem 2rem 0;
   }
 
   .header-container {
@@ -912,10 +912,15 @@ button {
 
   .navbar {
     flex-wrap: wrap;
+    margin-top: 2rem;
   }
 
   .logo-container {
     justify-content: center;
+  }
+
+  .header-navbar-links {
+    margin-bottom: 1rem;
   }
 
   .main,
@@ -927,6 +932,10 @@ button {
 
   .main {
     padding: 0 2rem 4.5rem;
+  }
+
+  .main-container {
+    padding-top: 2rem;
   }
 
   .how-it-works,
@@ -1030,6 +1039,10 @@ button {
 
   .main-right {
     width: 728px;
+  }
+
+  .main-left {
+    align-items: flex-start;
   }
 
   .buttons-section {

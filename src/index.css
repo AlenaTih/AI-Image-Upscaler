@@ -366,13 +366,11 @@ button {
   }
 
   .header {
-    justify-content: space-between;
     width: 100%;
-    padding: 2rem 2rem 0;
+    padding: 2.5rem 2rem 0;
   }
 
   .header-container {
-    justify-content: space-between;
     width: 100%;
     margin: 0 auto;
   }
@@ -391,10 +389,15 @@ button {
 
   .navbar {
     flex-wrap: wrap;
+    margin-top: 2rem;
   }
 
   .logo-container {
     justify-content: center;
+  }
+
+  .header-navbar-links {
+    margin-bottom: 1rem;
   }
 
   .main,
@@ -406,6 +409,10 @@ button {
 
   .main {
     padding: 0 2rem 4.5rem;
+  }
+
+  .main-container {
+    padding-top: 2rem;
   }
 
   .how-it-works,
@@ -511,6 +518,10 @@ button {
 
   .main-right {
     width: 728px;
+  }
+
+  .main-left {
+    align-items: flex-start;
   }
 
   .buttons-section {
