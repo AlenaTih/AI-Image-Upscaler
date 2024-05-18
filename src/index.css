@@ -400,6 +400,11 @@ button {
     margin-bottom: 1rem;
   }
 
+  .header-mobile-menu {
+    display: none; /* Block when displayed */
+    margin-right: 2.5rem;
+  }
+
   .main,
   .main-container {
     justify-content: center;

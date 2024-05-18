@@ -4,6 +4,22 @@ import Logo from "../assets/logo.png"
 
 function Header() {
 
+    const checkScreenSize = () => {
+        if (window.innerWidth < 600) {
+            document.querySelector(".header-navbar-links").style.display = "none"
+            document.querySelector(".header-mobile-menu").style.display = "block"
+            
+        } else {
+            document.querySelector(".header-mobile-menu").style.display = "none"
+            document.querySelector(".header-navbar-links").style.display = "flex"
+        }
+    }
+
+    window.addEventListener("load", checkScreenSize)
+    window.addEventListener("resize", checkScreenSize)
+
+    
+
     return (
         <>
             <div className="logo-container">
@@ -13,6 +29,8 @@ function Header() {
 
             <div className="navbar">
 
+                <div className="header-mobile-menu">Burger menu</div>
+                
                 <div className="header-navbar-links">
                     <h3>Upscaler</h3>
                     <a href="#how-it-works">How It Works</a>

@@ -146,6 +146,7 @@ body {
 .header-navbar-links {
   display: flex;
   align-items: center;
+  width: 100%;
   margin-right: 4rem; /* 64px */
 }
 
@@ -916,6 +917,11 @@ button {
 
   .header-navbar-links {
     margin-bottom: 1rem;
+  }
+
+  .header-mobile-menu {
+    display: none; /* Block when displayed */
+    margin-right: 2.5rem;
   }
 
   .main,
