@@ -97,6 +97,7 @@ body {
 .header {
   display: flex;
   align-items: center;
+  height: 100%;
   width: 100%;
   padding: 1.5rem 0 0;
 }
@@ -106,11 +107,12 @@ body {
   display: flex;
   margin: 0 4.5rem;
   width: 100%;
-  /* border: 2px solid #242424; */
+  z-index: 7;
 }
 
 .header-container {
   /* padding: 3rem 4rem 0; */
+  height: 100%;
   margin-top: 2rem;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;

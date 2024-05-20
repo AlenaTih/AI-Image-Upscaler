@@ -5,7 +5,7 @@ function ToggleButton() {
   // Initialize state based on sessionStorage
   const [isLightMode, setIsLightMode] = useState(() => {
     const savedMode = sessionStorage.getItem("isLightMode")
-    return savedMode ? JSON.parse(savedMode) : false // Makes the app light mode by default
+    return savedMode ? JSON.parse(savedMode) : true // Makes the app light mode by default
   })
 
   useEffect(() => {
@@ -30,8 +30,8 @@ function ToggleButton() {
       mainContainer.classList.add("light-mode")
       mainContainer.classList.remove("dark-mode")
 
-      backgroundSvgHeader.style.backgroundColor = "#C1C7D7"
-      backgroundSvgMain.style.backgroundColor = "#C1C7D7"
+      backgroundSvgHeader.style.backgroundColor = "whitesmoke"
+      backgroundSvgMain.style.backgroundColor = "whitesmoke"
 
       authors.style.backgroundColor = "#C1C7D7"
 
@@ -49,8 +49,8 @@ function ToggleButton() {
       mainContainer.classList.add("dark-mode")
       mainContainer.classList.remove("light-mode")
 
-      backgroundSvgHeader.style.backgroundColor = "#2A303C"
-      backgroundSvgMain.style.backgroundColor = "#2A303C"
+      backgroundSvgHeader.style.backgroundColor = "#242424"
+      backgroundSvgMain.style.backgroundColor = "#242424"
 
       authors.style.backgroundColor = "#575757"
 
