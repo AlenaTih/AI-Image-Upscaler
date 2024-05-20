@@ -3,6 +3,8 @@ import "./ToggleButton.css"
 
 function ToggleButton() {
 
+  // Make it so mode doesn't change after reload of the page. Maybe use session storage
+
   // const [isLightMode, setIsLightMode] = useState(true)
 
     const [isLightMode, setIsLightMode] = useState(false) // Makes the app light mode by default
