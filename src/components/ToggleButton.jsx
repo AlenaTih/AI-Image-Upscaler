@@ -81,7 +81,6 @@ function ToggleButton() {
         <input type="checkbox" checked={isLightMode} onChange={toggleMode} />
         <span className="slider">
           <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
-            {/* <path fill="none" d="m4 16.5 8 8 16-16"></path> */}
           </svg>
         </span>
       </label>
@@ -90,5 +89,7 @@ function ToggleButton() {
 }
 
 export default ToggleButton
+
+{/* <path fill="none" d="m4 16.5 8 8 16-16"></path> */}
 
 // https://cssnippets.shefali.dev/toggle
