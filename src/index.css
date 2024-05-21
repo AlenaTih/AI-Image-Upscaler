@@ -160,7 +160,7 @@ body {
 .title-description,
 .how-it-works-title,
 .authors-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   /* width: 360px; */
   line-height: 130%;
@@ -323,6 +323,12 @@ button {
 @media (max-width: 599px) {
   /* Typography */
 
+  .title-description,
+  .how-it-works-title,
+  .authors-title {
+    font-size: 2rem;
+  }
+
   .main-left p,
   .how-it-works-left p,
   .authors-left p {
@@ -377,6 +383,7 @@ button {
 
   .header-container {
     width: 100%;
+    padding-top: 2rem;
     margin: 0 auto;
   }
 
@@ -479,7 +486,7 @@ button {
 
   .designer-upscaler-container,
   .frontend-developer-container {
-    width: 70%;
+    width: 100%;
   }
 
   .frontend-developer-container {
@@ -501,6 +508,10 @@ button {
   .footer-title-container {
     justify-content: center;
   }
+
+  .footer-navbar {
+    margin-top: 1rem;
+  }
   
 }
 
@@ -509,6 +520,12 @@ button {
 /* @media (width >= 600px) */
 @media (min-width: 600px) {
   /* Typography */
+
+  .title-description,
+  .how-it-works-title,
+  .authors-title {
+    font-size: 2.5rem;
+  }
 
   .title-description {
     width: 360px;
@@ -540,6 +557,10 @@ button {
 
   .buttons-section {
     padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
+  }
+
+  .scaling-slider {
+    margin-top: 0;
   }
 
   .slider-input {
