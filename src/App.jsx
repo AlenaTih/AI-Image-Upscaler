@@ -689,7 +689,7 @@ const downloadCallback = () => {
                 {displayUpscaledImageSrc && (
                         <>
 
-                          <p>{scalingFactor}x upscaled using the esrgan-slim model</p>
+                          <p className="upscaled-text">{scalingFactor}x upscaled using the esrgan-slim model</p>
 
                           
 

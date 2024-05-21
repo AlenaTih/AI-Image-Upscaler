@@ -1086,6 +1086,11 @@ button {
     padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
   }
 
+  .delete-download-buttons-container,
+  .upscaled-text {
+    margin-top: 0;
+  }
+
   .scaling-slider {
     margin-top: 0;
   }
