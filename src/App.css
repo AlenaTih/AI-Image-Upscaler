@@ -350,8 +350,12 @@ input[type="range"]::-webkit-slider-thumb:active {
   justify-content: center;
   padding: 1.5rem;
   margin-top: 2.25rem; /* 36px */
-  border: 1px solid var(--text-color-light);
+  border: 2px solid var(--text-color);
   border-radius: 0.5rem;
+}
+
+.upscaler-link-container p {
+  margin-bottom: 0;
 }
 
 .github-logo {
@@ -999,6 +1003,10 @@ button {
   
   .frontend-developer-container {
     margin-top: 2.5rem;
+  }
+
+  .upscaler-link-container {
+    flex-direction: column;
   }
 
   .footer {

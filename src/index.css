@@ -484,6 +484,10 @@ button {
     margin-top: 2.5rem;
   }
 
+  .upscaler-link-container {
+    flex-direction: column;
+  }
+
   .footer {
     display: flex;
     align-self: center;
