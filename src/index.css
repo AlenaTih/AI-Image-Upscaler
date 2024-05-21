@@ -258,6 +258,11 @@ body {
   z-index: -4;
 }
 
+svg #rect {
+  padding: 0;
+  margin: 0;
+}
+
 .header-container,
 .main-container {
   display: flex;
