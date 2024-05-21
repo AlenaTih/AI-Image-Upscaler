@@ -348,13 +348,8 @@ const downloadCallback = () => {
       canvas.width = image.width
       const ctx = canvas.getContext("2d")
       ctx.drawImage(image, 0, 0)
-      // if (imageFormat) {
-        link.href = canvas.toDataURL(`image/${imageFormat}`) // Convert image to selected format
-        link.download = `${fileName}-upscaled.${imageFormat}`
-      // } else {
-      //   link.href = canvas.toDataURL(`image/${originalFormat}`)
-      //   link.download = `${fileName}-upscaled.${originalFormat}`
-      // }
+      link.href = canvas.toDataURL(`image/${imageFormat}`) // Convert image to selected format
+      link.download = `${fileName}-upscaled.${imageFormat}`
       
       document.body.appendChild(link)
       link.click()
@@ -651,20 +646,15 @@ const downloadCallback = () => {
               <div className="buttons-container-right">
 
               <div className="delete-upscale-buttons-container">
-
-                  {!src && !isUpscaleClicked && (
+                 
                     <button className="delete-button-disabled">
                       {/* <FontAwesomeIcon icon="fa-regular fa-trash-can" /> */}
                       <i className="fa-regular fa-trash-can"></i>
                     </button>
-                  )}
-
-                      {!src && !isUpscaleClicked && ( // Render upscale button only if an image is uploaded
-                        // and upscale button is not clicked
-                          <div>
-                            <button className="upscale-button-disabled">Upscale image</button>
-                          </div>
-                        )}
+                     
+                    <div>
+                      <button className="upscale-button-disabled">Upscale image</button>
+                    </div>
 
                 </div>
 
@@ -690,8 +680,6 @@ const downloadCallback = () => {
                         <>
 
                           <p className="upscaled-text">{scalingFactor}x upscaled using the esrgan-slim model</p>
-
-                          
 
                           <div className="delete-download-buttons-container">
 
