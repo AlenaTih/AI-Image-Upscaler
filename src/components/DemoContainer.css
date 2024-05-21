@@ -25,7 +25,7 @@
     background-position: center;
     background-size: cover;
     background-color: #ccc;
-    height: 73px;
+    /* height: 73px; correct version */
     width: 100%;
     /* width: 106px; correct version */
     margin-right: 1rem;
@@ -58,7 +58,7 @@
     /* height: 400px; */
     /* width: 100%; */
     /* width: 400px; */
-    height: 509px;
+    /* height: 509px; correct version */
     /* width: 728px; */
     /* width: 650px; correct version */
     width: 100%;
@@ -144,17 +144,22 @@
   /* Media queries for mobile screen */
 
 /* @media (width <= 599px) */
-/* @media (max-width: 599px) {
+@media (max-width: 599px) {
 
   .image-pair.active {
-    height: 100%;
+    height: 270px;
     width: 100%;
   }
 
-  .demo-image-container img.active {
+  /* .demo-image-container img.active {
+    width: 100%;
+  } */
+
+  .tab {
+    height: 40px;
     width: 100%;
   }
-} */
+}
 
 
 /* Media queries for larger screen */
@@ -163,6 +168,7 @@
 @media (min-width: 600px) {
 
   .image-pair.active {
+    height: 509px;
     width: 650px;
   }
 
@@ -171,6 +177,7 @@
   }
 
   .tab {
+    height: 73px;
     width: 106px;
   }
 
