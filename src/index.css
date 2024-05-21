@@ -326,7 +326,7 @@ button {
   }
 } */
 
-/* Media queries for mobile screen */
+/* Media queries for mobile screens */
 
 /* @media (width <= 599px) */
 @media (max-width: 599px) {
@@ -434,7 +434,7 @@ button {
   }
 
   .main {
-    padding: 0 2rem 4.5rem;
+    padding: 0 2rem 2.5rem;
   }
 
   .main-container {

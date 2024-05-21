@@ -53,7 +53,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0 0 4.5rem;
+  padding: 0 0 2.5rem;
 }
 
 .main-left-and-right-container {
@@ -122,6 +122,7 @@ body {
   flex-direction: column;
   /* gap: 2rem; */
   /* padding: 5rem 7.8rem 0; */ /* 80px 124.8px 0 */
+  /* margin-bottom: 2.5rem; */
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
@@ -947,7 +948,7 @@ button {
   }
 
   .main {
-    padding: 0 2rem 4.5rem;
+    padding: 0 2rem 2.5rem;
   }
 
   .main-container {
