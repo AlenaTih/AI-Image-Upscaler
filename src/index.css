@@ -245,8 +245,8 @@ body {
   z-index: 5;
 }
 
-.header svg,
-.main svg {
+.background-svg-header,
+.background-svg-main {
   background-color: var(--background-color-light);
   position: absolute;
   top: 0;
@@ -258,7 +258,11 @@ body {
   z-index: -4;
 }
 
-svg #rect {
+.background-svg-main {
+  margin-top: -0.3rem;
+}
+
+#rect {
   padding: 0;
   margin: 0;
 }
