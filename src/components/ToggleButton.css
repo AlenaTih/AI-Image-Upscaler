@@ -52,8 +52,10 @@
   
   .toggle svg {
     opacity: 0;
-    height: 18px;
-    width: 18px;
+    /* height: 18px;
+    width: 18px; */
+    height: 0;
+    width: 0;
     stroke-width: 8;
     position: absolute;
     z-index: 999;
