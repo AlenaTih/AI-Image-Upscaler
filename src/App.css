@@ -398,7 +398,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   /* background-color: #F5F5F7; */
   background-color: #C1C7D7;
   height: 100%;
-  height: 509px;
   /* height: 440px; */
   /* height: 100%; */
   width: 100%;
@@ -883,6 +882,7 @@ button {
 
   .dropzone {
     flex-direction: column;
+    padding: 2rem;
   }
 
   .how-it-works,
@@ -1078,6 +1078,10 @@ button {
 
   .main-left {
     align-items: flex-start;
+  }
+
+  .dropzone-container {
+    height: 509px;
   }
 
   .buttons-section {
