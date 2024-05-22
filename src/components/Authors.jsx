@@ -8,9 +8,8 @@ function Authors() {
         <>
             <div className="authors-left">
               <h1 className="authors-title">Authors</h1>
-              <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
-                It uses artificial intelligence that enlarges images without loss of quality, 
-                making them clearer.</p>
+              <p>Great things are built in collaboration. And this is just the beginning! 
+                More awesome features and projects to come!</p>
             </div>
 
             <div className="authors-right">

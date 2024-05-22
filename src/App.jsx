@@ -90,8 +90,7 @@ function App() {
   })
   }
   
-
-
+  
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
@@ -475,9 +474,8 @@ const downloadCallback = () => {
 
                 <h2 className="title">AI tool</h2>
                 <h1 className="title-description">Increase the resolution of your image</h1>
-                <p>Nam viverra scelerisque dignissim. Vestibulum ac libero turpis. 
-                  Proin rutrum ultricies suscipit. Aliquam non aliquet dui, eget accumsan quam. 
-                  Sed eu ornare nibh.</p>
+                <p>AI and JavaScript work together to help you enlarge your images without losing quality. 
+                  You can use it on your phone, or on your computer. A great tool to have on hand!</p>
 
               </div>
 
@@ -748,9 +746,16 @@ const downloadCallback = () => {
           <section className="how-it-works" id="how-it-works">
             <div className="how-it-works-left">
               <h1 className="how-it-works-title">How It Works</h1>
-              <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
+              {/* <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
                 It uses artificial intelligence that enlarges images without loss of quality, 
-                making them clearer.</p>
+                making them clearer.</p> */}
+              <ul className="how-it-works-list">
+                <li>Upload an image</li>
+                <li>Choose the scale you need — 2x, 3x, or 4x</li>
+                <li>Click the "Upscale image" button</li>
+                <li>Get your upscaled image! You can drag the slider left and right to see it before and after, 
+                  and download the upscaled image in "jpg" or "png" format.</li>
+              </ul>
             </div>
 
             <div className="how-it-works-right">

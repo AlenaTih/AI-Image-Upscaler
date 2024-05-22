@@ -177,10 +177,14 @@ body {
 
 .main-left p,
 .how-it-works-left p,
-.authors-left p {
+.authors-left p,
+.how-it-works-list {
   line-height: 160%;
   /* width: 360px; */
-  margin: 0 178px 0 0;
+}
+
+.how-it-works-left li {
+  margin-bottom: 0.5rem;
 }
 
 .footer-navbar .footer-share {
@@ -341,8 +345,12 @@ button {
   .main-left p,
   .how-it-works-left p,
   .authors-left p {
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 2.5rem;
     /* width: 360px; */
+  }
+
+  .how-it-works-list {
+    margin-top: 1.5rem 0 2.5rem;
   }
 
   .title-description {
@@ -538,6 +546,16 @@ button {
 
   .title-description {
     width: 360px;
+  }
+
+  .main-left p,
+  .how-it-works-left p,
+  .authors-left p {
+    margin: 0 178px 0 0;
+  }
+
+  .how-it-works-list {
+    margin: 1.5rem 178px 2.5rem 0;
   }
 
   /* Layout */
