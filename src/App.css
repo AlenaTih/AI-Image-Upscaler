@@ -997,6 +997,10 @@ button {
     align-self: center;
   }
 
+  .how-it-works-list {
+    margin-top: 0;
+  }
+
   .main-left,
   .how-it-works-left,
   .authors-left {

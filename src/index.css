@@ -243,8 +243,8 @@ body {
   /* background-image: url(./assets/dotted-background.svg); */
   /* background-image: url(./assets/polka-dots-background.svg); */
   background-size: auto;
-  margin: 0;
   width: 100%;
+  margin: 0;
   position: relative;
   z-index: 5;
 }
@@ -274,8 +274,8 @@ body {
 .header-container,
 .main-container {
   display: flex;
-  margin: 0 4.5rem;
   width: 100%;
+  margin: 0 4.5rem;
   z-index: 7;
 }
 
