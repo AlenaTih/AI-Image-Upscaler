@@ -847,15 +847,19 @@ button {
     font-size: 2rem;
   }
 
+  .how-it-works-title,
+  .authors-title {
+    margin-bottom: 0;
+  }
+
   .main-left p,
-  .how-it-works-left p,
-  .authors-left p {
+  .how-it-works-left p {
     margin: 0 0 2.5rem;
     /* width: 360px; */
   }
 
-  .how-it-works-list {
-    margin-top: 1.5rem 0 2.5rem;
+  .authors-left p {
+    margin: 1.5rem 0 2.5rem;
   }
 
   .title-description {
@@ -983,6 +987,7 @@ button {
   .main-right {
     height: 100%;
     width: 100%;
+    margin-top: 1.125rem;
   }
  
  .buttons-container-right {
@@ -991,6 +996,7 @@ button {
 
   .how-it-works-right {
     align-items: center;
+    margin-top: 2.25rem;
   }
 
   .tabs {
@@ -998,7 +1004,7 @@ button {
   }
 
   .how-it-works-list {
-    margin-top: 0;
+    margin: 2rem 0 0;
   }
 
   .main-left,
@@ -1009,9 +1015,15 @@ button {
   /* text-align: center; */
   }
 
+  .how-it-works-left,
+  .authors-left {
+    margin-top: 1rem;
+  }
+
   .authors-right {
     flex-direction: column;
     /* width: 80%; */
+    margin-top: 1.125rem;
   }
 
   .designer-upscaler-container,
