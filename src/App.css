@@ -197,16 +197,9 @@ body {
 
 .circle {
   font-size: 0.82rem;
-  /* height: 24px;
-  width: 24px; */
   margin: 5px;
-  /* border-radius: 50%; */
   cursor: pointer;
 }
-
-/* .circle.active {
-  background-color: #FF668A;
-} */
 
 .slider-input {
   /* background: #d3d3d3; */
