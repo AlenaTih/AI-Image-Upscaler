@@ -852,10 +852,8 @@ button {
     margin-bottom: 0;
   }
 
-  .main-left p,
-  .how-it-works-left p {
-    margin: 0 0 2.5rem;
-    /* width: 360px; */
+  .main-left p {
+    margin: 2rem 0 2.5rem;
   }
 
   .authors-left p {
@@ -864,6 +862,7 @@ button {
 
   .title-description {
     margin-right: 0;
+    margin: 1.75rem 0 0;
   }
 
   .footer-title {
