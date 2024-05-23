@@ -18,8 +18,6 @@ function Header() {
     window.addEventListener("load", checkScreenSize)
     window.addEventListener("resize", checkScreenSize)
 
-    
-
     return (
         <>
             <div className="logo-container">
