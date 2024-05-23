@@ -858,7 +858,6 @@ button {
   }
 
   .title-description {
-    margin-right: 0;
     margin: 1.75rem 0 0;
   }
 
@@ -867,7 +866,6 @@ button {
     align-self: center;
     justify-content: center;
     width: 100%;
-    /* margin-left: 50%; */
   }
 
   /* Layout */
