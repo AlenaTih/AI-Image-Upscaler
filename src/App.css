@@ -894,10 +894,8 @@ button {
   }
 
   .how-it-works,
-  .authors,
-  .footer {
+  .authors {
     width: 100%;
-    /* padding: 1.125rem; */
     padding: 2.5rem;
   }
 
@@ -1046,8 +1044,8 @@ button {
   .footer {
     display: flex;
     align-self: center;
-    /* width: 100%;
-    margin: 0 auto; */
+    width: 100%;
+    padding: 3rem;
   }
 
   .footer-title-container {
