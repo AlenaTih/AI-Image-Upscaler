@@ -153,7 +153,7 @@ body {
   color: var(--text-color);
   background-color: #FF4D4D;
   padding: 0.2em 0.625em; /* 3.2px, 10px */
-  margin: 1rem 0 0;
+  margin: 2rem 0 0;
   border-radius: 4px;
 }
 
@@ -476,7 +476,7 @@ button {
   .main-right {
     height: 100%;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
 
   .buttons-container-right {
