@@ -859,7 +859,7 @@ button {
   }
 
   .authors-left p {
-    margin: 1.5rem 0 2.5rem;
+    margin: 1.5rem 0 0;
   }
 
   .title-description {
@@ -987,7 +987,7 @@ button {
   .main-right {
     height: 100%;
     width: 100%;
-    margin-top: 1.125rem;
+    margin-top: 1rem;
   }
  
  .buttons-container-right {
@@ -1023,7 +1023,7 @@ button {
   .authors-right {
     flex-direction: column;
     /* width: 80%; */
-    margin-top: 1.125rem;
+    margin-top: 3.625rem; /* 58px */
   }
 
   .designer-upscaler-container,
