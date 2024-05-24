@@ -25,6 +25,7 @@ function DemoContainer() {
 
   return (
     <div className="demo-container">
+      <h3 className="demo-title">Examples of upscaled images</h3>
       <div className="image-pairs">
         {imagePaths.map((paths, index) => (
           <ImagePair 

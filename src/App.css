@@ -861,6 +861,10 @@ button {
     margin: 1.75rem 0 0;
   }
 
+  .demo-title {
+    font-size: 1.125rem;
+  }
+
   .footer-title {
     display: flex;
     align-self: center;

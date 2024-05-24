@@ -46,8 +46,9 @@
   .image-pairs {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    padding: 0;
   }
   
   .image-pair.active {
