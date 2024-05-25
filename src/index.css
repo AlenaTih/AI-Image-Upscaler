@@ -109,7 +109,9 @@ body {
 .navbar h3,
 .footer-title,
 .footer-navbar h3,
-.footer-navbar a {
+.footer-navbar a,
+.contact-container a,
+.upscaler-link-container a {
   color: inherit;
   /* font-size: 0.875rem; */ /* 14px */
   font-size: 1rem;

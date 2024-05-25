@@ -31,7 +31,7 @@ function Authors() {
                   </div>
 
                   <div className="contact-container">
-                    <a href="#">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/ovasendin/" target="_blank">LinkedIn</a>
                     <p className="author-role">UI/UX Design</p>
                   </div>
                 </div>
@@ -39,8 +39,8 @@ function Authors() {
                 <div className="upscaler-link-container">
                   <img className="github-logo" src={GitHubLogo}></img>
                   <p className="upscaler-description"><span className="bold">UpscalerJS</span> — the library is on
-                  <a href="#"> GitHub</a>, 
-                  and you can visit the <a href="#">official website</a> with documentation</p>
+                  <a href="https://github.com/thekevinscott/UpscalerJS" target="_blank"> GitHub</a>, 
+                  and you can visit the <a href="https://upscalerjs.com/" target="_blank">official website</a> with documentation</p>
                 </div>
               </div>
 
@@ -61,7 +61,7 @@ function Authors() {
                 </div>
 
                 <div className="contact-container">
-                  <a href="#">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/alenatikhomirova/" target="_blank">LinkedIn</a>
                   <p className="author-role">Frontend Development</p>
                   </div>
               </div>
