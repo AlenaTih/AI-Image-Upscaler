@@ -374,6 +374,11 @@ button {
     width: 100%;
   }
 
+  .navbar {
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
   .how-it-works,
   .authors {
     width: 100%;
