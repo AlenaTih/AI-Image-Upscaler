@@ -414,7 +414,6 @@ button {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 2rem;
-    padding: 0 0.5rem;
   }
 
   .logo-container {
