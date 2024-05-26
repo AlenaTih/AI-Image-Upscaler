@@ -374,11 +374,6 @@ button {
     width: 100%;
   }
 
-  .navbar {
-    align-items: flex-start;
-    justify-content: space-around;
-  }
-
   .how-it-works,
   .authors {
     width: 100%;
@@ -410,12 +405,13 @@ button {
     width: 100%;
   }
 
-  .navbar,
   .footer-navbar {
     justify-content: center;
   }
 
   .navbar {
+    align-items: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 2rem;
     padding: 0 1.125rem;

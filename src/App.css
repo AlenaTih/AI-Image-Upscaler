@@ -164,7 +164,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 .mobile-menu-opened {
@@ -921,11 +921,6 @@ button {
     max-width: 600px;
   }
 
-  .navbar {
-    align-items: flex-start;
-    justify-content: space-around;
-  }
-
   .dropzone {
     flex-direction: column;
     padding: 2rem;
@@ -961,14 +956,16 @@ button {
     width: 100%;
   }
 
-  .navbar,
   .footer-navbar {
     justify-content: center;
   }
 
   .navbar {
+    align-items: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 2rem;
+    padding: 0 1.125rem;
   }
 
   .logo-container {
