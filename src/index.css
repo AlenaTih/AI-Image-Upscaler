@@ -418,6 +418,7 @@ button {
   .navbar {
     flex-wrap: wrap;
     margin-top: 2rem;
+    padding: 0 1.125rem;
   }
 
   .logo-container {
