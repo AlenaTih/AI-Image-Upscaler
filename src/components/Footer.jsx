@@ -35,7 +35,7 @@ function Footer() {
 
             <div className="footer-navbar">
                 <h3 className="footer-share">Share</h3>
-                <button className="footer-social" onClick={handleFacebookShare}>Facebook</button>
+                {/* <button className="footer-social" onClick={handleFacebookShare}>Facebook</button> */}
                 <button className="footer-social" onClick={handleTwitterShare}>X (Twitter)</button>
                 <button className="footer-social" onClick={handleLinkedinShare}>LinkedIn</button>
             </div>
