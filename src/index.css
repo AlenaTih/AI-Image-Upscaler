@@ -170,8 +170,15 @@ body {
 }
 
 .footer-social {
+  color: inherit;
+  font-family: inherit;
+  background: none;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 130%;
   text-decoration: underline;
   margin-left: 1rem;
+  border: none;
   cursor: pointer;
 }
 
