@@ -482,6 +482,10 @@ input[type="range"]::-webkit-slider-thumb:active {
   margin: 0;
 }
 
+.dropzone-input p:last-of-type {
+  margin-top: 0.5rem;
+}
+
 .image-requirement {
   color: #949AAB;
   font-size: 0.875rem; /* 14px */
