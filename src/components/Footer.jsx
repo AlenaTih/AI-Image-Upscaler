@@ -12,6 +12,8 @@ function Footer() {
 
     // const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?url=${encodeURIComponent(currentUrl)}&p[summary]=${shareText}`
     // const twitterShareUrl = `https://x.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
+    const facebookShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
+    const twitterShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
     const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
 
     const handleFacebookShare = () => {
