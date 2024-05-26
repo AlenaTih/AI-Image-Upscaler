@@ -337,6 +337,17 @@ input[type="range"]::-webkit-slider-thumb:active {
   border-top: 1px solid #C1C7D7;
 }
 
+.linkedin-container {
+  display: flex;
+  align-items: center;
+}
+
+.fa-linkedin {
+  color: #0A66C2;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
 .upscaler-link-container {
   display: flex;
   align-items: center;

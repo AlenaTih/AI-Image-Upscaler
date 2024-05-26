@@ -31,7 +31,10 @@ function Authors() {
                   </div>
 
                   <div className="contact-container">
-                    <a href="https://www.linkedin.com/in/ovasendin/" target="_blank">LinkedIn</a>
+                    <div className="linkedin-container">
+                      <i className="fa-brands fa-linkedin"></i>
+                      <a href="https://www.linkedin.com/in/ovasendin/" target="_blank">LinkedIn</a>
+                    </div>
                     <p className="author-role">UI/UX Design</p>
                   </div>
                 </div>
@@ -61,7 +64,10 @@ function Authors() {
                 </div>
 
                 <div className="contact-container">
-                  <a href="https://www.linkedin.com/in/alenatikhomirova/" target="_blank">LinkedIn</a>
+                  <div className="linkedin-container">
+                    <i className="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/alenatikhomirova/" target="_blank">LinkedIn</a>
+                  </div>
                   <p className="author-role">Frontend Development</p>
                   </div>
               </div>
