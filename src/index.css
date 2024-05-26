@@ -177,6 +177,7 @@ body {
   font-weight: 400;
   line-height: 130%;
   text-decoration: underline;
+  padding: 0;
   margin-left: 1rem;
   border: none;
   cursor: pointer;
