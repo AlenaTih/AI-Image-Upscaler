@@ -10,10 +10,9 @@ function Footer() {
     const currentUrl = window.location.href // The URL of the current page
     const shareText = encodeURIComponent("Check out this awesome project!")
 
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?url=${encodeURIComponent(currentUrl)}&p[summary]=${shareText}`
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
     const twitterShareUrl = `https://x.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
     // const facebookShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
-    // const twitterShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
     const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}&text=${shareText}`
 
     const handleFacebookShare = () => {
