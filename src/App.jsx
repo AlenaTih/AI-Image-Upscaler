@@ -405,7 +405,7 @@ const downloadCallback = () => {
             </div>
           </header>
 
-          <main className="main">
+          <main className="main" id="main">
 
             <svg className="background-svg-main" width="100%" height="100%">
               <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">

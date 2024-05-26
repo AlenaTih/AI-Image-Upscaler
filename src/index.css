@@ -106,26 +106,18 @@ body {
   font-weight: 600;
 }
 
-.navbar h3,
+.navbar a,
 .footer-title,
 .footer-navbar h3,
 .footer-navbar a,
 .contact-container a,
-.upscaler-link-container a {
+.upscaler-link-container a,
+.mobile-menu-opened a {
   color: inherit;
   /* font-size: 0.875rem; */ /* 14px */
   font-size: 1rem;
   font-weight: 400;
   line-height: 130%;
-}
-
-.navbar h3 {
-  /* color: var(--text-color-light); */
-  text-decoration: underline;
-}
-
-.navbar a {
-  color: inherit;
 }
 
 .title {

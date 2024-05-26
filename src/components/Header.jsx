@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useState} from "react"
 import ToggleButton from "./ToggleButton.jsx"
 import Logo from "../assets/logo.png"
 
 function Header() {
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
     const checkScreenSize = () => {
         if (window.innerWidth < 600) {
             document.querySelector(".header-navbar-links").style.display = "none"
-            document.querySelector(".header-mobile-menu").style.display = "block"
+            document.querySelector(".header-mobile-menu").style.display = "flex"
             
         } else {
             document.querySelector(".header-mobile-menu").style.display = "none"
@@ -18,6 +20,10 @@ function Header() {
     window.addEventListener("load", checkScreenSize)
     window.addEventListener("resize", checkScreenSize)
 
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen)
+      }
+
     return (
         <>
             <div className="logo-container">
@@ -27,10 +33,22 @@ function Header() {
 
             <div className="navbar">
 
-                <div className="header-mobile-menu">Burger menu</div>
+                
+                    <div className="header-mobile-menu" onClick={toggleDropdown}>
+                        <i className="fa-solid fa-bars burger-icon"></i>
+                    
+                        {isDropdownOpen && (
+                            <div className="mobile-menu-opened">
+                                <a href="#main">Upscaler</a>
+                                <a href="#how-it-works">How It Works</a>
+                                <a href="#authors">Authors</a>
+                            </div>
+
+                        )}
+                    </div>
                 
                 <div className="header-navbar-links">
-                    <h3>Upscaler</h3>
+                    <a href="#main">Upscaler</a>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#authors">Authors</a>
                 </div>

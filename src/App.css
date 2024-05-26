@@ -159,6 +159,23 @@ body {
   margin: 0 0 0 3rem;
 }
 
+.header-mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mobile-menu-opened {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.mobile-menu-opened a {
+  margin-bottom: 0.5rem;
+}
+
 .buttons-section {
   display: flex;
   flex-direction: column;
@@ -896,6 +913,10 @@ button {
     width: 100%;
     max-width: 600px;
   }
+
+  /* .navbar {
+    align-items: flex-start;
+  } */
 
   .dropzone {
     flex-direction: column;
