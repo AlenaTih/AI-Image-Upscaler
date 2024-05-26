@@ -411,7 +411,7 @@ button {
 
   .navbar {
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
   }
