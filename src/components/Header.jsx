@@ -17,8 +17,8 @@ function Header() {
         }
     }
 
-    window.addEventListener("load", checkScreenSize)
-    window.addEventListener("resize", checkScreenSize)
+    window.addEventListener("load", checkScreenSize())
+    window.addEventListener("resize", checkScreenSize())
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen)
