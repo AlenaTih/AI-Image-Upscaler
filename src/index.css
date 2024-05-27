@@ -472,6 +472,13 @@ button {
     margin-top: 1.25rem;
   }
 
+  .upscale-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
   .buttons-container-right {
     margin: 2.5rem auto;
   }

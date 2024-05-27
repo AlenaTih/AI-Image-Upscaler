@@ -479,7 +479,9 @@ const downloadCallback = () => {
                         Bicubic interpolation
                       </button>
                     </div>
-                    <div>Upscaled image</div>
+                    <div>
+                      <h4 className="display-title">Upscaled image</h4>
+                    </div>
                     </>
                     )}
                   </div>
