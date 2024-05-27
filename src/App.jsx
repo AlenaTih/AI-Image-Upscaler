@@ -370,14 +370,14 @@ const downloadCallback = () => {
   } 
 
 
-  const showDropzone = () => {
-    if (src) {
-      document.querySelector(".dropzone").style.display = "none"
-      document.querySelector(".dropzone-container").style.display = "none"
-    }
-  }
+  // const showDropzone = () => {
+  //   if (src) {
+  //     document.querySelector(".dropzone").style.display = "none"
+  //     document.querySelector(".dropzone-container").style.display = "none"
+  //   }
+  // }
 
-  showDropzone()
+  // showDropzone()
 
   
   const left = dragX * 100
@@ -429,6 +429,7 @@ const downloadCallback = () => {
 
             <div className="main-right">
 
+            {!src && (
               <div className="dropzone-container">
                 <div className="dropzone" {...getRootProps()}>
 
@@ -449,6 +450,8 @@ const downloadCallback = () => {
                   
                 </div>
               </div>
+            )}
+              
 
                 {src && (
                   <div className="upscale-container">
@@ -699,9 +702,9 @@ const downloadCallback = () => {
                 It uses artificial intelligence that enlarges images without loss of quality, 
                 making them clearer.</p> */}
               <ul className="how-it-works-list">
-                <li>Upload an image</li>
-                <li>Choose the scale you need — 2x, 3x, or 4x</li>
-                <li>Click the "Upscale image" button</li>
+                <li>Upload an image.</li>
+                <li>Choose the scale you need — 2x, 3x, or 4x.</li>
+                <li>Click the "Upscale image" button.</li>
                 <li>Get your upscaled image! You can drag the slider left and right to see it before and after, 
                   and download the upscaled image in "jpg" or "png" format.</li>
               </ul>
