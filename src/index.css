@@ -476,7 +476,11 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0;
+    margin: 2.5rem 1rem 0;
+  }
+
+  .display-title {
+    margin-right: -4.5rem;
   }
 
   .buttons-container-right {
@@ -543,6 +547,13 @@ button {
   .footer-navbar {
     margin-top: 0.5rem;
   }
+
+  /* Buttons */
+
+  .button-no-interpolation,
+  .button-bicubic {
+    padding: 0.5rem;
+  }
   
 }
 
@@ -594,6 +605,10 @@ button {
 
   .main-left {
     align-items: flex-start;
+  }
+
+  .display {
+    margin: 0.5rem 0 3rem;
   }
 
   .buttons-section {

@@ -521,10 +521,11 @@ input[type="range"]::-webkit-slider-thumb:active {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 5px 0 2rem;
+  margin: 0.5rem 0 2.5rem;
 }
 
 .display-title {
+  font-size: 1rem;
   color: var(--text-color-light);
 }
 
@@ -617,9 +618,11 @@ input[type="range"]::-webkit-slider-thumb:active {
 
 .upscale-header {
   display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 40px;
   width: 100%;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
 }
 
 .interpolation {
@@ -639,7 +642,7 @@ button {
   font-family: inherit;
   background-color: var(--background-color-light);
   font-size: 0.875rem; /* 14px */
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
   transition: 0.2s;
   border: 1px solid #E0E3EB;
 }
@@ -1051,6 +1054,17 @@ button {
     width: 100%;
     margin-top: 1.25rem;
   }
+
+  .upscale-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem 1rem 0;
+  }
+
+  .display-title {
+    margin-right: -4.5rem;
+  }
  
  .buttons-container-right {
     margin-top: 2.5rem;
@@ -1119,6 +1133,13 @@ button {
   .footer-navbar {
     margin-top: 0.5rem;
   }
+
+  /* Buttons */
+
+  .button-no-interpolation,
+  .button-bicubic {
+    padding: 0.5rem;
+  }
   
 }
 
@@ -1170,6 +1191,10 @@ button {
 
   .main-left {
     align-items: flex-start;
+  }
+
+  .display {
+    margin: 0.5rem 0 3rem;
   }
 
   .dropzone-container {
