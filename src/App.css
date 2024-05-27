@@ -469,6 +469,10 @@ input[type="range"]::-webkit-slider-thumb:active {
   border-radius: 12px;
 }
 
+.dropzone-text {
+  color: var(--text-color-light);
+}
+
 .dropzone-image i,
 .fa-file {
   color: var(--text-color-light);
