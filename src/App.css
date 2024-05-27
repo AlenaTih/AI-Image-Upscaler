@@ -641,7 +641,7 @@ button {
   font-size: 0.875rem; /* 14px */
   padding: 5px 10px;
   transition: 0.2s;
-  border: none;
+  border: 1px solid #E0E3EB;
 }
 
 .button-no-interpolation {
