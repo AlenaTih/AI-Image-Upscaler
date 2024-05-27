@@ -19,7 +19,7 @@ function DemoContainer() {
   const imagePaths = [
     [DemoImageCat, DemoImageCat],
     [ElfGirl, ElfGirl],
-    [Coffee, CoffeeLaptop], 
+    [CoffeeLaptop, CoffeeLaptop], 
     [Allien, Allien]
   ]
 
