@@ -60,8 +60,6 @@ const upscaler = new Upscaler({
 // To do. Make validation of input — set limitations for size and format of an image — done
 
 
-// function App({ isLightMode, toggleMode })
-
 function App() {
   const [src, setSrc] = useState()
   const [originalSize, setOriginalSize] = useState()
