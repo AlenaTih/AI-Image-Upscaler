@@ -81,13 +81,6 @@ function App() {
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   
-
-  if (src && !isUpscaleClicked) {
-    upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-    console.log("All warmed up!")
-  })
-  }
-  
   
   const onDrop = useCallback((acceptedFiles) => {
     // setIsLoaderVisible(true)
@@ -137,6 +130,13 @@ function App() {
 
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+
+
+  if (src && !isUpscaleClicked) {
+    upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+    console.log("All warmed up!")
+  })
+  }
 
 
 useEffect(() => {
