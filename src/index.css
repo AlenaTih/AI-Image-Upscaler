@@ -479,6 +479,10 @@ button {
     margin-right: -4.5rem;
   }
 
+  .dragger {
+    width: 8px;
+  }
+
   .buttons-container-right {
     margin: 2.5rem auto;
   }

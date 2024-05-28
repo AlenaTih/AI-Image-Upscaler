@@ -1065,6 +1065,10 @@ button {
   .display-title {
     margin-right: -4.5rem;
   }
+
+  .dragger {
+    width: 8px;
+  }
  
  .buttons-container-right {
     margin-top: 2.5rem;
