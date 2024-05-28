@@ -5,8 +5,6 @@ import Authors from "./components/Authors.jsx"
 import Footer from "./components/Footer.jsx"
 import ProgressBar from "./components/ProgressBar.jsx"
 import DemoContainer from "./components/DemoContainer.jsx"
-// import DemoImageCat from "./assets/demo-image-cat.png"
-// import Sunset from "./assets/sunset.png"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './App.css'
 
@@ -83,7 +81,6 @@ function App() {
   
   
   const onDrop = useCallback((acceptedFiles) => {
-    // setIsLoaderVisible(true)
     const file = acceptedFiles[0]
     console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
