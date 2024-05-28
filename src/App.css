@@ -1010,6 +1010,7 @@ button {
 
   .header-mobile-menu {
     display: flex;
+    margin-right: 2.5rem;
   }
 
   .main,
