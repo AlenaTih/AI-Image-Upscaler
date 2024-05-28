@@ -1,63 +1,66 @@
-import React, { useState} from "react"
+import React, { useState, useEffect } from "react"
 import ToggleButton from "./ToggleButton.jsx"
 import Logo from "../assets/logo.png"
 
 function Header() {
+    
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600)
 
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const checkScreenSize = () => {
+    setIsMobile(window.innerWidth < 600)
+  }
 
-    const checkScreenSize = () => {
-        if (window.innerWidth < 600) {
-            document.querySelector(".header-navbar-links").style.display = "none"
-            document.querySelector(".header-mobile-menu").style.display = "flex"
-            
-        } else {
-            document.querySelector(".header-mobile-menu").style.display = "none"
-            document.querySelector(".header-navbar-links").style.display = "flex"
-        }
-    }
-
-    window.addEventListener("load", checkScreenSize)
+  useEffect(() => {
+    // Set up an event listener
     window.addEventListener("resize", checkScreenSize)
 
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen)
-      }
+    // Check screen size on initial load
+    checkScreenSize()
 
-    return (
-        <>
-            <div className="logo-container">
-                <img className="logo-image" src={Logo}></img>
-                <h2 className="logo-text">Image Upscaler</h2>
-            </div>
+    // Clean up an event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", checkScreenSize)
+    }
+  }, [])
 
-            <div className="navbar">
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen)
+  }
 
-                
-                    <div className="header-mobile-menu" onClick={toggleDropdown}>
-                        <i className="fa-solid fa-bars burger-icon"></i>
-                    
-                        {isDropdownOpen && (
-                            <div className="mobile-menu-opened">
-                                <a href="#main">Upscaler</a>
-                                <a href="#how-it-works">How It Works</a>
-                                <a href="#authors">Authors</a>
-                            </div>
+  return (
+    <>
+      <div className="logo-container">
+        <img className="logo-image" src={Logo} alt="Logo" />
+        <h2 className="logo-text">Image Upscaler</h2>
+      </div>
 
-                        )}
-                    </div>
-                
-                <div className="header-navbar-links">
-                    <a href="#main">Upscaler</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#authors">Authors</a>
-                </div>
+      <div className="navbar">
+        {isMobile ? (
+          <div className="header-mobile-menu" onClick={toggleDropdown}>
+            <i className="fa-solid fa-bars burger-icon"></i>
+            {isDropdownOpen && (
+              <div className="mobile-menu-opened">
+                <a href="#main">Upscaler</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#authors">Authors</a>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="header-navbar-links">
+            <a href="#main">Upscaler</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#authors">Authors</a>
+          </div>
+        )}
 
-                <ToggleButton />
-
-            </div>
-        </>
-    )
+        <ToggleButton />
+      </div>
+    </>
+  )
 }
 
 export default Header
+
+

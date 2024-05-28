@@ -420,12 +420,8 @@ button {
     justify-content: center;
   }
 
-  .header-navbar-links {
-    margin-bottom: 1rem;
-  }
-
   .header-mobile-menu {
-    display: none; /* Block when displayed */
+    display: flex;
     margin-right: 2.5rem;
   }
 
