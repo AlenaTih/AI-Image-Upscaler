@@ -134,11 +134,19 @@ function App() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
 
-  if (src && !isUpscaleClicked) {
-    upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-    console.log("All warmed up!")
-  })
+  useEffect(() => {
+    if (src && !isUpscaleClicked) {
+      upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+      console.log("All warmed up!")
+    })
   }
+  }, [src, isUpscaleClicked])
+
+  // if (src && !isUpscaleClicked) {
+  //   upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+  //   console.log("All warmed up!")
+  // })
+  // }
 
 
 useEffect(() => {
@@ -212,7 +220,6 @@ useEffect(() => {
 
   const handleUpscale = () => {
     setIsUpscaleClicked(true)
-    // setIsLoaderVisible(true)
     setIsProgressBarVisible(true)
   }
 
