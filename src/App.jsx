@@ -186,6 +186,53 @@ useEffect(() => {
 }, [src, selectedForDeletion])
 
 
+// useEffect(() => {
+//   if (src) {
+
+//     if (selectedForDeletion) {
+//       return
+//     }
+
+//     const img = new Image()
+//     img.crossOrigin = "anonymous"
+//     // img.crossOrigin = "use-credentials"
+//     img.src = src
+//     img.onload = () => {
+//       if (img.height > 1000 || img.width > 1000) {
+//         alert("Image dimensions should not exceed 1000px")
+//         setIsLoaderVisible(false)
+//         setIsProgressBarVisible(false)
+//         window.location.reload()
+//         return
+//       }
+
+//       upscaler.upscale(img, {
+//         patchSize: 64,
+//         padding: 2,
+//       })
+//       .then(upscaledSrc => {
+//         setUpscaledImageSrc(upscaledSrc)
+//         setIsLoaderVisible(false)
+//         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+//         const width = img.width
+//         const height = img.height
+//         setOriginalSize({
+//           width,
+//           height,
+//         })
+//       })
+//       .catch(error => {
+//         console.error('Error upscaling image:', error)
+//         alert('Error upscaling image:', error)
+//       })
+//       .finally(() => {
+//         setIsProgressBarVisible(false)
+//       })
+//     }
+//   }
+// }, [src, selectedForDeletion])
+
+
   useEffect(() => {
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
       let upscaledImageSrcTimer
