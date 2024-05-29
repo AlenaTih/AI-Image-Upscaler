@@ -191,59 +191,6 @@ useEffect(() => {
 }, [src, selectedForDeletion])
 
 
-// useEffect(() => {
-//   if (src) {
-
-//     if (selectedForDeletion) {
-//       return
-//     }
-
-//     const img = new Image()
-//     img.crossOrigin = "anonymous"
-//     // img.crossOrigin = "use-credentials"
-//     img.src = src
-//     img.onload = () => {
-//       if (!img.height || !img.width || img.height > 1000 || img.width > 1000) {
-//         console.error('Image dimensions are not available or exceed 1000px')
-//         setIsLoaderVisible(false)
-//         setIsProgressBarVisible(false)
-//         alert('Error loading image')
-//         return
-//       }
-
-//       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-
-//       upscaler.upscale(img, {
-//         patchSize: 64,
-//         padding: 2,
-//       })
-//         .then((upscaledSrc) => {
-//           setUpscaledImageSrc(upscaledSrc)
-//           setIsLoaderVisible(false)
-//           setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
-//           setOriginalSize({
-//             width: img.width,
-//             height: img.height,
-//           })
-//         })
-//         .catch((error) => {
-//           console.error('Error upscaling image:', error)
-//           alert('Error upscaling image:', error)
-//         })
-//         .finally(() => {
-//           setIsProgressBarVisible(false)
-//         })
-//     }
-//     img.onerror = () => {
-//       console.error('Error loading image')
-//       setIsLoaderVisible(false)
-//       setIsProgressBarVisible(false)
-//       alert('Error loading image')
-//     }
-//   }
-// }, [src, selectedForDeletion])
-
-
   useEffect(() => {
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
       let upscaledImageSrcTimer
