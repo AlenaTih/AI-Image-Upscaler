@@ -107,21 +107,12 @@ function App() {
     setOriginalFormat(newOriginalFormat)
 
     const fr = new FileReader()
-    fr.onload = async () => {
-      try {
-        await new Promise((resolve, reject) => {
-          setSrc(fr.result)
-          resolve()
-        })
-      }
-      catch (error) {
-        console.error("Error uploading a file:", error)
-        alert("Error uploading a file:", error)
-      }
+    fr.onload = () => {
+      setSrc(fr.result)
     }
     fr.readAsDataURL(file)
 
-  }, [selectedForDeletion, setIsLoaderVisible, setSrc])
+  }, [selectedForDeletion])
 
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
