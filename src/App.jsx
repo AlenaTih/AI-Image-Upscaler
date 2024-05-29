@@ -141,15 +141,6 @@ function App() {
   // })
   // }
 
-  // useEffect(() => {
-  //   if (src && !isUpscaleClicked) {
-  //     const warmupPromise = upscaler.warmup({patchSize: 64, padding: 2})
-  //     warmupPromise.then(() => {
-  //       console.log("All warmed up!")
-  //   })
-  //   }
-  // }, [src, isUpscaleClicked])
-
 
   useEffect(() => {
     let warmupPromise
