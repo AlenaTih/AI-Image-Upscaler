@@ -48,8 +48,6 @@ const upscaler = new Upscaler({
 // })
 
 
-// To do. Model dropdown —  make after the first release
-
 // Loader for uploading an image, and progress bar — for upscaling it
 
 
@@ -123,7 +121,7 @@ function App() {
     }
     fr.readAsDataURL(file)
 
-  }, [])
+  }, [selectedForDeletion])
 
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
@@ -183,7 +181,7 @@ useEffect(() => {
       }
     }
   }
-}, [src])
+}, [src, selectedForDeletion])
 
 
   useEffect(() => {
@@ -202,7 +200,7 @@ useEffect(() => {
         clearTimeout(upscaledImageSrcTimer)
       }
     }
-  }, [originalSize, isUpscaleClicked])
+  }, [originalSize, isUpscaleClicked, scalingFactor])
 
 
   const handleUpscale = () => {
@@ -362,6 +360,7 @@ const downloadCallback = () => {
     setSelectedForDeletion(true)
     setSrc(null)
     window.location.reload()
+    setIsUpscaleClicked(false)
   } 
 
 
