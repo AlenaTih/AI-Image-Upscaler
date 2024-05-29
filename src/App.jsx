@@ -121,7 +121,7 @@ function App() {
     }
     fr.readAsDataURL(file)
 
-  }, [selectedForDeletion])
+  }, [selectedForDeletion, setIsLoaderVisible, setSrc])
 
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
