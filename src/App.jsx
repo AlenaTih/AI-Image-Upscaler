@@ -134,21 +134,11 @@ function App() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
 
-  const warmup = () => {
-    if (src && !isUpscaleClicked) {
-      upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-      console.log("All warmed up!")
-    })
-    }
+  if (src && !isUpscaleClicked) {
+    upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+    console.log("All warmed up!")
+  })
   }
-
-  warmup()
-
-  // if (src && !isUpscaleClicked) {
-  //   upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-  //   console.log("All warmed up!")
-  // })
-  // }
 
   // useEffect(() => {
   //   if (src && !isUpscaleClicked) {
