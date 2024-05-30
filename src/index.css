@@ -537,17 +537,16 @@ button {
     align-self: center;
     justify-content: space-between;
     width: 100%;
-    padding: 3.5rem 3rem 4rem;
+    padding: 4rem 3rem 4.5rem;
   }
 
   .footer-title-container {
     justify-content: center;
-    margin-bottom: 0;
   }
 
-  .footer-title {
+  /* .footer-title {
     margin-bottom: 0;
-  }
+  } */
 
   .footer-navbar {
     margin-top: 0;
