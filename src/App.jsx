@@ -76,7 +76,7 @@ function App() {
   // const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const upscaleTimerRef = useRef(null) // Ref to manage timeout
+  // const upscaleTimerRef = useRef(null) // Ref to manage timeout
 
 
   // upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
@@ -323,42 +323,42 @@ function App() {
 //   }, [src])
       
 
-  // useEffect(() => {
-  //   if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
-  //     let upscaledImageSrcTimer
-  //     const timer = setTimeout(() => {
-  //       setScale(scalingFactor)
-  //       upscaledImageSrcTimer = setTimeout(() => {
-  //         setDisplayUpscaledImageSrc(true)
-  //         setIsLoaderVisible(false)
-  //         setIsProgressBarVisible(false)
-  //       }, 1200)
-  //     }, 300)
-  //     return () => {
-  //       clearTimeout(timer)
-  //       clearTimeout(upscaledImageSrcTimer)
-  //     }
-  //   }
-  // }, [originalSize, isUpscaleClicked, scalingFactor])
-
-
   useEffect(() => {
-    if (originalSize && isUpscaleClicked) {
-      setScale(scalingFactor)
-
-      upscaleTimerRef.current = setTimeout(() => {
-        setDisplayUpscaledImageSrc(true)
-        setIsLoaderVisible(false)
-        setIsProgressBarVisible(false)
-      }, 1500) // Combining both timeouts into one
-
+    if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
+      let upscaledImageSrcTimer
+      const timer = setTimeout(() => {
+        setScale(scalingFactor)
+        upscaledImageSrcTimer = setTimeout(() => {
+          setDisplayUpscaledImageSrc(true)
+          setIsLoaderVisible(false)
+          setIsProgressBarVisible(false)
+        }, 1200)
+      }, 300)
       return () => {
-        if (upscaleTimerRef.current) {
-          clearTimeout(upscaleTimerRef.current)
-        }
+        clearTimeout(timer)
+        clearTimeout(upscaledImageSrcTimer)
       }
     }
   }, [originalSize, isUpscaleClicked, scalingFactor])
+
+
+  // useEffect(() => {
+  //   if (originalSize && isUpscaleClicked) {
+  //     setScale(scalingFactor)
+
+  //     upscaleTimerRef.current = setTimeout(() => {
+  //       setDisplayUpscaledImageSrc(true)
+  //       setIsLoaderVisible(false)
+  //       setIsProgressBarVisible(false)
+  //     }, 1500) // Combining both timeouts into one
+
+  //     return () => {
+  //       if (upscaleTimerRef.current) {
+  //         clearTimeout(upscaleTimerRef.current)
+  //       }
+  //     }
+  //   }
+  // }, [originalSize, isUpscaleClicked, scalingFactor])
 
 
   const handleUpscale = () => {
