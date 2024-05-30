@@ -304,6 +304,9 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color: var(--background-color-light);
   padding: 2.5rem;
   border-radius: 0.75rem;
+  /* box-shadow: 0 0 250px rgba(116, 128, 164, 0.08); */
+  /* box-shadow: 0 0 128px rgba(57, 60, 68, 0.08); */
+  box-shadow: 0 0 40px #28292B;
 }
 
 .frontend-developer-container {
