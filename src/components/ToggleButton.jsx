@@ -39,6 +39,8 @@ function ToggleButton() {
       frontendDeveloperContainer.style.backgroundColor = "whitesmoke"
       backgroundSvgDesigner.style.backgroundColor = "whitesmoke"
       backgroundSvgFrontend.style.backgroundColor = "whitesmoke"
+      designerContainer.style.boxShadow = "0 0 250px rgba(116, 128, 164, 0.8)"
+      frontendDeveloperContainer.style.boxShadow = "0 0 250px rgba(116, 128, 164, 0.8)"
     } else {
       root.classList.add("dark-mode")
       root.classList.remove("light-mode")
@@ -58,6 +60,8 @@ function ToggleButton() {
       frontendDeveloperContainer.style.backgroundColor = "#2A303C"
       backgroundSvgDesigner.style.backgroundColor = "#2A303C"
       backgroundSvgFrontend.style.backgroundColor = "#2A303C"
+      designerContainer.style.boxShadow = "0 0 40px #28292B"
+      frontendDeveloperContainer.style.boxShadow = "0 0 40px #28292B"
     }
   }, [isLightMode])
 
