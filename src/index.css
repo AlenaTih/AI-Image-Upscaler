@@ -542,10 +542,15 @@ button {
 
   .footer-title-container {
     justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .footer-title {
+    margin-bottom: 0;
   }
 
   .footer-navbar {
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 
   /* Buttons */
