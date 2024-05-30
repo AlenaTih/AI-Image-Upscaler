@@ -4,18 +4,24 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-  function Main() {
-    return (
-      // <>
-      //   <Helmet>
-      //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      //   </Helmet>
-        <div className="app">
-          <App />
-        </div>
-      // </>
-    )
-  }
+function Main() {
+      return (
+        // <>
+        //   <Helmet>
+        //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        //   </Helmet>
+          <div className="app">
+            <App />
+          </div>
+        // </>
+      )
+    }
+
+// const Main = React.memo(() => (
+//   <div className="app">
+//     <App />
+//   </div>
+// ))
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
