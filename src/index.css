@@ -537,7 +537,7 @@ button {
     align-self: center;
     justify-content: space-between;
     width: 100%;
-    padding: 3rem 3rem 4rem;
+    padding: 3.5rem 3rem 4rem;
   }
 
   .footer-title-container {
@@ -641,7 +641,7 @@ button {
   }
 
   .footer {
-    padding: 3.75rem 8.5rem 4.5rem;
+    padding: 3.75rem 8.5rem 4rem;
   }
 
   .navbar,
