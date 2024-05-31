@@ -76,7 +76,6 @@ function App() {
   // const [progress, setProgress] = useState(0)
   const [selectedForDeletion, setSelectedForDeletion] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  // const upscaleTimerRef = useRef(null) // Ref to manage timeout
 
 
   // upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
@@ -84,52 +83,99 @@ function App() {
   // })
   
   
+  // const onDrop = useCallback((acceptedFiles) => {
+  //   const file = acceptedFiles[0]
+  //   console.log(file.name.split(".")[0])
+  //   const newFileName = file.name.split(".")[0]
+
+  //   console.log(file.name.split(".")[1])
+  //   const newOriginalFormat = file.name.split(".")[1]
+
+  //   if (file.type !== "image/jpeg" && file.type !== "image/png") {
+  //     alert("Please upload only jpg or png files!")
+  //     return
+  //   }
+
+  //   if (file.size > 5 * 1024 * 1024) {
+  //     alert("File size exceeds 5 MB limit")
+  //     return
+  //   }
+
+  //   if (selectedForDeletion) {
+  //     return
+  //   }
+
+  //   setIsLoaderVisible(true)
+
+  //   setFileName(newFileName)
+
+  //   setOriginalFormat(newOriginalFormat)
+
+  //   const fr = new FileReader()
+  //   // fr.onload = async () => {
+  //   //   try {
+  //   //     await new Promise((resolve, reject) => {
+  //   //       setSrc(fr.result)
+  //   //       resolve()
+  //   //     })
+  //   //   }
+  //   //   catch (error) {
+  //   //     console.error("Error uploading a file:", error)
+  //   //     alert("Error uploading a file:", error)
+  //   //   }
+  //   // }
+  //   fr.onload = () => {
+  //     setSrc(fr.result)
+  //   }
+  //   fr.readAsDataURL(file)
+  // }, [selectedForDeletion])
+
+
+
   const onDrop = useCallback((acceptedFiles) => {
-    const file = acceptedFiles[0]
-    console.log(file.name.split(".")[0])
-    const newFileName = file.name.split(".")[0]
-
-    console.log(file.name.split(".")[1])
-    const newOriginalFormat = file.name.split(".")[1]
-
+    const file = acceptedFiles[0];
+    console.log(file.name.split(".")[0]);
+    const newFileName = file.name.split(".")[0];
+  
+    console.log(file.name.split(".")[1]);
+    const newOriginalFormat = file.name.split(".")[1];
+  
     if (file.type !== "image/jpeg" && file.type !== "image/png") {
-      alert("Please upload only jpg or png files!")
-      return
+      alert("Please upload only jpg or png files!");
+      return;
     }
-
+  
     if (file.size > 5 * 1024 * 1024) {
-      alert("File size exceeds 5 MB limit")
-      return
+      alert("File size exceeds 5 MB limit");
+      return;
     }
-
+  
     if (selectedForDeletion) {
-      return
+      return;
     }
-
-    setIsLoaderVisible(true)
-
-    setFileName(newFileName)
-
-    setOriginalFormat(newOriginalFormat)
-
-    const fr = new FileReader()
-    // fr.onload = async () => {
-    //   try {
-    //     await new Promise((resolve, reject) => {
-    //       setSrc(fr.result)
-    //       resolve()
-    //     })
-    //   }
-    //   catch (error) {
-    //     console.error("Error uploading a file:", error)
-    //     alert("Error uploading a file:", error)
-    //   }
-    // }
+  
+    setIsLoaderVisible(true);
+  
+    setFileName(newFileName);
+  
+    setOriginalFormat(newOriginalFormat);
+  
+    const fr = new FileReader();
+    let isCurrent = true; // Flag to track the validity of the callback
+  
     fr.onload = () => {
-      setSrc(fr.result)
-    }
-    fr.readAsDataURL(file)
+      if (!isCurrent) return; // Check if this callback is still valid
+      setSrc(fr.result);
+    };
+  
+    fr.readAsDataURL(file);
+  
+    return () => {
+      isCurrent = false; // Cleanup function to mark this callback as no longer current
+    };
   }, [selectedForDeletion])
+
+
 
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
@@ -157,6 +203,8 @@ function App() {
       }
     }
   }, [src, isUpscaleClicked])
+
+
 
 
   // useEffect(() => {
@@ -246,10 +294,10 @@ useEffect(() => {
           padding: 2,
         });
         if (!isCurrent) return; // Check if this effect is still the current one.
-        setIsProgressBarVisible(true); // Show progress bar when upscaling starts
         setUpscaledImageSrc(upscaledSrc);
         setIsLoaderVisible(false);
-        setIsProgressBarVisible(false); // Hide progress bar when upscaling completes
+        setIsProgressBarVisible(true); // Show progress bar when upscaling starts
+        // setIsProgressBarVisible(false); // Hide progress bar when upscaling completes
         const width = img.width;
         const height = img.height;
         setOriginalSize({ width, height });
@@ -268,126 +316,7 @@ useEffect(() => {
       isCurrent = false; // Cleanup function to indicate this effect is no longer current.
     };
   }
-}, [src, selectedForDeletion]);
-
-
-
-
-
-
-
-//   useEffect(() => {
-//     const abortController = new AbortController()
-//     if (src) {
-  
-//       if (selectedForDeletion) {
-//         return
-//       }
-  
-//       const img = new Image()
-//       img.crossOrigin = "anonymous"
-//       // img.crossOrigin = "use-credentials"
-//       img.src = src
-//       img.onload = async () => {
-//         if (img.height > 1000 || img.width > 1000) {
-//           alert("Image dimensions should not exceed 1000px")
-//           setIsLoaderVisible(false)
-//           setIsProgressBarVisible(false)
-//           window.location.reload()
-//           return
-//         }
-  
-//         setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-  
-//         try {
-//           const upscaledSrc = await upscaler.upscale(img, {
-//             patchSize: 64,
-//             padding: 2,
-//             signal: abortController.signal,
-//             // output: 'tensor',
-//             // progressOutput: 'base64',
-//             // onProgress: (percentage) => setProgress(percentage),
-//           })
-//           setUpscaledImageSrc(upscaledSrc)
-//           setIsLoaderVisible(false)
-//           setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
-//           const width = img.width
-//           const height = img.height
-//           setOriginalSize({
-//             width,
-//             height,
-//           })
-//         } catch (error) {
-//           if (error.name === 'AbortError') {
-//             // Aborting upscale throws an error
-//             // So we can't update state afterwards
-//           }
-//           console.error('Error upscaling image:', error)
-//           alert('Error upscaling image:', error)
-//         }
-//       return () => {
-//         abortController.abort();
-//       }
-//     }
-//   }
-//  }, [src, selectedForDeletion])
-
-
-// useEffect(() => {
-//   let active = true
-//     if (src) {
-  
-//       // if (selectedForDeletion) {
-//       //   return
-//       // }
-  
-//       const img = new Image()
-//       img.crossOrigin = "anonymous"
-//       // img.crossOrigin = "use-credentials"
-//       img.src = src
-//       img.onload = async () => {
-//         if (active) {
-//         if (img.height > 1000 || img.width > 1000) {
-//           alert("Image dimensions should not exceed 1000px")
-//           setIsLoaderVisible(false)
-//           setIsProgressBarVisible(false)
-//           window.location.reload()
-//           return
-//         }
-  
-//         setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-  
-//         try {
-//           const upscaledSrc = await upscaler.upscale(img, {
-//             patchSize: 64,
-//             padding: 2,
-//             // output: 'tensor',
-//             // progressOutput: 'base64',
-//             // onProgress: (percentage) => setProgress(percentage),
-//           })
-//             setUpscaledImageSrc(upscaledSrc)
-//           setIsLoaderVisible(false)
-//           setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
-//           const width = img.width
-//           const height = img.height
-//           setOriginalSize({
-//             width,
-//             height,
-//           })
-//         } catch (error) {
-//           console.error('Error upscaling image:', error)
-//           alert('Error upscaling image:', error)
-//         } finally {
-//           setIsProgressBarVisible(false)
-//         }
-//       }
-//         return () => {
-//           active = false
-//         }
-//       }
-//     }
-//   }, [src])
-
+}, [src, selectedForDeletion])
 
 
       
@@ -409,10 +338,6 @@ useEffect(() => {
   //     }
   //   }
   // }, [originalSize, isUpscaleClicked, scalingFactor])
-
-
-
-
 
 
   useEffect(() => {
@@ -444,33 +369,6 @@ useEffect(() => {
       isCurrent = false; // Cleanup function to mark this effect as no longer current
     };
   }, [originalSize, isUpscaleClicked, scalingFactor]);
-  
-
-
-
-
-
-
-
-
-
-  // useEffect(() => {
-  //   if (originalSize && isUpscaleClicked) {
-  //     setScale(scalingFactor)
-
-  //     upscaleTimerRef.current = setTimeout(() => {
-  //       setDisplayUpscaledImageSrc(true)
-  //       setIsLoaderVisible(false)
-  //       setIsProgressBarVisible(false)
-  //     }, 1500) // Combining both timeouts into one
-
-  //     return () => {
-  //       if (upscaleTimerRef.current) {
-  //         clearTimeout(upscaleTimerRef.current)
-  //       }
-  //     }
-  //   }
-  // }, [originalSize, isUpscaleClicked, scalingFactor])
 
 
   const handleUpscale = () => {
