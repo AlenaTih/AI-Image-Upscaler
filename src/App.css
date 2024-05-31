@@ -621,6 +621,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   display: flex;
   flex-direction: column;
   width: 100%;
+  box-shadow: 0 4px 8px rgba(42, 48, 60, 0.16);
 }
 
 .upscale-header {
@@ -874,10 +875,12 @@ button {
 
 .download-button-jpg {
   margin: 1px 0 0.5px;
+  /* border-radius: 6px 6px 0 0; */
 }
 
 .download-button-png {
   margin-top: 0.5px;
+  /* border-radius: 0 0 6px 6px; */
 }
 
 .download-button-jpg:hover,

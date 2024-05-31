@@ -766,7 +766,7 @@ const downloadCallback = () => {
                           </div>
                         )}
 
-                </div>
+              </div>
 
                 <div className="delete-upscale-buttons-container">
 
