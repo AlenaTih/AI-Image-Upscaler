@@ -159,54 +159,120 @@ function App() {
   }, [src, isUpscaleClicked])
 
 
-  useEffect(() => {
-    if (src) {
+  // useEffect(() => {
+  //   if (src) {
   
-      if (selectedForDeletion) {
-        return
-      }
+  //     if (selectedForDeletion) {
+  //       return
+  //     }
   
-      const img = new Image()
-      img.crossOrigin = "anonymous"
-      // img.crossOrigin = "use-credentials"
-      img.src = src
-      img.onload = async () => {
-        if (img.height > 1000 || img.width > 1000) {
-          alert("Image dimensions should not exceed 1000px")
-          setIsLoaderVisible(false)
-          setIsProgressBarVisible(false)
-          window.location.reload()
-          return
-        }
+  //     const img = new Image()
+  //     img.crossOrigin = "anonymous"
+  //     // img.crossOrigin = "use-credentials"
+  //     img.src = src
+  //     img.onload = async () => {
+  //       if (img.height > 1000 || img.width > 1000) {
+  //         alert("Image dimensions should not exceed 1000px")
+  //         setIsLoaderVisible(false)
+  //         setIsProgressBarVisible(false)
+  //         window.location.reload()
+  //         return
+  //       }
   
-        setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+  //       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
   
-        try {
-          const upscaledSrc = await upscaler.upscale(img, {
-            patchSize: 64,
-            padding: 2,
-            // output: 'tensor',
-            // progressOutput: 'base64',
-            // onProgress: (percentage) => setProgress(percentage),
-          })
-          setUpscaledImageSrc(upscaledSrc)
-          setIsLoaderVisible(false)
-          setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
-          const width = img.width
-          const height = img.height
-          setOriginalSize({
-            width,
-            height,
-          })
-        } catch (error) {
-          console.error('Error upscaling image:', error)
-          alert('Error upscaling image:', error)
-        } finally {
-          setIsProgressBarVisible(false)
-        }
-      }
+  //       try {
+  //         const upscaledSrc = await upscaler.upscale(img, {
+  //           patchSize: 64,
+  //           padding: 2,
+  //           // output: 'tensor',
+  //           // progressOutput: 'base64',
+  //           // onProgress: (percentage) => setProgress(percentage),
+  //         })
+  //         setUpscaledImageSrc(upscaledSrc)
+  //         setIsLoaderVisible(false)
+  //         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+  //         const width = img.width
+  //         const height = img.height
+  //         setOriginalSize({
+  //           width,
+  //           height,
+  //         })
+  //       } catch (error) {
+  //         console.error('Error upscaling image:', error)
+  //         alert('Error upscaling image:', error)
+  //       } finally {
+  //         setIsProgressBarVisible(false)
+  //       }
+  //     }
+  //   }
+  // }, [src, selectedForDeletion])
+
+
+
+
+
+
+useEffect(() => {
+  let isCurrent = true; // This flag will help in checking if the effect is the current one.
+
+  if (src) {
+    if (selectedForDeletion) {
+      return;
     }
-  }, [src, selectedForDeletion])
+
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = src;
+
+    img.onload = async () => {
+      if (!isCurrent) return; // Check if this effect is still the current one.
+
+      if (img.height > 1000 || img.width > 1000) {
+        alert("Image dimensions should not exceed 1000px");
+        if (!isCurrent) return;
+        setIsLoaderVisible(false);
+        setIsProgressBarVisible(false);
+        if (!isCurrent) return;
+        window.location.reload();
+        return;
+      }
+
+      // setIsProgressBarVisible(true); // Show progress bar when upscaling starts
+
+      try {
+        const upscaledSrc = await upscaler.upscale(img, {
+          patchSize: 64,
+          padding: 2,
+        });
+        if (!isCurrent) return; // Check if this effect is still the current one.
+        setIsProgressBarVisible(true); // Show progress bar when upscaling starts
+        setUpscaledImageSrc(upscaledSrc);
+        setIsLoaderVisible(false);
+        setIsProgressBarVisible(false); // Hide progress bar when upscaling completes
+        const width = img.width;
+        const height = img.height;
+        setOriginalSize({ width, height });
+      } catch (error) {
+        if (!isCurrent) return; // Check if this effect is still the current one.
+        console.error('Error upscaling image:', error);
+        alert('Error upscaling image:', error);
+      } finally {
+        if (isCurrent) {
+          setIsProgressBarVisible(false);
+        }
+      }
+    };
+
+    return () => {
+      isCurrent = false; // Cleanup function to indicate this effect is no longer current.
+    };
+  }
+}, [src, selectedForDeletion]);
+
+
+
+
 
 
 
@@ -321,25 +387,71 @@ function App() {
 //       }
 //     }
 //   }, [src])
+
+
+
       
 
+  // useEffect(() => {
+  //   if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
+  //     let upscaledImageSrcTimer
+  //     const timer = setTimeout(() => {
+  //       setScale(scalingFactor)
+  //       upscaledImageSrcTimer = setTimeout(() => {
+  //         setDisplayUpscaledImageSrc(true)
+  //         setIsLoaderVisible(false)
+  //         setIsProgressBarVisible(false)
+  //       }, 1200)
+  //     }, 300)
+  //     return () => {
+  //       clearTimeout(timer)
+  //       clearTimeout(upscaledImageSrcTimer)
+  //     }
+  //   }
+  // }, [originalSize, isUpscaleClicked, scalingFactor])
+
+
+
+
+
+
   useEffect(() => {
+    let isCurrent = true; // Flag to check if the effect is still valid
+  
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
-      let upscaledImageSrcTimer
+      let upscaledImageSrcTimer;
+  
       const timer = setTimeout(() => {
-        setScale(scalingFactor)
+        if (!isCurrent) return; // Check if this effect is still the current one
+        setScale(scalingFactor);
+  
         upscaledImageSrcTimer = setTimeout(() => {
-          setDisplayUpscaledImageSrc(true)
-          setIsLoaderVisible(false)
-          setIsProgressBarVisible(false)
-        }, 1200)
-      }, 300)
+          if (!isCurrent) return; // Check if this effect is still the current one
+          setDisplayUpscaledImageSrc(true);
+          setIsLoaderVisible(false);
+          setIsProgressBarVisible(false);
+        }, 1200);
+      }, 300);
+  
       return () => {
-        clearTimeout(timer)
-        clearTimeout(upscaledImageSrcTimer)
-      }
+        isCurrent = false; // Cleanup function to mark this effect as no longer current
+        clearTimeout(timer);
+        clearTimeout(upscaledImageSrcTimer);
+      };
     }
-  }, [originalSize, isUpscaleClicked, scalingFactor])
+  
+    return () => {
+      isCurrent = false; // Cleanup function to mark this effect as no longer current
+    };
+  }, [originalSize, isUpscaleClicked, scalingFactor]);
+  
+
+
+
+
+
+
+
 
 
   // useEffect(() => {
