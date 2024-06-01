@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react"
+import ReactDOM from "react-dom/client"
 // import { Helmet } from "react-helmet"
-import App from './App.jsx'
-import './index.css'
+import App from "./App.jsx"
+import "./index.css"
 
 function Main() {
       return (

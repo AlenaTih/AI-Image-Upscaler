@@ -31,7 +31,7 @@ const upscaler = new Upscaler({
 // })
 
 // upscaler.dispose().then(() => {
-//   console.log("All cleaned up!");
+//   console.log("All cleaned up!")
 // })
 
 
