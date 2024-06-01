@@ -78,9 +78,9 @@ function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
 
-  upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-    console.log("All warmed up!")
-  })
+  // upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
+  //   console.log("All warmed up!")
+  // })
   
   
   // const onDrop = useCallback((acceptedFiles) => {
@@ -188,21 +188,21 @@ function App() {
   // }
 
 
-  // useEffect(() => {
-  //   let warmupPromise
-  //   if (src && !isUpscaleClicked) {
-  //     warmupPromise = upscaler.warmup({ patchSize: 64, padding: 2 })
-  //     warmupPromise.then(() => {
-  //       console.log("All warmed up!")
-  //   })
-  //   }
+  useEffect(() => {
+    let warmupPromise
+    if (src && !isUpscaleClicked) {
+      warmupPromise = upscaler.warmup({ patchSize: 64, padding: 2 })
+      warmupPromise.then(() => {
+        console.log("All warmed up!")
+    })
+    }
 
-  //   return () => {
-  //     if (warmupPromise) {
-  //       warmupPromise.cancel && warmupPromise.cancel()
-  //     }
-  //   }
-  // }, [src, isUpscaleClicked])
+    return () => {
+      if (warmupPromise) {
+        warmupPromise.cancel && warmupPromise.cancel()
+      }
+    }
+  }, [src, isUpscaleClicked])
 
 
 
