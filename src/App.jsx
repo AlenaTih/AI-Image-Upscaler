@@ -81,56 +81,6 @@ function App() {
   // upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
   //   console.log("All warmed up!")
   // })
-  
-  
-  // const onDrop = useCallback((acceptedFiles) => {
-  //   const file = acceptedFiles[0]
-  //   console.log(file.name.split(".")[0])
-  //   const newFileName = file.name.split(".")[0]
-
-  //   console.log(file.name.split(".")[1])
-  //   const newOriginalFormat = file.name.split(".")[1]
-
-  //   if (file.type !== "image/jpeg" && file.type !== "image/png") {
-  //     alert("Please upload only jpg or png files!")
-  //     return
-  //   }
-
-  //   if (file.size > 5 * 1024 * 1024) {
-  //     alert("File size exceeds 5 MB limit")
-  //     return
-  //   }
-
-  //   if (selectedForDeletion) {
-  //     return
-  //   }
-
-  //   setIsLoaderVisible(true)
-
-  //   setFileName(newFileName)
-
-  //   setOriginalFormat(newOriginalFormat)
-
-  //   const fr = new FileReader()
-  //   // fr.onload = async () => {
-  //   //   try {
-  //   //     await new Promise((resolve, reject) => {
-  //   //       setSrc(fr.result)
-  //   //       resolve()
-  //   //     })
-  //   //   }
-  //   //   catch (error) {
-  //   //     console.error("Error uploading a file:", error)
-  //   //     alert("Error uploading a file:", error)
-  //   //   }
-  //   // }
-  //   fr.onload = () => {
-  //     setSrc(fr.result)
-  //   }
-  //   fr.readAsDataURL(file)
-  // }, [selectedForDeletion])
-
-
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -205,62 +155,6 @@ function App() {
   }, [src, isUpscaleClicked])
 
 
-
-
-  // useEffect(() => {
-  //   if (src) {
-  
-  //     if (selectedForDeletion) {
-  //       return
-  //     }
-  
-  //     const img = new Image()
-  //     img.crossOrigin = "anonymous"
-  //     // img.crossOrigin = "use-credentials"
-  //     img.src = src
-  //     img.onload = async () => {
-  //       if (img.height > 1000 || img.width > 1000) {
-  //         alert("Image dimensions should not exceed 1000px")
-  //         setIsLoaderVisible(false)
-  //         setIsProgressBarVisible(false)
-  //         window.location.reload()
-  //         return
-  //       }
-  
-  //       setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-  
-  //       try {
-  //         const upscaledSrc = await upscaler.upscale(img, {
-  //           patchSize: 64,
-  //           padding: 2,
-  //           // output: 'tensor',
-  //           // progressOutput: 'base64',
-  //           // onProgress: (percentage) => setProgress(percentage),
-  //         })
-  //         setUpscaledImageSrc(upscaledSrc)
-  //         setIsLoaderVisible(false)
-  //         setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
-  //         const width = img.width
-  //         const height = img.height
-  //         setOriginalSize({
-  //           width,
-  //           height,
-  //         })
-  //       } catch (error) {
-  //         console.error('Error upscaling image:', error)
-  //         alert('Error upscaling image:', error)
-  //       } finally {
-  //         setIsProgressBarVisible(false)
-  //       }
-  //     }
-  //   }
-  // }, [src, selectedForDeletion])
-
-
-
-
-
-
 useEffect(() => {
   let isCurrent = true; // This flag will help in checking if the effect is the current one.
 
@@ -317,27 +211,6 @@ useEffect(() => {
     };
   }
 }, [src, selectedForDeletion])
-
-
-      
-
-  // useEffect(() => {
-  //   if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
-  //     let upscaledImageSrcTimer
-  //     const timer = setTimeout(() => {
-  //       setScale(scalingFactor)
-  //       upscaledImageSrcTimer = setTimeout(() => {
-  //         setDisplayUpscaledImageSrc(true)
-  //         setIsLoaderVisible(false)
-  //         setIsProgressBarVisible(false)
-  //       }, 1200)
-  //     }, 300)
-  //     return () => {
-  //       clearTimeout(timer)
-  //       clearTimeout(upscaledImageSrcTimer)
-  //     }
-  //   }
-  // }, [originalSize, isUpscaleClicked, scalingFactor])
 
 
   useEffect(() => {
