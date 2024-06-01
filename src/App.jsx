@@ -83,46 +83,46 @@ function App() {
   // })
 
   const onDrop = useCallback((acceptedFiles) => {
-    const file = acceptedFiles[0];
-    console.log(file.name.split(".")[0]);
-    const newFileName = file.name.split(".")[0];
+    const file = acceptedFiles[0]
+    console.log(file.name.split(".")[0])
+    const newFileName = file.name.split(".")[0]
   
-    console.log(file.name.split(".")[1]);
-    const newOriginalFormat = file.name.split(".")[1];
+    console.log(file.name.split(".")[1])
+    const newOriginalFormat = file.name.split(".")[1]
   
     if (file.type !== "image/jpeg" && file.type !== "image/png") {
-      alert("Please upload only jpg or png files!");
-      return;
+      alert("Please upload only jpg or png files!")
+      return
     }
   
     if (file.size > 5 * 1024 * 1024) {
-      alert("File size exceeds 5 MB limit");
-      return;
+      alert("File size exceeds 5 MB limit")
+      return
     }
   
     if (selectedForDeletion) {
-      return;
+      return
     }
   
-    setIsLoaderVisible(true);
+    setIsLoaderVisible(true)
   
-    setFileName(newFileName);
+    setFileName(newFileName)
   
-    setOriginalFormat(newOriginalFormat);
+    setOriginalFormat(newOriginalFormat)
   
-    const fr = new FileReader();
-    let isCurrent = true; // Flag to track the validity of the callback
+    const fr = new FileReader()
+    let isCurrent = true // Flag to track the validity of the callback
   
     fr.onload = () => {
-      if (!isCurrent) return; // Check if this callback is still valid
-      setSrc(fr.result);
-    };
+      if (!isCurrent) return // Check if this callback is still valid
+      setSrc(fr.result)
+    }
   
-    fr.readAsDataURL(file);
+    fr.readAsDataURL(file)
   
     return () => {
-      isCurrent = false; // Cleanup function to mark this callback as no longer current
-    };
+      isCurrent = false // Cleanup function to mark this callback as no longer current
+    }
   }, [selectedForDeletion])
 
 
@@ -156,92 +156,92 @@ function App() {
 
 
 useEffect(() => {
-  let isCurrent = true; // This flag will help in checking if the effect is the current one.
+  let isCurrent = true // This flag will help in checking if the effect is the current one.
 
   if (src) {
     if (selectedForDeletion) {
-      return;
+      return
     }
 
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = src;
+    const img = new Image()
+    img.crossOrigin = "anonymous"
+    img.src = src
 
     img.onload = async () => {
-      if (!isCurrent) return; // Check if this effect is still the current one.
+      if (!isCurrent) return // Check if this effect is still the current one.
 
       if (img.height > 1000 || img.width > 1000) {
-        alert("Image dimensions should not exceed 1000px");
-        if (!isCurrent) return;
-        setIsLoaderVisible(false);
-        setIsProgressBarVisible(false);
-        if (!isCurrent) return;
-        window.location.reload();
-        return;
+        alert("Image dimensions should not exceed 1000px")
+        if (!isCurrent) return
+        setIsLoaderVisible(false)
+        setIsProgressBarVisible(false)
+        if (!isCurrent) return
+        window.location.reload()
+        return
       }
 
-      // setIsProgressBarVisible(true); // Show progress bar when upscaling starts
+      // setIsProgressBarVisible(true) // Show progress bar when upscaling starts
 
       try {
         const upscaledSrc = await upscaler.upscale(img, {
           patchSize: 64,
           padding: 2,
-        });
-        if (!isCurrent) return; // Check if this effect is still the current one.
-        setUpscaledImageSrc(upscaledSrc);
-        setIsLoaderVisible(false);
-        setIsProgressBarVisible(true); // Show progress bar when upscaling starts
-        // setIsProgressBarVisible(false); // Hide progress bar when upscaling completes
-        const width = img.width;
-        const height = img.height;
-        setOriginalSize({ width, height });
+        })
+        if (!isCurrent) return // Check if this effect is still the current one.
+        setUpscaledImageSrc(upscaledSrc)
+        setIsLoaderVisible(false)
+        setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+        // setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+        const width = img.width
+        const height = img.height
+        setOriginalSize({ width, height })
       } catch (error) {
-        if (!isCurrent) return; // Check if this effect is still the current one.
-        console.error('Error upscaling image:', error);
-        alert('Error upscaling image:', error);
+        if (!isCurrent) return // Check if this effect is still the current one.
+        console.error('Error upscaling image:', error)
+        alert('Error upscaling image:', error)
       } finally {
         if (isCurrent) {
-          setIsProgressBarVisible(false);
+          setIsProgressBarVisible(false)
         }
       }
-    };
+    }
 
     return () => {
-      isCurrent = false; // Cleanup function to indicate this effect is no longer current.
-    };
+      isCurrent = false // Cleanup function to indicate this effect is no longer current.
+    }
   }
 }, [src, selectedForDeletion])
 
 
   useEffect(() => {
-    let isCurrent = true; // Flag to check if the effect is still valid
+    let isCurrent = true // Flag to check if the effect is still valid
   
     if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
-      let upscaledImageSrcTimer;
+      let upscaledImageSrcTimer
   
       const timer = setTimeout(() => {
-        if (!isCurrent) return; // Check if this effect is still the current one
-        setScale(scalingFactor);
+        if (!isCurrent) return // Check if this effect is still the current one
+        setScale(scalingFactor)
   
         upscaledImageSrcTimer = setTimeout(() => {
-          if (!isCurrent) return; // Check if this effect is still the current one
-          setDisplayUpscaledImageSrc(true);
-          setIsLoaderVisible(false);
-          setIsProgressBarVisible(false);
-        }, 1200);
-      }, 300);
+          if (!isCurrent) return // Check if this effect is still the current one
+          setDisplayUpscaledImageSrc(true)
+          setIsLoaderVisible(false)
+          setIsProgressBarVisible(false)
+        }, 1200)
+      }, 300)
   
       return () => {
-        isCurrent = false; // Cleanup function to mark this effect as no longer current
-        clearTimeout(timer);
-        clearTimeout(upscaledImageSrcTimer);
-      };
+        isCurrent = false // Cleanup function to mark this effect as no longer current
+        clearTimeout(timer)
+        clearTimeout(upscaledImageSrcTimer)
+      }
     }
   
     return () => {
-      isCurrent = false; // Cleanup function to mark this effect as no longer current
-    };
-  }, [originalSize, isUpscaleClicked, scalingFactor]);
+      isCurrent = false // Cleanup function to mark this effect as no longer current
+    }
+  }, [originalSize, isUpscaleClicked, scalingFactor])
 
 
   const handleUpscale = () => {
