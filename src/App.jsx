@@ -328,14 +328,9 @@ const downloadCallback = () => {
       canvas.width = image.width
       const ctx = canvas.getContext("2d")
       ctx.drawImage(image, 0, 0)
-      // if (imageFormat) {
-        link.href = canvas.toDataURL(`image/${imageFormat}`) // Convert image to selected format
-        link.download = `${fileName}-upscaled.${imageFormat}`
-      // } else {
-      //   link.href = canvas.toDataURL(`image/${originalFormat}`)
-      //   link.download = `${fileName}-upscaled.${originalFormat}`
-      // }
-      
+      link.href = canvas.toDataURL(`image/${imageFormat}`) // Convert image to selected format
+      link.download = `${fileName}-upscaled.${imageFormat}`
+
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
