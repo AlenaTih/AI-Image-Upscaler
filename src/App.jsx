@@ -217,6 +217,7 @@ useEffect(() => {
             padding: 2,
           })
           if (!isCurrent) return // Check if this effect is still the current one.
+          console.log("Local model was used")
           setUpscaledImageSrc(upscaledSrc)
           setIsLoaderVisible(false)
           setIsProgressBarVisible(true) // Show progress bar when upscaling starts
