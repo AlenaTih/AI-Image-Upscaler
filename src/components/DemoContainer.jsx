@@ -2,11 +2,14 @@ import React, { useState } from "react"
 import ImagePair from './ImagePair.jsx'
 import Tab from './Tab.jsx'
 import "./DemoContainer.css"
-import DemoImageCat from "../assets/demo-image-cat.png"
-import Coffee from "../assets/coffee.png"
-import CoffeeLaptop from "../assets/coffee-laptop.png"
-import Allien from "../assets/allien.png"
-import ElfGirl from "../assets/elf-girl.png"
+import DemoImageCatBefore from "../assets/demo-image-cat-before.png"
+import DemoreImageCatUpscaled from "../assets/demo-image-cat-upscaled.png"
+import CoffeeLaptopBefore from "../assets/coffee-laptop-before.png"
+import CoffeeLaptopUpscaled from "../assets/coffee-laptop-upscaled.png"
+import AllienBefore from "../assets/allien-before.png"
+import AllienUpscaled from "../assets/allien-upscaled.png"
+import ElfGirlBefore from "../assets/elf-girl-before.png"
+import ElfGirlUpscaled from "../assets/elf-girl-upscaled.png"
 
 function DemoContainer() {
   const [activeTab, setActiveTab] = useState(0)
@@ -17,10 +20,10 @@ function DemoContainer() {
 
   // Array of image paths for each tab
   const imagePaths = [
-    [DemoImageCat, DemoImageCat],
-    [ElfGirl, ElfGirl],
-    [CoffeeLaptop, CoffeeLaptop], 
-    [Allien, Allien]
+    [DemoImageCatBefore, DemoreImageCatUpscaled],
+    [ElfGirlBefore, ElfGirlUpscaled],
+    [CoffeeLaptopBefore, CoffeeLaptopUpscaled], 
+    [AllienBefore, AllienUpscaled]
   ]
 
   return (
