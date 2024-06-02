@@ -22,6 +22,18 @@ const upscaler = new Upscaler({
   modelx4: x4,
 })
 
+// const upscaler = new Upscaler({
+//   modelx2: {
+//     path: "/esrgan-slim/models/x2/model.json",
+//   },
+//   modelx3: {
+//     path: "/esrgan-slim/models/x3/model.json",
+//   },
+//   modelx4: {
+//     path: "/esrgan-slim/models/x4/model.json",
+//   },
+// })
+
 // const deblurrer = new Upscaler({
 //   model: deblurringModel,
 // })
@@ -186,6 +198,38 @@ useEffect(() => {
         if (!isCurrent) return // Check if this effect is still the current one.
         console.error('Error upscaling image:', error)
         alert('Error upscaling image:', error)
+
+        try {
+          const localUpscaler = new Upscaler({
+            modelx2: {
+              path: "/esrgan-slim/models/x2/model.json",
+            },
+            modelx3: {
+              path: "/esrgan-slim/models/x3/model.json",
+            },
+            modelx4: {
+              path: "/esrgan-slim/models/x4/model.json",
+            },
+          })
+
+          const upscaledSrc = await localUpscaler.upscale(img, {
+            patchSize: 64,
+            padding: 2,
+          })
+          if (!isCurrent) return // Check if this effect is still the current one.
+          setUpscaledImageSrc(upscaledSrc)
+          setIsLoaderVisible(false)
+          setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+          // setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+          const width = img.width
+          const height = img.height
+          setOriginalSize({ width, height })
+        } catch (error) {
+          if (!isCurrent) return // Check if this effect is still the current one.
+          console.error('Error upscaling image:', error)
+          alert('Error upscaling image:', error)
+        }
+
       } finally {
         if (isCurrent) {
           setIsProgressBarVisible(false)
