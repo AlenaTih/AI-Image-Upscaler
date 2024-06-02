@@ -71,10 +71,10 @@ function App() {
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0]
-    console.log(file.name.split(".")[0])
+    // console.log(file.name.split(".")[0])
     const newFileName = file.name.split(".")[0]
   
-    console.log(file.name.split(".")[1])
+    // console.log(file.name.split(".")[1])
     const newOriginalFormat = file.name.split(".")[1]
   
     if (file.type !== "image/jpeg" && file.type !== "image/png") {
@@ -253,7 +253,7 @@ useEffect(() => {
 
 
   const stopDragging = () => {
-    console.log('stop')
+    // console.log('stop')
     setDragging(false)
   }
 
@@ -291,7 +291,7 @@ const touchStopDragging = () => {
 
   imageFormat = format
 
-  console.log(imageFormat)
+  // console.log(imageFormat)
 
   setDownloadFormat(imageFormat)
 
@@ -300,7 +300,7 @@ const touchStopDragging = () => {
 
 
 const downloadCallback = () => {
-  console.log(downloadFormat)
+  // console.log(downloadFormat)
   downloadImage()
 }
 
@@ -358,7 +358,7 @@ const downloadCallback = () => {
       sliderInput.style.background = value === 3 ? "linear-gradient(to right, #FF668A 50%, #E0E3EB 50%)" : "#FF668A"
     }
   
-    console.log(value)
+    // console.log(value)
   }
 
 

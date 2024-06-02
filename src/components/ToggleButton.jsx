@@ -68,7 +68,7 @@ function ToggleButton() {
   const toggleMode = () => {
     const newMode = !isLightMode
     setIsLightMode(newMode)
-    console.log("clicked", isLightMode)
+    // console.log("clicked", isLightMode)
 
     sessionStorage.setItem("isLightMode", JSON.stringify(newMode))
     // Save the state to sessionStorage when it changes
