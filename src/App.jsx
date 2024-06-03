@@ -5,7 +5,6 @@ import Authors from "./components/Authors.jsx"
 import Footer from "./components/Footer.jsx"
 import ProgressBar from "./components/ProgressBar.jsx"
 import DemoContainer from "./components/DemoContainer.jsx"
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './App.css'
 
 import Upscaler from "upscaler"
@@ -93,10 +92,6 @@ function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
 
-  // upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-  //   console.log("All warmed up!")
-  // })
-
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0]
     // console.log(file.name.split(".")[0])
@@ -141,16 +136,7 @@ function App() {
   }, [selectedForDeletion])
 
 
-
-
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
-
-
-  // if (src && !isUpscaleClicked) {
-  //   upscaler.warmup({patchSize: 64, padding: 2}).then(() => {
-  //   console.log("All warmed up!")
-  // })
-  // }
 
 
   useEffect(() => {
