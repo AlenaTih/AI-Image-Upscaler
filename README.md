@@ -12,10 +12,10 @@ AI and JavaScript work together to help you enlarge your images without losing q
 
 Please note that there are some limitations on images that it can work with:
 - Up to 5 MB
-- Up to 1000px x 1000px (but not necessarily square)
+- Up to 1000px * 1000px (but not necessarily square)
 - Only .jpg or .png format
 
-The limitations are related to the work of models in the browser (to learn more, view the docs on the UpscalerJS website if you are interested, or ask Alena).
+The limitations are related to the work of models in the browser (to learn more, view the docs on the UpscalerJS website if you are interested).
 
 ## Usage
 
