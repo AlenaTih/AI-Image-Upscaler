@@ -22,7 +22,7 @@ const upscaler = new Upscaler({
   modelx4: x4,
 })
 
-// const upscaler = new Upscaler({
+// const localUpscaler = new Upscaler({
 //   modelx2: {
 //     path: "/esrgan-slim/models/x2/model.json",
 //   },
@@ -33,6 +33,22 @@ const upscaler = new Upscaler({
 //     path: "/esrgan-slim/models/x4/model.json",
 //   },
 // })
+
+
+const localUpscaler = new Upscaler({
+    modelx2: {
+      scale: 2,
+      path: '/model.json',
+    },
+    modelx3: {
+      scale: 3,
+      path: '/model.json',
+    },
+    modelx4: {
+      scale: 4,
+      path: '/model.json',
+    },
+  })
 
 // const deblurrer = new Upscaler({
 //   model: deblurringModel,
@@ -154,6 +170,24 @@ function App() {
   }, [src, isUpscaleClicked])
 
 
+
+  useEffect(() => {
+    let warmupPromise
+    if (src && !isUpscaleClicked) {
+      warmupPromise = localUpscaler.warmup({ patchSize: 64, padding: 2 })
+      warmupPromise.then(() => {
+        console.log("All warmed up!")
+    })
+    }
+
+    return () => {
+      if (warmupPromise) {
+        warmupPromise.cancel && warmupPromise.cancel()
+      }
+    }
+  }, [src, isUpscaleClicked])
+
+
 useEffect(() => {
   let isCurrent = true // This flag will help in checking if the effect is the current one.
 
@@ -200,18 +234,6 @@ useEffect(() => {
         alert('Error upscaling image:', error)
 
         try {
-          const localUpscaler = new Upscaler({
-            modelx2: {
-              path: "/esrgan-slim/models/x2/model.json",
-            },
-            modelx3: {
-              path: "/esrgan-slim/models/x3/model.json",
-            },
-            modelx4: {
-              path: "/esrgan-slim/models/x4/model.json",
-            },
-          })
-
           const upscaledSrc = await localUpscaler.upscale(img, {
             patchSize: 64,
             padding: 2,
@@ -225,10 +247,10 @@ useEffect(() => {
           const width = img.width
           const height = img.height
           setOriginalSize({ width, height })
-        } catch (error) {
+        } catch (localError) {
           if (!isCurrent) return // Check if this effect is still the current one.
-          console.error('Error upscaling image:', error)
-          alert('Error upscaling image:', error)
+          console.error('Error upscaling image with local model:', localError)
+          alert('Error upscaling image with local model:', localError)
         }
 
       } finally {
@@ -243,6 +265,71 @@ useEffect(() => {
     }
   }
 }, [src, selectedForDeletion])
+
+
+
+
+
+// useEffect(() => {
+//   let isCurrent = true // This flag will help in checking if the effect is the current one.
+
+//   if (src) {
+//     if (selectedForDeletion) {
+//       return
+//     }
+
+//     const img = new Image()
+//     img.crossOrigin = "anonymous"
+//     img.src = src
+
+//     img.onload = async () => {
+//       if (!isCurrent) return // Check if this effect is still the current one.
+
+//       if (img.height > 1000 || img.width > 1000) {
+//         alert("Image dimensions should not exceed 1000px")
+//         if (!isCurrent) return
+//         setIsLoaderVisible(false)
+//         setIsProgressBarVisible(false)
+//         if (!isCurrent) return
+//         window.location.reload()
+//         return
+//       }
+
+//       // setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+
+//         try {
+//           const upscaledSrc = await localUpscaler.upscale(img, {
+//             patchSize: 64,
+//             padding: 2,
+//           })
+//           if (!isCurrent) return // Check if this effect is still the current one.
+//           console.log("Local model was used")
+//           setUpscaledImageSrc(upscaledSrc)
+//           setIsLoaderVisible(false)
+//           setIsProgressBarVisible(true) // Show progress bar when upscaling starts
+//           // setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+//           const width = img.width
+//           const height = img.height
+//           setOriginalSize({ width, height })
+//         } catch (localError) {
+//           if (!isCurrent) return // Check if this effect is still the current one.
+//           console.error('Error upscaling image with local model:', localError)
+//           alert('Error upscaling image with local model:', localError)
+//         } finally {
+//         if (isCurrent) {
+//           setIsProgressBarVisible(false)
+//         }
+//       }
+//     }
+
+//     return () => {
+//       isCurrent = false // Cleanup function to indicate this effect is no longer current.
+//     }
+//   }
+// }, [src, selectedForDeletion])
+
+
+
 
 
   useEffect(() => {
