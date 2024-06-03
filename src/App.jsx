@@ -38,15 +38,15 @@ const upscaler = new Upscaler({
 const localUpscaler = new Upscaler({
     modelx2: {
       scale: 2,
-      path: '/model.json',
+      path: "/model.json",
     },
     modelx3: {
       scale: 3,
-      path: '/model.json',
+      path: "/model.json",
     },
     modelx4: {
       scale: 4,
-      path: '/model.json',
+      path: "/model.json",
     },
   })
 
