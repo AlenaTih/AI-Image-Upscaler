@@ -162,7 +162,7 @@ function App() {
 
 
 useEffect(() => {
-  let isCurrent = true // This flag will help in checking if the effect is the current one.
+  let isCurrent = true // This flag will help in checking if the effect is the current one
 
   if (src) {
     if (selectedForDeletion) {
@@ -174,7 +174,7 @@ useEffect(() => {
     img.src = src
 
     img.onload = async () => {
-      if (!isCurrent) return // Check if this effect is still the current one.
+      if (!isCurrent) return // Check if this effect is still the current one
 
       if (img.height > 1000 || img.width > 1000) {
         alert("Image dimensions should not exceed 1000px")
@@ -193,16 +193,16 @@ useEffect(() => {
           patchSize: 64,
           padding: 2,
         })
-        if (!isCurrent) return // Check if this effect is still the current one.
+        if (!isCurrent) return // Check if this effect is still the current one
         setUpscaledImageSrc(upscaledSrc)
         setIsLoaderVisible(false)
         setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-        // setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+        // setIsProgressBarVisible(false)
         const width = img.width
         const height = img.height
         setOriginalSize({ width, height })
       } catch (error) {
-        if (!isCurrent) return // Check if this effect is still the current one.
+        if (!isCurrent) return // Check if this effect is still the current one
         console.error('Error upscaling image:', error)
         alert('Error upscaling image:', error)
 
@@ -211,17 +211,17 @@ useEffect(() => {
             patchSize: 64,
             padding: 2,
           })
-          if (!isCurrent) return // Check if this effect is still the current one.
+          if (!isCurrent) return // Check if this effect is still the current one
           console.log("Local model was used")
           setUpscaledImageSrc(upscaledSrc)
           setIsLoaderVisible(false)
           setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-          // setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
+          // setIsProgressBarVisible(false) //
           const width = img.width
           const height = img.height
           setOriginalSize({ width, height })
         } catch (localError) {
-          if (!isCurrent) return // Check if this effect is still the current one.
+          if (!isCurrent) return // Check if this effect is still the current one
           console.error('Error upscaling image with local model:', localError)
           alert('Error upscaling image with local model:', localError)
         }
@@ -234,7 +234,7 @@ useEffect(() => {
     }
 
     return () => {
-      isCurrent = false // Cleanup function to indicate this effect is no longer current.
+      isCurrent = false // Cleanup function to indicate this effect is no longer current
     }
   }
 }, [src, selectedForDeletion])
@@ -243,7 +243,7 @@ useEffect(() => {
   useEffect(() => {
     let isCurrent = true // Flag to check if the effect is still valid
   
-    if (originalSize && isUpscaleClicked) { // Only trigger upscale process if the upscale button is clicked
+    if (originalSize && isUpscaleClicked) {
       let upscaledImageSrcTimer
   
       const timer = setTimeout(() => {
