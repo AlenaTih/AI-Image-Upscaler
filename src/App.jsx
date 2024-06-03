@@ -21,33 +21,36 @@ const upscaler = new Upscaler({
   modelx4: x4,
 })
 
-// const localUpscaler = new Upscaler({
-//   modelx2: {
-//     path: "/esrgan-slim/models/x2/model.json",
-//   },
-//   modelx3: {
-//     path: "/esrgan-slim/models/x3/model.json",
-//   },
-//   modelx4: {
-//     path: "/esrgan-slim/models/x4/model.json",
-//   },
-// })
-
-
 const localUpscaler = new Upscaler({
-    modelx2: {
-      scale: 2,
-      path: "/model.json",
-    },
-    modelx3: {
-      scale: 3,
-      path: "/model.json",
-    },
-    modelx4: {
-      scale: 4,
-      path: "/model.json",
-    },
-  })
+  modelx2: {
+    scale: 2,
+    path: "/esrgan-slim/models/x2/model.json",
+  },
+  modelx3: {
+    scale: 3,
+    path: "/esrgan-slim/models/x3/model.json",
+  },
+  modelx4: {
+    scale: 4,
+    path: "/esrgan-slim/models/x4/model.json",
+  },
+})
+
+
+// const localUpscaler = new Upscaler({
+//     modelx2: {
+//       scale: 2,
+//       path: "/model.json",
+//     },
+//     modelx3: {
+//       scale: 3,
+//       path: "/model.json",
+//     },
+//     modelx4: {
+//       scale: 4,
+//       path: "/model.json",
+//     },
+//   })
 
 // const deblurrer = new Upscaler({
 //   model: deblurringModel,
