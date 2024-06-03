@@ -49,7 +49,9 @@ function ImagePair({ active, imagePaths }) {
         onMouseDown={startDragging}
         onTouchStart={startDragging}
         style={{ left: `calc(${left}%)` }}
-      />
+      >
+        {/* <div className="demo-dragger-circle"></div> */}
+      </div>
       <div className="demo-image-container">
         <img
           src={imagePaths[0]}

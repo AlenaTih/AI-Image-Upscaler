@@ -36,22 +36,6 @@ const localUpscaler = new Upscaler({
   },
 })
 
-
-// const localUpscaler = new Upscaler({
-//     modelx2: {
-//       scale: 2,
-//       path: "/model.json",
-//     },
-//     modelx3: {
-//       scale: 3,
-//       path: "/model.json",
-//     },
-//     modelx4: {
-//       scale: 4,
-//       path: "/model.json",
-//     },
-//   })
-
 // const deblurrer = new Upscaler({
 //   model: deblurringModel,
 // })
@@ -256,71 +240,6 @@ useEffect(() => {
 }, [src, selectedForDeletion])
 
 
-
-
-
-// useEffect(() => {
-//   let isCurrent = true // This flag will help in checking if the effect is the current one.
-
-//   if (src) {
-//     if (selectedForDeletion) {
-//       return
-//     }
-
-//     const img = new Image()
-//     img.crossOrigin = "anonymous"
-//     img.src = src
-
-//     img.onload = async () => {
-//       if (!isCurrent) return // Check if this effect is still the current one.
-
-//       if (img.height > 1000 || img.width > 1000) {
-//         alert("Image dimensions should not exceed 1000px")
-//         if (!isCurrent) return
-//         setIsLoaderVisible(false)
-//         setIsProgressBarVisible(false)
-//         if (!isCurrent) return
-//         window.location.reload()
-//         return
-//       }
-
-//       // setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-
-//         try {
-//           const upscaledSrc = await localUpscaler.upscale(img, {
-//             patchSize: 64,
-//             padding: 2,
-//           })
-//           if (!isCurrent) return // Check if this effect is still the current one.
-//           console.log("Local model was used")
-//           setUpscaledImageSrc(upscaledSrc)
-//           setIsLoaderVisible(false)
-//           setIsProgressBarVisible(true) // Show progress bar when upscaling starts
-//           // setIsProgressBarVisible(false) // Hide progress bar when upscaling completes
-//           const width = img.width
-//           const height = img.height
-//           setOriginalSize({ width, height })
-//         } catch (localError) {
-//           if (!isCurrent) return // Check if this effect is still the current one.
-//           console.error('Error upscaling image with local model:', localError)
-//           alert('Error upscaling image with local model:', localError)
-//         } finally {
-//         if (isCurrent) {
-//           setIsProgressBarVisible(false)
-//         }
-//       }
-//     }
-
-//     return () => {
-//       isCurrent = false // Cleanup function to indicate this effect is no longer current.
-//     }
-//   }
-// }, [src, selectedForDeletion])
-
-
-
-
-
   useEffect(() => {
     let isCurrent = true // Flag to check if the effect is still valid
   
@@ -505,16 +424,6 @@ const downloadCallback = () => {
     window.location.reload()
     setIsUpscaleClicked(false)
   } 
-
-
-  // const showDropzone = () => {
-  //   if (src) {
-  //     document.querySelector(".dropzone").style.display = "none"
-  //     document.querySelector(".dropzone-container").style.display = "none"
-  //   }
-  // }
-
-  // showDropzone()
 
   
   const left = dragX * 100
@@ -838,13 +747,13 @@ const downloadCallback = () => {
               {/* <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
                 It uses artificial intelligence that enlarges images without loss of quality, 
                 making them clearer.</p> */}
-              <ul className="how-it-works-list">
+              <ol className="how-it-works-list">
                 <li>Upload an image.</li>
                 <li>Choose the scale you need — 2x, 3x, or 4x.</li>
                 <li>Click the "Upscale image" button.</li>
                 <li>Get your upscaled image! You can drag the slider left and right to see it before and after, 
                   and download the upscaled image in "jpg" or "png" format.</li>
-              </ul>
+              </ol>
             </div>
 
             <div className="how-it-works-right">
