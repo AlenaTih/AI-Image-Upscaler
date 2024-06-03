@@ -52,11 +52,6 @@ const localUpscaler = new Upscaler({
 // Loader for uploading an image, and progress bar — for upscaling it
 
 
-// To do. Make a possibility to delete an uploaded image before upscaling it — done
-
-// To do. Make validation of input — set limitations for size and format of an image — done
-
-
 function App() {
   const [src, setSrc] = useState()
   const [originalSize, setOriginalSize] = useState()
