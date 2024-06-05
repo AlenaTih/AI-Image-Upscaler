@@ -2,7 +2,7 @@
 
 ## Overview
 
-AI and JavaScript work together to help you enlarge your images without losing quality. You can use it on your phone, or your computer. A great tool to have on hand!
+AI and JavaScript work together to help you enlarge your images without losing quality. You can use it on your phone or computer. A great tool to have on hand!
 
 ## Features
 

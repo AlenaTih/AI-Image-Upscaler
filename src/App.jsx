@@ -464,7 +464,7 @@ const downloadCallback = () => {
                 <h2 className="title">AI tool</h2>
                 <h1 className="title-description">Increase the resolution of your image</h1>
                 <p>AI and JavaScript work together to help you enlarge your images without losing quality. 
-                  You can use it on your phone, or on your computer. A great tool to have on hand!</p>
+                You can use it on your phone or computer. A great tool to have on hand!</p>
 
               </div>
 
