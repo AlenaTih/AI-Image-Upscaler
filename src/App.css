@@ -556,7 +556,6 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .dragOverlay {
-  /* position: absolute; */
   position: relative;
   height: 100%;
   width: 100%;
